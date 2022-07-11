@@ -21,13 +21,102 @@
 </head>
 
 <body>
-    <!-- 상단바 -->
-    <div class="Top-bar">
-        <img src="../static/image/logo.png" alt="" height="60px" onclick="location.href='index.html'">
-        <div class="Top-bar-buttons">
+    <!-- 상단바1 -->
+    <!-- 상단바는  로그인 상태에 따라 달라져야 해서, 우선, 상태 무관하게 전부 추가해놓겠습니다-->
+    <div class="Top-bar1 row">
+        <div class="col" style="margin-left: 200px;">
+            <img src="../static/image/logo.png" alt="" height="60px" onclick="location.href='index.html'">
+        </div>
+        <!-- 우측 버튼들 -->
+        <div class="col d-md-flex justify-content-md-end bar-buttons" width="120px">
+            <button class="btn btn-light me-md-2" type="button">로그인</button>
+            <button class="btn btn-light me-md-2" type="button">회원가입</button>
+            <button class="btn btn-light me-md-2" type="button">로그아웃</button>
+            <!-- 드롭다운(아래 내용은 임의로 추가해놓은 것 자유롭게 수정 가능) -->
+            <a class="nav-link dropdown-toggle btn btn-warning" href="#" role="button" data-bs-toggle="dropdown">페이지</a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">마이 페이지</a></li>
+                <li><a class="dropdown-item" href="#">개인정보 수정</a></li>
+                <li><a class="dropdown-item" href="#">문의사항</a></li>
+            </ul>
+        </div>
+    </div>
 
+    <!-- 상단바2 -->
+    <div class="Top-bar2 row">
+        <div class="col d-md-flex justify-content-md-end bar-buttons" width="120px">
+            <button class="btn btn-light me-md-2" type="button">기능1</button>
+            <button class="btn btn-light me-md-2" type="button">기능2</button>
+            <button class="btn btn-light me-md-2" type="button">기능3</button>
+        </div>
+    </div>
+
+
+
+
+    <!-- 검색엔진 -->
+    <!-- 드롭다운 검색 적용법 확인중, 안되면 그냥 검색창으로 놔둘 예정 -->
+    <div class="input-group mt-3 mb-3 search-engine">
+        <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
+            전체 게시글
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">00 게시판</a></li>
+            <li><a class="dropdown-item" href="#">%% 게시판</a></li>
+            <li><a class="dropdown-item" href="#">## 게시판</a></li>
+        </ul>
+        <input type="text" class="form-control" placeholder="여기서 검색하세요">
+    </div>
+
+    <!-- 전체 게시물 공간 -->
+    <div class="row mainpage-box">
+        <div class="col-3 article-page-list">
+            <div class="board-list-box"><b>게시물 리스트</b>
+            </div>
+            <div class="board1">
+                <b>000 게시판</b>
+            </div>
+            <div class="board2">
+                <b>111 게시판</b>
+            </div>
+            <div class="board1">
+                <b>222 게시판</b>
+            </div>
+            <div class="board2">
+                <b>333 게시판</b>
+            </div>
+            <div class="board1">
+                <b>444 게시판</b>
+            </div>
+            <div class="board2">
+                <b>555 게시판</b>
+            </div>
+            <div class="board1">
+                <b>666 게시판</b>
+            </div>
+            <div class="board2">
+                <b>777 게시판</b>
+            </div>
+            <div class="board1">
+                <b>888 게시판</b>
+            </div>
+            <div class="board2">
+                <b>999 게시판</b>
+            </div>
         </div>
 
+        <div class="col">
+            <!-- 인기 게시물 -->
+            <div class="row popular-article-list">
+                <div class="popular-article-title">
+
+                </div>
+            </div>
+            <div class="row live-article-list">
+            </div>
+            <div class="row normal-article-list">
+            </div>
+        </div>
     </div>
 </body>
 
