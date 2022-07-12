@@ -1,5 +1,166 @@
-.Top-bar {
+/* 전체 스타일 */
+hr {
+    height: 3px;
+    margin: 10px;
+}
+
+body {
+    background-image: url(/static/image/main_background.jpg);
+    background-repeat: no-repeat;
+}
+
+.row>* {
+    padding: 0;
+}
+
+.row {
+    margin: 0;
+}
+
+/* 상단공간 */
+.navbar {
+    height: 150px;
+    justify-content: center;
+}
+
+
+/* 검색엔진 */
+.search-engine {
+    width: 80%;
+    max-width: 800px;
+    display: flex;
+    margin: auto;
+    border-radius: 8px;
+    border: 5px solid rgb(255, 136, 0);
+}
+
+/* 상단바1 */
+.Top-bar1 {
     width: 100%;
-    height: 60px;
-    background-color: rgb(49, 49, 49);
+    height: 100px;
+    margin-bottom: 30px;
+}
+
+.Top-bar1-buttons {
+    width: 100%;
+    max-width: 1000px;
+    height: 100px;
+    justify-content: space-between;
+}
+
+.board {
+    width: 100px;
+    height: 100%;
+    transition: all 0.2s;
+
+}
+
+.board:hover {
+    transform: scale(1.1);
+}
+
+
+
+
+/* 메인 컨텐츠 공간 */
+.first-floor {
+    width: 100%;
+    max-height: 300px;
+    background-color: rgb(255, 136, 0);
+}
+
+.first-floor-box {
+    width: 1000px;
+    height: 300px;
+}
+
+.popular-article {
+    background-color: white;
+    border-radius: 15px;
+    height: 260px;
+    margin-top: 20px;
+}
+
+.popular-banner {
+    display: flex;
+    justify-content: center;
+    margin-left: 30px;
+}
+
+.popular-title {
+    text-align: center;
+    width: 100%;
+    height: 40px;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 4px;
+    background-color: aliceblue;
+
+}
+
+.pop-article {
+    padding-top: 5px;
+    background-color: #303030;
+    transition: all 0.2s;
+    height: 31px;
+}
+
+.pop-article:hover {
+    background-color: orangered;
+    padding-left: 15px;
+}
+
+.pop-article-title {
+    padding-left: 15px;
+    color: white;
+
+}
+
+.pop-article-writer {
+    color: white;
+    text-align: right;
+    padding-right: 15px;
+}
+
+
+/* 게시판별 공간 */
+
+.second-floor {
+    border: 2px solid red;
+    height: 700px;
+}
+
+.board-class {
+    width: 1100px;
+    height: 600px;
+    margin-top: 30px;
+}
+
+.second-floor-board {
+    height: 280px;
+    border-radius: 15px;
+    background-color: #e4e4e4;
+    margin: 2px;
+}
+
+.mainpage-article-list {
+    width: 350px;
+    height: 150px;
+    margin-top: 20px;
+}
+
+.board-title {
+    background-color: rgb(255, 238, 225);
+    height: 25px;
+    border-radius: 3px;
+    margin-top: 3px;
+    padding-left: 15px;
+    transition: all 0.3s;
+}
+
+.board-title:hover {
+    background-color: rgb(255, 215, 184);
+    padding-left: 20px;
+    font-weight: bold;
 }
