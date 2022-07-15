@@ -1,3 +1,7 @@
+const backend_base_url = "http://127.0.0.1:8000"
+const frontend_base_url = "http://127.0.0.1:5500"
+
+
 // #모달
 async function modal() {
     const openButton = document.getElementById("modalclick");
@@ -27,3 +31,14 @@ $(document).ready(function(){
         $("#reallike").hide();
     })
 })
+
+// 로그아웃
+
+function logout() {
+    alert("로그아웃 하였습니다")
+    localStorage.removeItem("access")
+    localStorage.removeItem("refresh")
+    localStorage.removeItem("payload")
+
+    window.location.replace(`${frontend_base_url}/index.html`)
+}
