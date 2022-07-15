@@ -41,7 +41,7 @@ async function handleSignin() {
         if (response.status == 200) {
             alert("회원가입 완료")
             response_json = await response.json()
-            window.location.replace(`${frontend_base_url}/index.html`);
+            window.location.replace(`${frontend_base_url}/signup.html`);
         } else if (response.status == 500) {
             alert("동일한 아이디 및 닉네임이 이미 존재합니다")
         } else {
@@ -57,8 +57,8 @@ async function handleLogin() {
     // console.log("handle login")
 
     const loginData = {
-        username: document.getElementById("floatingInput").value,
-        password: document.getElementById('floatingPassword').value
+        username: document.getElementById("floatingloginID").value,
+        password: document.getElementById('floatingloginPassword').value
     }
     username = loginData.username
 
@@ -92,4 +92,15 @@ async function handleLogin() {
         alert('로그인 정보가 일치하지 않습니다.')
     }
 
+}
+
+// 로그아웃
+
+function logout() {
+    alert("로그아웃 하였습니다")
+    localStorage.removeItem("access")
+    localStorage.removeItem("refresh")
+    localStorage.removeItem("payload")
+
+    window.location.replace(`${frontend_base_url}/index.html`)
 }
