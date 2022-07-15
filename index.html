@@ -16,11 +16,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js"
+        integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
     <!-- CSS -->
     <link rel="stylesheet" href="../static/CSS/style.css">
 </head>
 
+<body onload="getArticlesByBoard()">
+</body>
 <body>
+    
     <!-- 로그인 공간 -->
     <div class="login-space">
         <div class="login-block">
@@ -121,14 +126,8 @@
                         <img class="board" src="static/image/board01.png" onclick="location.href='board.html'">
                         <div class="mainpage-article-list">
                             <!-- 직장인게시글 for문 -->
-                            <div class="board-title" id="worker" onclick="location.href='detail.html'">아니 우리 회사에서...
-                            </div>
-                            <div class="board-title" id="worker" onclick="location.href='detail.html'">상사가 폭스면 어떻게 되냐?
-                            </div>
-                            <div class="board-title" id="worker" onclick="location.href='detail.html'">어제 회식 끝나고 나서
-                            </div>
-                            <div class="board-title" id="worker" onclick="location.href='detail.html'">돈 벌기 겁나 힘들다</div>
-                            <div class="board-title" id="worker" onclick="location.href='detail.html'">폭스 신입 일기</div>
+                            <div id="company-box"></div>
+
                         </div>
                     </div>
                 </div>
@@ -138,16 +137,7 @@
                         <img class="board" src="static/image/board02.png" onclick="location.href='board.html'">
                         <div class="mainpage-article-list">
                             <!-- 대학생 게시글 for문 -->
-                            <div class="board-title" id="collegian" onclick="location.href='detail.html'">CC 진짜 별로냐?
-                            </div>
-                            <div class="board-title" id="collegian" onclick="location.href='detail.html'">공대에서 꼬리치는 건가요?
-                            </div>
-                            <div class="board-title" id="collegian" onclick="location.href='detail.html'">아니 이게 꼬리치는 거냐고
-                            </div>
-                            <div class="board-title" id="collegian" onclick="location.href='detail.html'">모쏠인데 폭스 소리 들은
-                                썰</div>
-                            <div class="board-title" id="collegian" onclick="location.href='detail.html'">폭스로 사는 거 나쁘지
-                                않을 지도?</div>
+                            <div id="college-box"></div>
                         </div>
                     </div>
                 </div>
@@ -157,14 +147,13 @@
                         <img class="board" src="static/image/board03.png" onclick="location.href='board.html'">
                         <div class="mainpage-article-list">
                             <!-- 청소년 게시글 for문 -->
-                            <div class="board-title" id="teenager" onclick="location.href='detail.html'">잼민 파워 폭스맨</div>
-                            <div class="board-title" id="teenager" onclick="location.href='detail.html'">어쩔폭스 저쩔폭스</div>
-                            <div class="board-title" id="teenager" onclick="location.href='detail.html'">가만있다가 학교에서 관종된
-                                썰</div>
-                            <div class="board-title" id="teenager" onclick="location.href='detail.html'">나이 좀 많다고 틀딱들 진짜
-                            </div>
-                            <div class="board-title" id="teenager" onclick="location.href='detail.html'">왜 우리는 연애 못하게 함?
-                            </div>
+                            <div id="teen-box"></div>
+                            <div class="board-title" id="teenager" href="#">잼민 파워 폭스맨</div>
+                            <div class="board-title" id="teenager" href="#">어쩔폭스 저쩔폭스</div>
+                            <div class="board-title" id="teenager" href="#">가만있다가 학교에서 관종된 썰</div>
+                            <div class="board-title" id="teenager" href="#">나이 좀 많다고 틀딱들 진짜</div>
+                            <div class="board-title" id="teenager" href="#">왜 우리는 연애 못하게 함?</div>
+
                         </div>
                     </div>
                 </div>
@@ -177,13 +166,12 @@
                         <img class="board" src="static/image/board05.png" onclick="location.href='board.html'">
                         <div class="mainpage-article-list">
                             <!-- LGBTQ 게시글 for문 -->
-                            <div class="board-title" id="LGBTQ" onclick="location.href='detail.html'">여기서 폭스 소리 듣기가 쉽지
-                                않지</div>
-                            <div class="board-title" id="LGBTQ" onclick="location.href='detail.html'">강제 커밍아웃 썰</div>
-                            <div class="board-title" id="LGBTQ" onclick="location.href='detail.html'">진짜로 싹다 쳐내는 거야?
-                            </div>
-                            <div class="board-title" id="LGBTQ" onclick="location.href='detail.html'">어디 가야 많음?</div>
-                            <div class="board-title" id="LGBTQ" onclick="location.href='detail.html'">왜 우리끼리 싸우는 겨</div>
+                            <div id="lgbtq-box"></div>
+                            <div class="board-title" id="LGBTQ" href="#">여기서 폭스 소리 듣기가 쉽지 않지</div>
+                            <div class="board-title" id="LGBTQ" href="#">강제 커밍아웃 썰</div>
+                            <div class="board-title" id="LGBTQ" href="#">진짜로 싹다 쳐내는 거야?</div>
+                            <div class="board-title" id="LGBTQ" href="#">어디 가야 많음?</div>
+                            <div class="board-title" id="LGBTQ" href="#">왜 우리끼리 싸우는 겨</div>
                         </div>
                     </div>
                 </div>
@@ -193,13 +181,12 @@
                         <img class="board" src="static/image/board06.png" onclick="location.href='board.html'">
                         <div class="mainpage-article-list">
                             <!-- 자유 게시글 for문 -->
-                            <div class="board-title" id="free" onclick="location.href='detail.html'">분탕질 싹다 쳐내</div>
-                            <div class="board-title" id="free" onclick="location.href='detail.html'">백수는 어디다가 글쓰라고</div>
-                            <div class="board-title" id="free" onclick="location.href='detail.html'">부모님 주민으로 성인에 오는
-                                잼민이들 많네</div>
-                            <div class="board-title" id="free" onclick="location.href='detail.html'">진짜 쉽지 않다 연애</div>
-                            <div class="board-title" id="free" onclick="location.href='detail.html'">모쏠도 폭스가 될 수 있는가에 대한
-                                견해</div>
+                            <div id="free-box"></div>                            
+                            <div class="board-title" id="free" href="#">분탕질 싹다 쳐내</div>
+                            <div class="board-title" id="free" href="#">백수는 어디다가 글쓰라고</div>
+                            <div class="board-title" id="free" href="#">부모님 주민으로 성인에 오는 잼민이들 많네</div>
+                            <div class="board-title" id="free" href="#">진짜 쉽지 않다 연애</div>
+                            <div class="board-title" id="free" href="#">모쏠도 폭스가 될 수 있는가에 대한 견해</div>
                         </div>
                     </div>
                 </div>
@@ -209,16 +196,12 @@
                         <img class="board" src="static/image/board07.png" onclick="location.href='board.html'">
                         <div class="mainpage-article-list">
                             <!-- 인기 게시글 for문 -->
-                            <div class="board-title" id="popular" onclick="location.href='detail.html'">요망한 폭스 때문에 잠 못드는
-                                1인</div>
-                            <div class="board-title" id="popular" onclick="location.href='detail.html'">이거 제가 폭스인 건가여?
-                            </div>
-                            <div class="board-title" id="popular" onclick="location.href='detail.html'">가만있다가 학교에서 관종된 썰
-                            </div>
-                            <div class="board-title" id="popular" onclick="location.href='detail.html'">연상 폭스한테 물리면 너네는
-                            </div>
-                            <div class="board-title" id="popular" onclick="location.href='detail.html'">폭스 여자친구 때문에
-                                고민중...</div>
+                            <div id="hot-box"></div>
+                            <div class="board-title" id="popular" href="#">요망한 폭스 때문에 잠 못드는 1인</div>
+                            <div class="board-title" id="popular" href="#">이거 제가 폭스인 건가여?</div>
+                            <div class="board-title" id="popular" href="#">가만있다가 학교에서 관종된 썰</div>
+                            <div class="board-title" id="popular" href="#">연상 폭스한테 물리면 너네는</div>
+                            <div class="board-title" id="popular" href="#">폭스 여자친구 때문에 고민중...</div>
                         </div>
                     </div>
                 </div>
@@ -273,6 +256,6 @@
         </div>
     </div>
     <script src="/static/JS/api.js"></script>
+    <script src="/static/Scripts/main.js"></script>
 </body>
-
 </html>
