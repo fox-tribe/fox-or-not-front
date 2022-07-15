@@ -26,8 +26,6 @@ async function getArticlesByBoard() {
             </div>`
             
             $('#company-box').prepend(temp_html)
-            console.log(title)
-            console.log(id)
         }} catch (err) {
         }
         try{
@@ -39,8 +37,6 @@ async function getArticlesByBoard() {
             </div>`
             
             $('#college-box').prepend(temp_html)
-            console.log(title)
-            console.log(id)
         }} catch (err) {}
         try{
         for (let i = 0; i < 5; i++) {
@@ -51,8 +47,6 @@ async function getArticlesByBoard() {
             </div>`
             
             $('#teen-box').prepend(temp_html)
-            console.log(title)
-            console.log(id)
         }} catch (err) {}
         try{
         for (let i = 0; i < 5; i++) {
@@ -63,8 +57,6 @@ async function getArticlesByBoard() {
             </div>`
             
             $('#lgbtq-box').prepend(temp_html)
-            console.log(title)
-            console.log(id)
         }} catch (err) {}
         try {
         for (let i = 0; i < 5; i++) {
@@ -75,8 +67,6 @@ async function getArticlesByBoard() {
             </div>`
             
             $('#free-box').prepend(temp_html)
-            console.log(title)
-            console.log(id)
         }} catch (err) {}
         try {
         for (let i = 0; i < 5; i++) {
@@ -87,10 +77,39 @@ async function getArticlesByBoard() {
             </div>`
             
             $('#hot-box').prepend(temp_html)
-            console.log(title)
-            console.log(id)
         }} catch (err) {}
+
+    const MostLiked = async () => {
+        const response = await fetch(`${backend_base_url}/article/likeCount`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                "Authorization": "Bearer " + localStorage.getItem("access")
+            },
         
-    }
+        }
     )
-}
+
+    response_json = await response.json()
+    return response_json.articles
+    }
+
+    MostLiked().then((data) => {
+        detail = response_json
+        console.log(detail)
+        try {       
+        for (let i = 0; i < 6; i++) {
+            let title = detail[i]['article_title']
+            let id = detail[i]['id']
+            let author = detail[i]['author']
+            let temp_html = `
+            <div class="pop-article row">
+                <div class="pop-article-title col" onclick="location.href=${frontend_base_url}/templates/article_detail.html?id=${id}">${title}
+                </div>
+                <div class="pop-article-writer col">${author}</div>
+            </div>`
+            $('#mostLiked-box').prepend(temp_html)
+        }} catch (err) {
+    }}
+    )
+})}
