@@ -4,23 +4,25 @@ const frontend_base_url = "http://127.0.0.1:5500"
 
 // 회원가입
 async function handleSignin() {
+    var selectGender = document.getElementById('floatingGender');
+    selectGender = selectGender.options[selectGender.selectedIndex].value;
+    
     const signupData = {
         username: document.getElementById("floatingInput").value,
         password: document.getElementById('floatingPassword').value,
         password2: document.getElementById('floatingPassword2').value,
         nickname: document.getElementById('floatingnNickname').value,
-        // sex: document.getElementById('floatingSex').value,
-        // birth: document.getElementById('floatingBirth').value
-
-
+        gender: document.getElementById('floatingGender').value,
+        birth: document.getElementById('floatingBirth').value
     }
+    print(signupData)
+
     const password = document.getElementById('floatingPassword').value
     const password2 = document.getElementById('floatingPassword2').value
     const username = document.getElementById("floatingInput").value
-    // const sex = document.getElementById("floatingSex").value
     const nickname = document.getElementById("floatingnNickname").value
-    // const birth = document.getElementById("floatingnBirth").value
-
+    const birth = document.getElementById("floatingBirth").value
+    
 
     const response = await fetch(`${backend_base_url}/user/`, {
         headers: {
@@ -32,7 +34,7 @@ async function handleSignin() {
     }
 
     )
-    if (username == '' || password == '' || nickname == '' ) {
+    if (username == '' || password == '' || nickname == '' || selectGender == '' || birth == '' ) {
         alert("빈칸을 입력해주세요")
     }
     else if (password == password2) {
