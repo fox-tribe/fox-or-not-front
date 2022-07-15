@@ -30,9 +30,9 @@
     <div class="login-space">
         <div class="login-block">
             <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop" >로그인</button>
-            
+                data-bs-target="#staticBackdrop">로그인</button>
             <button type="button" class="btn btn-light btn-sm" onclick="location.href='signup.html'">회원가입</button>
+            <button type="button" class="btn btn-warning btn-sm" id="#" onclick="logout()">로그아웃</button>
         </div>
     </div>
     </div>
@@ -62,13 +62,13 @@
     <!-- 게시판행 버튼들 -->
     <div class="Top-bar1 row justify-content-center">
         <div class="Top-bar1-buttons row">
-            <img class="board" src="static/image/board01.png">
-            <img class="board" src="static/image/board02.png">
-            <img class="board" src="static/image/board03.png">
-            <img class="board" src="static/image/board04.png">
-            <img class="board" src="static/image/board05.png">
-            <img class="board" src="static/image/board06.png">
-            <img class="board" src="static/image/board07.png">
+            <img class="board" src="static/image/board01.png" onclick="location.href='board.html'">
+            <img class="board" src="static/image/board02.png" onclick="location.href='board.html'">
+            <img class="board" src="static/image/board03.png" onclick="location.href='board.html'">
+            <img class="board" src="static/image/board04.png" onclick="location.href='board.html'">
+            <img class="board" src="static/image/board05.png" onclick="location.href='board.html'">
+            <img class="board" src="static/image/board06.png" onclick="location.href='board.html'">
+            <img class="board" src="static/image/board07.png" onclick="location.href='board.html'">
         </div>
     </div>
 
@@ -82,27 +82,30 @@
                 <div class="popular-post">
                     <!-- 인기글 for문 구간 -->
                     <div class="pop-article row">
-                        <div class="pop-article-title col" href="#">요망한 폭스 때문에 잠 못드는 1인</div>
+                        <div class="pop-article-title col" onclick="location.href='detail.html'">요망한 폭스 때문에 잠 못드는 1인
+                        </div>
                         <div class="pop-article-writer col">킹킹관용맨</div>
                     </div>
                     <div class="pop-article row">
-                        <div class="pop-article-title col" href="#">이거 제가 폭스인 건가여?</div>
+                        <div class="pop-article-title col" onclick="location.href='detail.html'">이거 제가 폭스인 건가여?</div>
                         <div class="pop-article-writer col">자취하는교보맨</div>
                     </div>
                     <div class="pop-article row">
-                        <div class="pop-article-title col" href="#">폭스 여자친구 때문에 고민중...</div>
+                        <div class="pop-article-title col" onclick="location.href='detail.html'">폭스 여자친구 때문에 고민중...
+                        </div>
                         <div class="pop-article-writer col">구디폭스</div>
                     </div>
                     <div class="pop-article row">
-                        <div class="pop-article-title col" href="#">폭스킹의 실체를 낱낱히 파헤쳐보자</div>
+                        <div class="pop-article-title col" onclick="location.href='detail.html'">폭스킹의 실체를 낱낱히 파헤쳐보자
+                        </div>
                         <div class="pop-article-writer col">폭스는어떻게하는건가요</div>
                     </div>
                     <div class="pop-article row">
-                        <div class="pop-article-title col" href="#">폭스가 본 폭스 구분법 top5</div>
+                        <div class="pop-article-title col" onclick="location.href='detail.html'">폭스가 본 폭스 구분법 top5</div>
                         <div class="pop-article-writer col">폭스킹최준헌</div>
                     </div>
                     <div class="pop-article row">
-                        <div class="pop-article-title col" href="#">너네 한 눈에 폭스 스캔 되냐?</div>
+                        <div class="pop-article-title col" onclick="location.href='detail.html'">너네 한 눈에 폭스 스캔 되냐?</div>
                         <div class="pop-article-writer col">메가폭스명주쿤</div>
                     </div>
                 </div>
@@ -120,17 +123,18 @@
                 <div class="second-floor-board col">
                     <!-- 직장인게시판 -->
                     <div class="worker-board row justify-content-center">
-                        <img class="board" src="static/image/board01.png">
+                        <img class="board" src="static/image/board01.png" onclick="location.href='board.html'">
                         <div class="mainpage-article-list">
                             <!-- 직장인게시글 for문 -->
                             <div id="company-box"></div>
+
                         </div>
                     </div>
                 </div>
                 <div class="second-floor-board col">
                     <!-- 대학생 게시판 -->
                     <div class="worker-board row justify-content-center">
-                        <img class="board" src="static/image/board02.png">
+                        <img class="board" src="static/image/board02.png" onclick="location.href='board.html'">
                         <div class="mainpage-article-list">
                             <!-- 대학생 게시글 for문 -->
                             <div id="college-box"></div>
@@ -140,7 +144,7 @@
                 <div class="second-floor-board col">
                     <!--  청소년게시판 -->
                     <div class="worker-board row justify-content-center">
-                        <img class="board" src="static/image/board03.png">
+                        <img class="board" src="static/image/board03.png" onclick="location.href='board.html'">
                         <div class="mainpage-article-list">
                             <!-- 청소년 게시글 for문 -->
                             <div id="teen-box"></div>
@@ -149,6 +153,7 @@
                             <div class="board-title" id="teenager" href="#">가만있다가 학교에서 관종된 썰</div>
                             <div class="board-title" id="teenager" href="#">나이 좀 많다고 틀딱들 진짜</div>
                             <div class="board-title" id="teenager" href="#">왜 우리는 연애 못하게 함?</div>
+
                         </div>
                     </div>
                 </div>
@@ -158,10 +163,10 @@
                 <div class="second-floor-board col">
                     <!--  LGBTQ 게시판 -->
                     <div class="worker-board row justify-content-center">
-                        <img class="board" src="static/image/board05.png">
+                        <img class="board" src="static/image/board05.png" onclick="location.href='board.html'">
                         <div class="mainpage-article-list">
                             <!-- LGBTQ 게시글 for문 -->
-                            <div id="LGBTQ-box"></div>
+                            <div id="lgbtq-box"></div>
                             <div class="board-title" id="LGBTQ" href="#">여기서 폭스 소리 듣기가 쉽지 않지</div>
                             <div class="board-title" id="LGBTQ" href="#">강제 커밍아웃 썰</div>
                             <div class="board-title" id="LGBTQ" href="#">진짜로 싹다 쳐내는 거야?</div>
@@ -173,7 +178,7 @@
                 <div class="second-floor-board col">
                     <!--  자유 게시판 -->
                     <div class="worker-board row justify-content-center">
-                        <img class="board" src="static/image/board06.png">
+                        <img class="board" src="static/image/board06.png" onclick="location.href='board.html'">
                         <div class="mainpage-article-list">
                             <!-- 자유 게시글 for문 -->
                             <div id="free-box"></div>                            
@@ -188,7 +193,7 @@
                 <div class="second-floor-board col">
                     <!--  인기 게시판 -->
                     <div class="worker-board row justify-content-center">
-                        <img class="board" src="static/image/board07.png">
+                        <img class="board" src="static/image/board07.png" onclick="location.href='board.html'">
                         <div class="mainpage-article-list">
                             <!-- 인기 게시글 for문 -->
                             <div id="hot-box"></div>
@@ -201,50 +206,56 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- footer -->
-        <div class="footer row justify-content-center">
-            <div class="footer-space row">
-                <div class="footer-space-teamlogo col">
-                    <img src="/static/image/footer_team_logo.png" alt="">
-                </div>
-                <div class="footer-space-teaminfo col">
-                    팀의 내용은 모두 여기다 적을 예정입니다
-                </div>
-            </div>
-        </div>
-
-        <!-- 로그인 모달창 -->
-        <div class="modal fade login-modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content login-modal-size">
-                    <div class="modal-header">
-                        <h5 class="modal-title">로그인</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <!-- footer -->
+            <div class="footer col-8 justify-content-center">
+                <div class="footer-space row">
+                    <div class="footer-space-teamlogo col">
+                        <img src="/static/image/footer_team_logo.png" alt="">
                     </div>
-                    <div class="modal-body">
-
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="ID">
-                            <label for="floatingInput">ID</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                            <label for="floatingPassword">비밀번호</label>
-                        </div>
-                        아직 <a href="signup.html">계정</a>이 없으시다면?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-                        <button type="button" class="btn btn-primary" onclick="handleLogin()">로그인</button>
-
+                    <div class="footer-space-teaminfo col">
+                        회사정보<br>
+                        상호 : 폭스킹 최준헌과 여우들<br>
+                        대표 : 최준헌<br>
+                        주소 : 1 Tesla Road Austin, TX 78725<br>
+                        개인정보관리 책임자 : 문명주(https://github.com/orgs/fox-tribe/people/Moonmooj)<br>
+                        사업자 등록번호 : 123-45-67899<br>
+                        통신판매업 신고 : 는 예정입니다ㅎㅅㅎ<br>
                     </div>
                 </div>
             </div>
         </div>
-        <script src="/static/JS/api.js"></script>
-        <script src="/static/Scripts/main.js"></script>
+    </div>
+
+    <!-- 로그인 모달창 -->
+    <div class="modal fade login-modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content login-modal-size">
+                <div class="modal-header">
+                    <h5 class="modal-title">로그인</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="ID">
+                        <label for="floatingInput">ID</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                        <label for="floatingPassword">비밀번호</label>
+                    </div>
+                    아직 <a href="signup.html">계정</a>이 없으시다면?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                    <button type="button" class="btn btn-primary" onclick="handleLogin()">로그인</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/static/JS/api.js"></script>
+    <script src="/static/Scripts/main.js"></script>
 </body>
-
 </html>
