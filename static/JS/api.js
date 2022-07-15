@@ -15,7 +15,7 @@ async function handleSignin() {
         gender: document.getElementById('floatingGender').value,
         birth: document.getElementById('floatingBirth').value
     }
-    print(signupData)
+
 
     const password = document.getElementById('floatingPassword').value
     const password2 = document.getElementById('floatingPassword2').value
