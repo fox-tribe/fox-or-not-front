@@ -1,0 +1,342 @@
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: 'GmarketSansMedium';
+
+}
+
+p {
+    margin: 0;
+}
+
+body {
+    background: linear-gradient(0.25turn, lightgray, rgba(230, 177, 78, 0.484), white);
+}
+
+.bote p{
+    margin: 0;
+}
+
+.bodywrap div{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.Top-bar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 100px;
+    margin: 10px;
+    cursor: pointer;
+} 
+
+.hbutton {
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.hbutton2 {
+    height: 50px;
+    width: 55px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.modal__content {
+    background-color: white;
+    padding: 50px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.modal__overlay {
+    background-color: rgba(0,0,0,0.6);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.button {
+    background-color: rgba( 255, 255, 255, 0 ) ;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    color: orange;
+    border-bottom: 2px solid gray
+}
+
+.mymenus {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.mymenu {
+    margin-right: 10px;
+    border: none;
+    padding: 10px;
+    background-color: orange;
+    cursor: pointer;
+}
+
+.search {
+    width: 200px;
+    border: 6px double orange;
+    margin: 15px 0px 15px 0px;
+}
+
+.fa-magnifying-glass {
+    color: orange;
+    position: absolute;
+    left: 244px;
+    top: 175px;
+    cursor: pointer;
+}
+
+.category {
+    height: 90px;
+    width: 90px;
+}
+
+.hidden {
+    display: none;
+}
+
+.bodywrap {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.titlediv {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 1px solid orange;
+    width: 1200px;
+    max-width: 100%;
+    background-color: white;
+}
+
+.title {
+    word-break:break-all;
+    max-width: 1000px;
+}
+
+.contentdiv {
+    width: 1200px;
+    max-width: 100%;
+    overflow: hidden;
+    height: auto;
+    margin: 10px;
+    border: 1px solid orange;
+    background-color: white;
+}
+
+.content {
+    margin: 10px;
+    word-break: break-all;
+}
+
+
+.writeinfo {
+    color: lightgray;
+}
+
+.botediv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 1200px;
+    max-width: 100%;
+}
+
+.bote {
+    font-size: 50px;
+    margin: 0;
+    background-color: rgba( 255, 255, 255, 0 );
+    border: none;
+    cursor: pointer;
+}
+
+.boteb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btext1 {
+    font-size: 20px;
+    color: orange;
+    font-weight: bold;
+}
+
+.btext2 {
+    font-size: 20px;
+    color: green;
+    font-weight: bold;
+}
+
+.btext3 {
+    font-size: 20px;
+    color: red;
+    font-weight: bold;
+}
+
+.wcommentdiv {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    width: 1200px;
+    max-width: 100%;
+}
+
+.wcomment {
+    resize: none;
+    width: 1000px;
+    max-width: 100%;
+    height: 50px;
+    font-size: 17px;
+    border: 1px solid orange;
+}
+
+.cosubmit {
+    padding: 16px 0px 16px 0px;
+    margin-left: 10px;
+    background-color: orange;
+    color: gray;
+    font-weight: bold;
+}
+
+.comments {
+    width: 920px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cowriteinfo {
+    width: 900px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.cotime {
+    font-size: 13px;
+    color: gray;
+    margin-left: 10px;
+}
+
+.commentdetail {
+    width: 900px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.comment {
+    width: 800px;
+    max-width: 100%;
+}
+
+.like {
+    background-color:rgba( 255, 255, 255, 0 );
+    border: none;
+    color: orange;
+    font-weight: bold;
+    margin: 0;
+    cursor: pointer;
+}
+
+.reallike {
+    background-color:rgba( 255, 255, 255, 0 );
+    border: none;
+    font-weight: bold;
+    margin: 0;
+    cursor: pointer;
+    color: orange;
+    display: none;
+}
+
+@media (max-width:580px) {
+
+    .logo {
+        height: 57px;
+        width: 113px;
+    }
+
+    .hbutton {
+        height: 30px;
+        width: 30px;
+    }
+    
+    .hbutton2 {
+        height: 30px;
+        width: 35px;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .content {
+        font-size: 18px;
+    }
+
+    .bote {
+        font-size: 35px;
+    }
+
+    .btext1 {
+        font-size: 15px;
+    }
+
+    .btext2 {
+        font-size: 15px;
+    }
+
+    .btext3 {
+        font-size: 15px;
+    }
+
+}
