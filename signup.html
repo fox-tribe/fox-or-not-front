@@ -15,7 +15,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-    <script src="/static/JS/api.js"></script>
     <!-- CSS -->
     <link rel="stylesheet" href="../static/CSS/style.css">
 
@@ -47,34 +46,75 @@
                 <input type="text" class="form-control" id="floatingnNickname" placeholder="닉네임">
                 <label for="floatingPassword">닉네임</label>
             </div>
-            <select class="form-select mb-3" id="floatingSex">
+            <select class="form-select mb-3" id="floatingGender" >
 
                 <option>남성</option>
                 <option>여성</option>
                 <option>논바이너리</option>
                 <option>밝히고 싶지 않음</option>
             </select>
-
-            <input type="date" style="width: 100%;" id="floatingBirth">
+            생년월일
+            <input type="date" style="width: 100%;" id="floatingBirth" >
             <div class="back-to-login">
-                <p>이미 <a href="index.html">계정</a>을 가지고 있다면?</p>
-                <button type="button" class="btn btn-primary" id="#" onclick="handleSignin()">회원가입</button>
+                <p>이미 <a href="signup.html"  data-bs-toggle="modal" style="cursor: pointer"
+                    data-bs-target="#staticBackdrop">계정</a>을 가지고 있다면?</p>
+                <button type="button" class="btn btn-primary" id="signup" onclick="handleSignin()" >회원가입</button>
+
+                
+
 
             </div>
         </div>
     </div>
+    <!-- 로그인 모달창 -->
+    <div class="modal fade login-modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content login-modal-size">
+                <div class="modal-header">
+                    <h5 class="modal-title">로그인</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingloginID" placeholder="ID">
+                        <label for="floatingInput">ID</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="floatingloginPassword" placeholder="Password">
+                        <label for="floatingPassword">비밀번호</label>
+                    </div>
+                    아직 <a href="signup.html">계정</a>이 없으시다면?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                    <button type="button" class="btn btn-primary" onclick="handleLogin()">로그인</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- footer -->
-    <div class="footer row justify-content-center">
+    <div class="footer col-8 justify-content-center">
         <div class="footer-space row">
-            <div class="footer-space-teamlogo col">
+            <div class="footer-space-teamlogo col" style="justify-content: flex-end;">
                 <img src="/static/image/footer_team_logo.png" alt="">
             </div>
             <div class="footer-space-teaminfo col">
-                팀의 내용은 모두 여기다 적을 예정입니다
+                회사정보<br>
+                상호 : 폭스킹 최준헌과 여우들<br>
+                대표 : 최준헌<br>
+                주소 : 1 Tesla Road Austin, TX 78725<br>
+                개인정보관리 책임자 : 문명주(https://github.com/orgs/fox-tribe/people/Moonmooj)<br>
+                사업자 등록번호 : 123-45-67899<br>
+                통신판매업 신고 : 는 예정입니다ㅎㅅㅎ<br>
             </div>
         </div>
     </div>
-
+    <script src="/static/JS/api.js"></script>
 </body>
 
 </html>
