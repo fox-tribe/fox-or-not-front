@@ -47,16 +47,15 @@
     <!-- 검색엔진 -->
     <!-- 드롭다운 검색 적용법 확인중, 안되면 그냥 검색창으로 놔둘 예정 -->
     <div class="input-group mt-3 mb-3 search-engine">
-        <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
+        <select type="button" id="searchOption">
             전체 게시글
-        </button>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">제목</a></li>
-            <li><a class="dropdown-item" href="#">내용</a></li>
-            <li><a class="dropdown-item" href="#">제목+내용</a></li>
-            <li><a class="dropdown-item" href="#">작성자</a></li>
-        </ul>
-        <input type="text" class="form-control" placeholder="여기서 검색하세요">
+            <option><a class="dropdown-item" href="#">제목</a></option>
+            <option><a class="dropdown-item" href="#">내용</a></option>
+            <option><a class="dropdown-item" href="#">제목+내용</a></option>
+            <option><a class="dropdown-item" href="#">작성자</a></option>
+        </select>
+        <input type="text" class="form-control" placeholder="여기서 검색하세요" id="searchKeywords">
+        <button onclick="search()">검색</button>
     </div>
 
     <!-- 게시판행 버튼들 -->
@@ -210,5 +209,6 @@
     </div>
     <script src="/static/JS/api.js"></script>
     <script src="/static/Scripts/main.js"></script>
+    <script src="/static/Scripts/search.js"></script>
 </body>
 </html>
