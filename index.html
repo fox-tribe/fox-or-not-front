@@ -18,146 +18,162 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.slim.js"
         integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/45d75bb0cc.js" crossorigin="anonymous"></script>
+
+
     <!-- CSS -->
     <link rel="stylesheet" href="../static/CSS/style.css">
 </head>
 
 <body onload="getArticlesByBoard()">
-<body onload="getMostLikedArticles()">
-<body>
-    
-    <!-- 로그인 공간 -->
-    <div class="login-space">
-        <div class="login-block">
-            <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop">로그인</button>
-            <button type="button" class="btn btn-light btn-sm" onclick="location.href='signup.html'">회원가입</button>
-            <button type="button" class="btn btn-warning btn-sm" id="#" onclick="logout()">로그아웃</button>
-        </div>
-    </div>
-    </div>
-    <!-- 상단공간 -->
-    <div class="navbar">
-        <!-- 사이트 로고 -->
-        <img src="../static/image/logo.png" alt="" height="100px" onclick="location.href='index.html'">
-    </div>
 
+    <body onload="getMostLikedArticles()">
 
+        <body>
 
-    <!-- 검색엔진 -->
-    <!-- 드롭다운 검색 적용법 확인중, 안되면 그냥 검색창으로 놔둘 예정 -->
-    <div class="input-group mt-3 mb-3 search-engine">
-        <select type="button" id="searchOption">
-            전체 게시글
-            <option><a class="dropdown-item" href="#">제목</a></option>
-            <option><a class="dropdown-item" href="#">내용</a></option>
-            <option><a class="dropdown-item" href="#">제목+내용</a></option>
-            <option><a class="dropdown-item" href="#">작성자</a></option>
-        </select>
-        <input type="text" class="form-control" placeholder="여기서 검색하세요" id="searchKeywords">
-        <button onclick="search()">검색</button>
-    </div>
+            <!-- 모바일모드 로그인 -->
+            <div class="mobile_log">
+                <a data-bs-toggle="modal" data-bs-target="#staticBackdrop">로그인</a>
+                <a onclick="signup.html"> 회원가입</a>
+                <a onclick="index.html"> 로그아웃</a>
+            </div>
 
-    <!-- 게시판행 버튼들 -->
-    <div class="Top-bar1 row justify-content-center">
-        <div class="Top-bar1-buttons row">
-            <img class="board" src="static/image/board01.png" onclick="location.href='board.html'">
-            <img class="board" src="static/image/board02.png" onclick="location.href='board.html'">
-            <img class="board" src="static/image/board03.png" onclick="location.href='board.html'">
-            <img class="board" src="static/image/board04.png" onclick="location.href='board.html'">
-            <img class="board" src="static/image/board05.png" onclick="location.href='board.html'">
-            <img class="board" src="static/image/board06.png" onclick="location.href='board.html'">
-            <img class="board" src="static/image/board07.png" onclick="location.href='board.html'">
-        </div>
-    </div>
-
-
-
-    <!-- 주 컨텐츠 공간 -->
-    <div class="first-floor row justify-content-center">
-        <div class="first-floor-box row justify-content-center">
-            <div class="popular-article col-7">
-                <div class="popular-title">🔥지금 HOT한 고민들🔥</div>
-                <div class="popular-post">
-                    <!-- 인기글 for문 구간 -->
-                    <div id="mostLiked-box"></div>
+            <!-- 로그인 공간 -->
+            <div class="login-space">
+                <div class="login-block">
+                    <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">로그인</button>
+                    <button type="button" class="btn btn-light btn-sm"
+                        onclick="location.href='signup.html'">회원가입</button>
+                    <button type="button" class="btn btn-warning btn-sm" id="#" onclick="logout()">로그아웃</button>
                 </div>
             </div>
-            <div class="popular-banner col">
-                <img src="static/image/banner.png" width="100%">
             </div>
-        </div>
-    </div>
+            <!-- 상단공간 -->
+            <div class="navbar">
+                <!-- 사이트 로고 -->
+                <img src="../static/image/logo.png" alt="" height="100px" onclick="location.href='index.html'">
+            </div>
 
-    <!-- 게시판별 공간 -->
-    <div class="second-floor row justify-content-center">
-        <div class="board-class">
-            <div class="row">
-                <div class="second-floor-board col">
-                    <!-- 직장인게시판 -->
-                    <div class="worker-board row justify-content-center">
-                        <img class="board" src="static/image/board01.png" onclick="location.href='board.html'">
-                        <div class="mainpage-article-list">
-                            <!-- 직장인게시글 for문 -->
-                            <div id="company-box"></div>
 
+
+            <!-- 검색엔진 -->
+            <!-- 드롭다운 검색 적용법 확인중, 안되면 그냥 검색창으로 놔둘 예정 -->
+            <div class="input-group mt-3 mb-3 search-engine">
+                <select type="button" id="searchOption">
+                    전체 게시글
+                    <option><a class="dropdown-item" href="#">제목</a></option>
+                    <option><a class="dropdown-item" href="#">내용</a></option>
+                    <option><a class="dropdown-item" href="#">제목+내용</a></option>
+                    <option><a class="dropdown-item" href="#">작성자</a></option>
+                </select>
+                <input type="text" class="form-control" placeholder="게시글 검색" id="searchKeywords">
+                <img src="static/image/search_button.png" onclick="search()" class="search-button">
+            </div>
+
+            <!-- 게시판행 버튼들 -->
+            <div class="Top-bar1 row justify-content-center">
+                <div class="Top-bar1-buttons row">
+                    <img class="board" src="static/image/board01.png" onclick="location.href='board.html'">
+                    <img class="board" src="static/image/board02.png" onclick="location.href='board.html'">
+                    <img class="board" src="static/image/board03.png" onclick="location.href='board.html'">
+                    <img class="board" src="static/image/board04.png" onclick="location.href='board.html'">
+                    <img class="board" src="static/image/board05.png" onclick="location.href='board.html'">
+                    <img class="board" src="static/image/board06.png" onclick="location.href='board.html'">
+                    <img class="board" src="static/image/board07.png" onclick="location.href='board.html'">
+                </div>
+            </div>
+
+
+
+            <!-- 주 컨텐츠 공간 -->
+            <div class="first-floor row justify-content-center">
+                <div class="first-floor-box row justify-content-center">
+                    <div class="popular-article col-7">
+                        <div class="popular-title">🔥지금 HOT한 고민들🔥</div>
+                        <div class="popular-post">
+                            <!-- 인기글 for문 구간 -->
+                            <div id="mostLiked-box"></div>
                         </div>
                     </div>
-                </div>
-                <div class="second-floor-board col">
-                    <!-- 대학생 게시판 -->
-                    <div class="worker-board row justify-content-center">
-                        <img class="board" src="static/image/board02.png" onclick="location.href='board.html'">
-                        <div class="mainpage-article-list">
-                            <!-- 대학생 게시글 for문 -->
-                            <div id="college-box"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="second-floor-board col">
-                    <!--  청소년게시판 -->
-                    <div class="worker-board row justify-content-center">
-                        <img class="board" src="static/image/board03.png" onclick="location.href='board.html'">
-                        <div class="mainpage-article-list">
-                            <!-- 청소년 게시글 for문 -->
-                            <div id="teen-box"></div>
-                        </div>
+                    <div class="popular-banner col">
+                        <img src="static/image/banner.png" width="100%">
                     </div>
                 </div>
             </div>
-            <!-- 아래줄 -->
-            <div class="row">
-                <div class="second-floor-board col">
-                    <!--  LGBTQ 게시판 -->
-                    <div class="worker-board row justify-content-center">
-                        <img class="board" src="static/image/board05.png" onclick="location.href='board.html'">
-                        <div class="mainpage-article-list">
-                            <!-- LGBTQ 게시글 for문 -->
-                            <div id="lgbtq-box"></div>
+
+            <!-- 게시판별 공간 -->
+            <div class="second-floor row justify-content-center">
+                <div class="board-class">
+                    <div class="row">
+                        <div class="second-floor-board col">
+                            <!-- 직장인게시판 -->
+                            <div class="worker-board row justify-content-center">
+                                <img class="board" src="static/image/board01.png" onclick="location.href='board.html'">
+                                <div class="mainpage-article-list">
+                                    <!-- 직장인게시글 for문 -->
+                                    <div id="company-box"></div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="second-floor-board col">
+                            <!-- 대학생 게시판 -->
+                            <div class="worker-board row justify-content-center">
+                                <img class="board" src="static/image/board02.png" onclick="location.href='board.html'">
+                                <div class="mainpage-article-list">
+                                    <!-- 대학생 게시글 for문 -->
+                                    <div id="college-box"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="second-floor-board col">
+                            <!--  청소년게시판 -->
+                            <div class="worker-board row justify-content-center">
+                                <img class="board" src="static/image/board03.png" onclick="location.href='board.html'">
+                                <div class="mainpage-article-list">
+                                    <!-- 청소년 게시글 for문 -->
+                                    <div id="teen-box"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="second-floor-board col">
-                    <!--  자유 게시판 -->
-                    <div class="worker-board row justify-content-center">
-                        <img class="board" src="static/image/board06.png" onclick="location.href='board.html'">
-                        <div class="mainpage-article-list">
-                            <!-- 자유 게시글 for문 -->
-                            <div id="free-box"></div>                            
+                    <!-- 아래줄 -->
+                    <div class="row">
+                        <div class="second-floor-board col">
+                            <!--  LGBTQ 게시판 -->
+                            <div class="worker-board row justify-content-center">
+                                <img class="board" src="static/image/board05.png" onclick="location.href='board.html'">
+                                <div class="mainpage-article-list">
+                                    <!-- LGBTQ 게시글 for문 -->
+                                    <div id="lgbtq-box"></div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="second-floor-board col">
-                    <!--  인기 게시판 -->
-                    <div class="worker-board row justify-content-center">
-                        <img class="board" src="static/image/board07.png" onclick="location.href='board.html'">
-                        <div class="mainpage-article-list">
-                            <!-- 인기 게시글 for문 -->
+                        <div class="second-floor-board col">
+                            <!--  자유 게시판 -->
+                            <div class="worker-board row justify-content-center">
+                                <img class="board" src="static/image/board06.png" onclick="location.href='board.html'">
+                                <div class="mainpage-article-list">
+                                    <!-- 자유 게시글 for문 -->
+                                    <div id="free-box"></div>
+                                </div>
+                            </div>
                         </div>
-                            <div id="hot-box"></div>
+                        <div class="second-floor-board col">
+                            <!--  인기 게시판 -->
+                            <div class="worker-board row justify-content-center">
+                                <img class="board" src="static/image/board07.png" onclick="location.href='board.html'">
+                                <div class="mainpage-article-list">
+                                    <!-- 인기 게시글 for문 -->
+                                </div>
+                                <div id="hot-box"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
             <!-- footer -->
             <div class="footer col-8 justify-content-center">
                 <div class="footer-space row">
@@ -175,40 +191,41 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <!-- 로그인 모달창 -->
-    <div class="modal fade login-modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content login-modal-size">
-                <div class="modal-header">
-                    <h5 class="modal-title">로그인</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
+            <!-- 로그인 모달창 -->
+            <div class="modal fade login-modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content login-modal-size">
+                        <div class="modal-header">
+                            <h5 class="modal-title">로그인</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
 
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingloginID" placeholder="ID">
-                        <label for="floatingInput">ID</label>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingloginID" placeholder="ID">
+                                <label for="floatingInput">ID</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="floatingloginPassword"
+                                    placeholder="Password">
+                                <label for="floatingPassword">비밀번호</label>
+                            </div>
+                            아직 <a href="signup.html">계정</a>이 없으시다면?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                            <button type="button" class="btn btn-primary" onclick="handleLogin()">로그인</button>
+
+                        </div>
                     </div>
-                    <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="floatingloginPassword" placeholder="Password">
-                        <label for="floatingPassword">비밀번호</label>
-                    </div>
-                    아직 <a href="signup.html">계정</a>이 없으시다면?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-                    <button type="button" class="btn btn-primary" onclick="handleLogin()">로그인</button>
-
                 </div>
             </div>
-        </div>
-    </div>
-    <script src="/static/JS/api.js"></script>
-    <script src="/static/Scripts/main.js"></script>
-    <script src="/static/Scripts/search.js"></script>
-</body>
+
+            <script src="/static/JS/api.js"></script>
+            <script src="/static/Scripts/main.js"></script>
+            <script src="/static/Scripts/search.js"></script>
+        </body>
+
 </html>
