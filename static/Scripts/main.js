@@ -79,7 +79,7 @@ async function getArticlesByBoard() {
             $('#hot-box').prepend(temp_html)
         }} catch (err) {}
 
-    const MostLiked = async () => {
+    const mostLiked = async () => {
         const response = await fetch(`${backend_base_url}/article/likeCount`, {
             method: 'GET',
             headers: {
@@ -94,7 +94,7 @@ async function getArticlesByBoard() {
     return response_json.articles
     }
 
-    MostLiked().then((data) => {
+    mostLiked().then((data) => {
         detail = response_json
         console.log(detail)
         try {       
@@ -112,4 +112,6 @@ async function getArticlesByBoard() {
         }} catch (err) {
     }}
     )
+
+
 })}
