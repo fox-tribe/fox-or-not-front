@@ -22,7 +22,7 @@ async function getArticlesByBoard() {
             let title = detail[0][1][i]['article_title']
             let id = detail[0][1][i]['id']
             let temp_html = `
-                <div class="board-title" id="worker" href="${frontend_base_url}/templates/article_detail.html?id=${id}">${title}
+                <div class="board-title" id="worker" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${title}
             </div>`
             
             $('#company-box').prepend(temp_html)
@@ -33,7 +33,7 @@ async function getArticlesByBoard() {
             let title = detail[1][2][i]['article_title']
             let id = detail[1][2][i]['id']
             let temp_html = `
-                <div class="board-title" id="worker" href="${frontend_base_url}/templates/article_detail.html?id=${id}">${title}
+                <div class="board-title" id="worker" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${title}
             </div>`
             
             $('#college-box').prepend(temp_html)
@@ -43,7 +43,7 @@ async function getArticlesByBoard() {
             let title = detail[2][3][i]['article_title']
             let id = detail[2][3][i]['id']
             let temp_html = `
-                <div class="board-title" id="worker" href="${frontend_base_url}/templates/article_detail.html?id=${id}">${title}
+                <div class="board-title" id="worker" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${title}
             </div>`
             
             $('#teen-box').prepend(temp_html)
@@ -53,7 +53,7 @@ async function getArticlesByBoard() {
             let title = detail[3][4][i]['article_title']
             let id = detail[3][4][i]['id']
             let temp_html = `
-                <div class="board-title" id="worker" href="${frontend_base_url}/templates/article_detail.html?id=${id}">${title}
+                <div class="board-title" id="worker" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${title}
             </div>`
             
             $('#lgbtq-box').prepend(temp_html)
@@ -63,7 +63,7 @@ async function getArticlesByBoard() {
             let title = detail[4][5][i]['article_title']
             let id = detail[4][5][i]['id']
             let temp_html = `
-                <div class="board-title" id="worker" href="${frontend_base_url}/templates/article_detail.html?id=${id}">${title}
+                <div class="board-title" id="worker" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${title}
             </div>`
             
             $('#free-box').prepend(temp_html)
@@ -73,7 +73,7 @@ async function getArticlesByBoard() {
             let title = detail[5][6][i]['article_title']
             let id = detail[5][6][i]['id']
             let temp_html = `
-                <div class="board-title" id="worker" href="${frontend_base_url}/templates/article_detail.html?id=${id}">${title}
+                <div class="board-title" id="worker" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${title}
             </div>`
             
             $('#hot-box').prepend(temp_html)
@@ -104,7 +104,7 @@ async function getArticlesByBoard() {
             let author = detail[i]['author']
             let temp_html = `
             <div class="pop-article row">
-                <div class="pop-article-title col" onclick="location.href=${frontend_base_url}/templates/article_detail.html?id=${id}">${title}
+                <div class="pop-article-title col" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${title}
                 </div>
                 <div class="pop-article-writer col">${author}</div>
             </div>`
