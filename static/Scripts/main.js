@@ -1,10 +1,13 @@
-
-
 // 메인페이지 게시판별 게시글가져오기
 async function getArticlesByBoard() {
     const myData = async () => {
         const response = await fetch(`${backend_base_url}/article/board/?boards=1&boards=2&boards=3&boards=4&boards=5&boards=6`, {
-            method: 'GET'
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                "Authorization": "Bearer " + localStorage.getItem("access")
+            },
+        
         }
     )
 
@@ -109,12 +112,6 @@ async function getArticlesByBoard() {
         }} catch (err) {
     }}
     )
-<<<<<<< HEAD
-})}
-
-
-=======
 
 
 })}
->>>>>>> f6b50bf0ca116638c9903abcfd4c50ea24bbb28b
