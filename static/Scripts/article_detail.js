@@ -22,6 +22,9 @@ window.onload = async function articleDetail() {
         let title = detail['article_title']
         let contents = detail['article_contents']
         let date = detail['article_post_date']
+        let count_fox = detail['vote']['fox']
+        let count_green = detail['vote']['green']
+        let count_miss = detail['vote']['miss']
 
         let temp_html =
         `<div class="titlediv">
@@ -33,6 +36,11 @@ window.onload = async function articleDetail() {
         </div>
         <div class="contentdiv">
             <h3 class="content">${contents}</h3>
+        </div>
+        <div>
+        <h4>폭스 ${count_fox}</h4>
+        <h4>그린 ${count_green}</h4>
+        <h4>오해 ${count_miss}</h4>
         </div>`
         $('#article-detail-box').prepend(temp_html)
 
@@ -41,6 +49,7 @@ window.onload = async function articleDetail() {
             let comment_id = detail['comment_set'][i]['id']
             let comment_author = detail['comment_set'][i]['author']
             let comment_created_at = detail['comment_set'][i]['comment_created_at']
+            let comment_like_count = detail['comment_set'][i]['count']
             let temp_html =
                 `<div class="comments">
                     <div class="cowriteinfo">
@@ -51,6 +60,7 @@ window.onload = async function articleDetail() {
                         <div class="comment"><h4>${comments}</h4></div>
                         <div><button type="button" id="like" class="like" onclick="likeButton(${comment_id})"><i class="fa-regular fa-heart fa-2x"></i></button></div>
                         <div><button type="button" id="reallike" class="reallike" onclick="likeButton(${comment_id})"><i class="fa-solid fa-heart fa-2x"></i></button></div>
+                        <div class="comment"><h5>${comment_like_count}</h5></div>
                     </div>
                 </div>`
         $('#comments-box').prepend(temp_html)
@@ -140,9 +150,11 @@ async function vote3() {
     window.location.reload()
 }
 
+// 게시물 투표 카운트
+
+
 // 댓글 공감 투표
 async function likeButton(comment_id) {
-    console.log(comment_id)
     let data = {
         category:"공감",
     }
@@ -160,3 +172,4 @@ async function likeButton(comment_id) {
     console.log(alert(response_json.message))
     window.location.reload()
 }
+
