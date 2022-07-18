@@ -1,9 +1,7 @@
 const url = window.location.search.split('=')
 const obj_id = url[1]
-
 // 게시물 상세 페이지 부르기
 window.onload = async function articleDetail() {
-
     let articleDetail = async () => {
         let response = await fetch(`${backend_base_url}/article/${obj_id}/detail/`, {
             method: 'GET',
@@ -14,7 +12,6 @@ window.onload = async function articleDetail() {
         response_json = await response.json()
         return response_json.articles
     }
-
     // 게시물 상세 내용
     articleDetail().then((data) => {
         detail = response_json
@@ -22,7 +19,6 @@ window.onload = async function articleDetail() {
         let title = detail['article_title']
         let contents = detail['article_contents']
         let date = detail['article_post_date']
-
         let temp_html =
         `<div class="titlediv">
             <div><h2 class="title">${title}</h2></div>
@@ -35,12 +31,12 @@ window.onload = async function articleDetail() {
             <h3 class="content">${contents}</h3>
         </div>`
         $('#article-detail-box').prepend(temp_html)
-
         for (let i = 0; i < detail['comment_set'].length; i++) {
             let comments = detail['comment_set'][i]['comment_contents']
             let comment_id = detail['comment_set'][i]['id']
             let comment_author = detail['comment_set'][i]['author']
             let comment_created_at = detail['comment_set'][i]['comment_created_at']
+            let comment_like_count = detail['comment_set'][i]['count']
             let temp_html =
                 `<div class="comments">
                     <div class="cowriteinfo">
@@ -51,16 +47,13 @@ window.onload = async function articleDetail() {
                         <div class="comment"><h4>${comments}</h4></div>
                         <div><button type="button" id="like" class="like" onclick="likeButton(${comment_id})"><i class="fa-regular fa-heart fa-2x"></i></button></div>
                         <div><button type="button" id="reallike" class="reallike" onclick="likeButton(${comment_id})"><i class="fa-solid fa-heart fa-2x"></i></button></div>
+                        <div class="comment"><h5>${comment_like_count}</h5></div>
                     </div>
                 </div>`
         $('#comments-box').prepend(temp_html)
         }}
     )
-
-
 }
-
-
 // 댓글 작성
 async function commentCreate() {
     let comment_contents = document.getElementById("wcomment").value
@@ -75,13 +68,10 @@ async function commentCreate() {
         },
         body: JSON.stringify(comment_data)
     })
-
     response_json = await response.json()
     console.log(response_json)
     window.location.reload()
 }
-
-
 // 폭스 투표
 async function vote1() {
     let category = {
@@ -92,7 +82,6 @@ async function vote1() {
         headers: {
             "Content-Type": "application/json",
             "Authorization": "Bearer " + localStorage.getItem("access"),
-            
         },
         body: JSON.stringify(category)
     }
@@ -111,7 +100,6 @@ async function vote2() {
         headers: {
             "Content-Type": "application/json",
             "Authorization": "Bearer " + localStorage.getItem("access"),
-            
         },
         body: JSON.stringify(category)
     }
@@ -130,7 +118,6 @@ async function vote3() {
         headers: {
             "Content-Type": "application/json",
             "Authorization": "Bearer " + localStorage.getItem("access"),
-            
         },
         body: JSON.stringify(category)
     }
@@ -139,10 +126,8 @@ async function vote3() {
     console.log(alert(response_json.message))
     window.location.reload()
 }
-
 // 댓글 공감 투표
 async function likeButton(comment_id) {
-    console.log(comment_id)
     let data = {
         category:"공감",
     }
@@ -151,7 +136,6 @@ async function likeButton(comment_id) {
         headers: {
             "Content-Type": "application/json",
             "Authorization": "Bearer " + localStorage.getItem("access"),
-            
         },
         body: JSON.stringify(data)
     }
