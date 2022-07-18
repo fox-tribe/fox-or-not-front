@@ -71,10 +71,8 @@ async function commentCreate() {
     let response = await fetch(`${backend_base_url}/article/${obj_id}/comment/`, {
         method: 'POST',
         headers: {
-            Accept: "application/json",
             "Content-Type": "application/json",
             "Authorization": "Bearer " + localStorage.getItem("access"),
-            "access-control-allow-origin": "*"
         },
         body: JSON.stringify(comment_data)
     })
@@ -85,25 +83,61 @@ async function commentCreate() {
 }
 
 
-// 투표
-async function vote() {
-    let vote_category = document.getElementById("wcomment").value
-    let comment_data = {
-        comment_contents: comment_contents,
+// 폭스 투표
+async function vote1() {
+    let category = {
+        category:"폭스입니다",
     }
-    let response = await fetch(`${backend_base_url}/article/${obj_id}/comment/`, {
+    const response = await fetch(`${backend_base_url}/article/${obj_id}/article/vote/`, {
         method: 'POST',
         headers: {
-            Accept: "application/json",
             "Content-Type": "application/json",
             "Authorization": "Bearer " + localStorage.getItem("access"),
-            "access-control-allow-origin": "*"
+            
         },
-        body: JSON.stringify(comment_data)
-    })
-
+        body: JSON.stringify(category)
+    }
+    )
     response_json = await response.json()
-    console.log(response_json)
+    console.log(alert(response_json.message))
+    window.location.reload()
+}
+// 그린라이트 투표
+async function vote2() {
+    let category = {
+        category:"그린라이트",
+    }
+    const response = await fetch(`${backend_base_url}/article/${obj_id}/article/vote/`, {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + localStorage.getItem("access"),
+            
+        },
+        body: JSON.stringify(category)
+    }
+    )
+    response_json = await response.json()
+    console.log(alert(response_json.message))
+    window.location.reload()
+}
+// 오해 투표
+async function vote3() {
+    let category = {
+        category:"오해입니다",
+    }
+    const response = await fetch(`${backend_base_url}/article/${obj_id}/article/vote/`, {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + localStorage.getItem("access"),
+            
+        },
+        body: JSON.stringify(category)
+    }
+    )
+    response_json = await response.json()
+    console.log(alert(response_json.message))
     window.location.reload()
 }
 
