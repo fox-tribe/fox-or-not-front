@@ -281,3 +281,25 @@ body {
     padding-top: 40px;
     font-size: 30px;
 }
+
+
+/* 반응형 */
+@media (max-width: 768px) {
+
+.Top-bar1 {
+    min-width: 350px;
+    height: 150px;
+}
+.board {
+    width: 80px;
+    height: auto;
+}
+
+.popular-banner{
+    display: none;
+}
+
+.popular-banner .row {
+max-width: 120%
+}
+}
