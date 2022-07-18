@@ -1,9 +1,7 @@
 const url = window.location.search.split('=')
 const obj_id = url[1]
-
 // 게시물 상세 페이지 부르기
 window.onload = async function articleDetail() {
-
     let articleDetail = async () => {
         let response = await fetch(`${backend_base_url}/article/${obj_id}/detail/`, {
             method: 'GET',
@@ -14,7 +12,6 @@ window.onload = async function articleDetail() {
         response_json = await response.json()
         return response_json.articles
     }
-
     // 게시물 상세 내용
     articleDetail().then((data) => {
         detail = response_json
@@ -25,7 +22,6 @@ window.onload = async function articleDetail() {
         let count_fox = detail['vote']['fox']
         let count_green = detail['vote']['green']
         let count_miss = detail['vote']['miss']
-
         let temp_html =
         `<div class="titlediv">
             <div><h2 class="title">${title}</h2></div>
@@ -43,7 +39,6 @@ window.onload = async function articleDetail() {
         <h4>오해 ${count_miss}</h4>
         </div>`
         $('#article-detail-box').prepend(temp_html)
-
         for (let i = 0; i < detail['comment_set'].length; i++) {
             let comments = detail['comment_set'][i]['comment_contents']
             let comment_id = detail['comment_set'][i]['id']
@@ -66,11 +61,7 @@ window.onload = async function articleDetail() {
         $('#comments-box').prepend(temp_html)
         }}
     )
-
-
 }
-
-
 // 댓글 작성
 async function commentCreate() {
     let comment_contents = document.getElementById("wcomment").value
@@ -85,13 +76,10 @@ async function commentCreate() {
         },
         body: JSON.stringify(comment_data)
     })
-
     response_json = await response.json()
     console.log(response_json)
     window.location.reload()
 }
-
-
 // 폭스 투표
 async function vote1() {
     let category = {
@@ -102,7 +90,6 @@ async function vote1() {
         headers: {
             "Content-Type": "application/json",
             "Authorization": "Bearer " + localStorage.getItem("access"),
-            
         },
         body: JSON.stringify(category)
     }
@@ -121,7 +108,6 @@ async function vote2() {
         headers: {
             "Content-Type": "application/json",
             "Authorization": "Bearer " + localStorage.getItem("access"),
-            
         },
         body: JSON.stringify(category)
     }
@@ -140,7 +126,6 @@ async function vote3() {
         headers: {
             "Content-Type": "application/json",
             "Authorization": "Bearer " + localStorage.getItem("access"),
-            
         },
         body: JSON.stringify(category)
     }
@@ -149,9 +134,6 @@ async function vote3() {
     console.log(alert(response_json.message))
     window.location.reload()
 }
-
-// 게시물 투표 카운트
-
 
 // 댓글 공감 투표
 async function likeButton(comment_id) {
@@ -163,7 +145,6 @@ async function likeButton(comment_id) {
         headers: {
             "Content-Type": "application/json",
             "Authorization": "Bearer " + localStorage.getItem("access"),
-            
         },
         body: JSON.stringify(data)
     }
@@ -172,4 +153,3 @@ async function likeButton(comment_id) {
     console.log(alert(response_json.message))
     window.location.reload()
 }
-
