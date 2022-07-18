@@ -49,11 +49,10 @@ window.onload = async function articleDetail() {
                     </div>
                     <div class="commentdetail">
                         <div class="comment"><h4>${comments}</h4></div>
-                        <div><button type="button" id="like" class="like"><i class="fa-regular fa-heart fa-2x"></i></button></div>
-                        <div><button type="button" id="reallike" class="reallike"><i class="fa-solid fa-heart fa-2x"></i></button></div>
+                        <div><button type="button" id="like" class="like" onclick="likeButton(${comment_id})"><i class="fa-regular fa-heart fa-2x"></i></button></div>
+                        <div><button type="button" id="reallike" class="reallike" onclick="likeButton(${comment_id})"><i class="fa-solid fa-heart fa-2x"></i></button></div>
                     </div>
-                </div>
-            </div>`
+                </div>`
         $('#comments-box').prepend(temp_html)
         }}
     )
@@ -141,3 +140,23 @@ async function vote3() {
     window.location.reload()
 }
 
+// 댓글 공감 투표
+async function likeButton(comment_id) {
+    console.log(comment_id)
+    let data = {
+        category:"공감",
+    }
+    const response = await fetch(`${backend_base_url}/article/${comment_id}/comment/like/`, {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + localStorage.getItem("access"),
+            
+        },
+        body: JSON.stringify(data)
+    }
+    )
+    response_json = await response.json()
+    console.log(alert(response_json.message))
+    window.location.reload()
+}
