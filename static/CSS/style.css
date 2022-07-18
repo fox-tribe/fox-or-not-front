@@ -282,24 +282,79 @@ body {
     font-size: 30px;
 }
 
+.mobile_log {
+    display: none;
+}
+
+.search-button {
+    border-radius: 90px;
+}
+
+.search-button:hover {
+    transition: all 0.3s;
+    transform: rotate(180deg);
+}
 
 /* 반응형 */
 @media (max-width: 768px) {
 
-.Top-bar1 {
-    min-width: 350px;
-    height: 150px;
-}
-.board {
-    width: 80px;
-    height: auto;
-}
+    .login-block {
+        display: none;
+    }
 
-.popular-banner{
-    display: none;
-}
+    .Top-bar1 {
+        min-width: 350px;
+        height: 150px;
+        margin-bottom: 12px;
+    }
 
-.popular-banner .row {
-max-width: 120%
-}
+    .board {
+        width: 80px;
+        height: auto;
+    }
+
+    .popular-banner {
+        display: none;
+    }
+
+    .popular-banner .row {
+        max-width: 120%
+    }
+
+    .popular-article {
+        width: 350px;
+    }
+
+    .footer-space-teamlogo {
+        padding: 0;
+    }
+
+    .second-floor-board {
+        margin-bottom: 15px;
+    }
+
+    .Top-bar-buttons {
+        display: block;
+    }
+
+    .hbutton {
+        height: 30px;
+        width: 30px;
+    }
+
+    .hbutton2 {
+        height: 30px;
+        width: 35px;
+    }
+
+    .mobile_log {
+        margin: 20px;
+        display: block;
+        text-align: end;
+    }
+
+    .second-floor {
+        height: 1800px;
+    }
+
 }
