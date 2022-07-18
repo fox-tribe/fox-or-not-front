@@ -10,7 +10,6 @@
     <!-- CSS -->
     <link rel="stylesheet" href="../static/CSS/detail.css">
     <!-- JS -->
-    <script src="./static/Scripts/api.js"></script>
     <script src="https://kit.fontawesome.com/45d75bb0cc.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
@@ -63,45 +62,27 @@
     </div>
 
     <div class="bodywrap">
-        <!-- 제목 -->
-        <div class="titlediv">
-            <div><h2 class="title">여기에 타이틀이 들어갑니다</h2></div>
-            <div class="writeinfo">
-                <h3 class="writer">작성자</h3>
-                <h3 class="time">작성시간</h3>
-            </div>
-        </div>
-        <!-- 내용 -->
-        <div class="contentdiv">
-            <h3 class="content">여기에 글 내용이 들어갑니다 여기에 글 내용이 들어갑니다 여기에 글 내용이 들어갑니다 여기에 글 내용이 들어갑니다 여기에 글 내용이 들어갑니다 여기에 글 내용이 들어갑니다 여기에 글 내용이 들어갑니다 </h3>
-        </div>
+        <!-- 아티클 디테일 for문-->
+        <div id="article-detail-box"></div>
         <!-- 투표 -->
         <div class="botediv">
-            <div class="boteb"><button type="button" class="bote">🦊</button><p class="btext1">폭스입니다</p></div>
-            <div class="boteb"><button type="button" class="bote">💚</button><p class="btext2">그린라이트</p></div>
-            <div class="boteb"><button type="button" class="bote">💔</button><p class="btext3">오해입니다</p></div>
+            <div class="boteb"><button type="button" class="bote" onclick="vote()" id="vote-fox">🦊</button><p class="btext1">폭스입니다</p></div>
+            <div class="boteb"><button type="button" class="bote" onclick="vote()">💚</button><p class="btext2">그린라이트</p></div>
+            <div class="boteb"><button type="button" class="bote" onclick="vote()">💔</button><p class="btext3">오해입니다</p></div>
         </div>
-        <!-- 댓글달기 -->
+        <!-- 댓글 for문 -->
             <div class="wcommentdiv">
                 <textarea name="" id="wcomment" class="wcomment"  placeholder="댓글을 달아주세요!"></textarea>
-                <label for="cosubmit" class="cosubmit">댓글달기</label>
+                <button for="cosubmit" class="cosubmit" onclick="commentCreate()">댓글달기</button>
                 <input type="submit" style="display:none" id="submit">
             </div>
-        <!-- 댓글보여주기 -->
-            <div class="comments">
-                <div class="cowriteinfo">
-                    <div><p class="cowriter">작성자</p></div>
-                    <div><p class="cotime">작성시간</p></div>
-                </div>
-                <div class="commentdetail">
-                    <div class="comment"><h4>댓글내용</h4></div>
-                    <div><button type="button" id="like" class="like"><i class="fa-regular fa-heart fa-2x"></i></button></div>
-                    <div><button type="button" id="reallike" class="reallike"><i class="fa-solid fa-heart fa-2x"></i></button></div>
-                </div>
-            </div>
-    </div>
+        <!-- 댓글 리스팅 for문 -->
+        <div id="comments-box"></div>
+        </div>
 
     <!-- JS -->
-    <script src="../static/Scripts/detail.js"></script>
+    <script src="/static/JS/api.js"></script>
+    <script src="/static/Scripts/detail.js"></script>
+    <script src="/static/Scripts/article_detail.js"></script>
 </body>
 </html>
