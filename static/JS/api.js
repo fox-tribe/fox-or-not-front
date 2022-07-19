@@ -94,11 +94,24 @@ async function handleLogin() {
 
 }
 
+<<<<<<< HEAD
 // #로그아웃
 async function handleLogout(){
+=======
+
+// 로그아웃
+
+function logout() {
+    alert("로그아웃 하였습니다")
+>>>>>>> c9433acb2f98c0e17c6d1674a5a33b4554ef8ac8
     localStorage.removeItem("access")
     localStorage.removeItem("refresh")
     localStorage.removeItem("payload")
     alert("로그아웃되었습니다.")
     window.location.replace(`${frontend_base_url}/index.html`);
 }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> c9433acb2f98c0e17c6d1674a5a33b4554ef8ac8

@@ -1,0 +1,313 @@
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: 'GmarketSansMedium';
+
+}
+
+p {
+    margin: 0;
+}
+
+body {
+    background: linear-gradient(0.25turn, lightgray, rgba(230, 177, 78, 0.484), white);
+}
+
+.bote p{
+    margin: 0;
+}
+
+.bodywrap div{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.Top-bar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    height: 200px;
+}
+
+.logo {
+    height: 120px;
+    margin: 10px;
+    cursor: pointer;
+} 
+
+.hbutton {
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.hbutton2 {
+    height: 50px;
+    width: 55px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.modal__content {
+    background-color: white;
+    padding: 50px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.modal__overlay {
+    background-color: rgba(0,0,0,0.6);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.button {
+    background-color: rgba( 255, 255, 255, 0 ) ;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    color: orange;
+    border-bottom: 2px solid gray
+}
+
+.mymenus {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.mymenu {
+    margin-right: 10px;
+    border: none;
+    padding: 10px;
+    background-color: orange;
+    cursor: pointer;
+}
+
+.search {
+    width: 200px;
+    border: 6px double orange;
+    margin: 15px 0px 15px 0px;
+}
+
+.fa-magnifying-glass {
+    color: orange;
+    position: absolute;
+    left: 244px;
+    top: 175px;
+    cursor: pointer;
+}
+
+.category {
+    height: 90px;
+    width: 90px;
+}
+
+.hidden {
+    display: none;
+}
+
+.taps {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 30px;
+    margin-right: 700px;
+    height: 70px;
+}
+
+.non-click {
+    width: 170px;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    height: 60px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color:#666666;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.click {
+    width: 170px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: gray;
+    background-color:white;
+    height: 70px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin-right: 10px;
+}
+
+.taps :hover {
+    height: 70px;
+}
+
+.squarewrap {
+    display: flex;
+    justify-content: center;
+}
+
+.mainsquare {
+    width: 1200px;
+    height: 100%;
+    background-color: orange;
+    border-top-right-radius: 30px;
+    padding: 20px;
+}
+
+.mylogs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.myarticles {
+    width: 1000px;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 30px;
+}
+
+.myarticle {
+    background-color: white;
+    width: 300px;
+    height: 300px;
+    margin: 15px 10px 15px 20px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.mycomment {
+    background: linear-gradient(90deg, orange 50%, red 50%);
+    width: 970px;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 15px 20px 15px 20px;
+}
+
+.thisarticle {
+    background-color: white;
+    height: 70px;
+    width: 300px;
+    font-size: 20px;
+}
+
+.thiscomment {
+    background-color: white;
+    margin-left: 30px;
+    height: 70px;
+    width: 500px;
+    font-size: 17px;
+}
+
+.thislike {
+    margin-left: 80px;
+    color: orange;
+}
+
+.biofixed {
+    display: flex;
+    justify-content: space-around;
+    margin: 30px;
+}
+
+.befbios {
+    display: flex;
+    flex-direction: column;
+}
+
+.befbio {
+    width: 333px;
+    height: 32px;
+    text-align: center;
+    padding-top: 14px;
+    background-color:  gray;
+    color: white;
+    border-radius: 30px;
+    margin: 10px 0px 10px 0px;
+}
+
+.line {
+    border-left: 1px solid black;
+    height: 400px;
+}
+
+.newbios {
+    margin-bottom: 30px;
+}
+
+.newbio {
+    border: 1px solid gray;
+    border-radius: 30px;
+    text-align: center;
+    margin: 10px 0px 10px 0px;
+    background-color: white;
+    width: 333px;
+    height: 46px;
+    font-size: 15px;
+}
+
+.newbiodiv {
+    padding:12px 60px 12px 60px;
+    text-align: center;
+    border: 1px solid gray;
+    border-radius: 30px;
+    margin: 10px 0px 10px 0px;
+    background-color: white;
+}
+
+.form-select {
+    font-size: 15px;
+}
+
+.changebutton {
+    background-color: blue;
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+    margin-left: 280px;
+    cursor: pointer;
+}
+
+.terms {
+    margin: 30px;
+}
+
+.clicked {
+    color: gold;
+}
