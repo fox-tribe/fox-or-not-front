@@ -94,6 +94,7 @@ async function handleLogin() {
 
 }
 
+
 // 로그아웃
 
 function logout() {
@@ -104,4 +105,5 @@ function logout() {
 
     window.location.replace(`${frontend_base_url}/index.html`)
 }
+
 

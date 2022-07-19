@@ -33,10 +33,11 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    height: 200px;
 }
 
 .logo {
-    height: 100px;
+    height: 120px;
     margin: 10px;
     cursor: pointer;
 } 
@@ -233,11 +234,14 @@ body {
 }
 
 .cosubmit {
-    padding: 16px 0px 16px 0px;
     margin-left: 10px;
-    background-color: orange;
-    color: gray;
+    margin-top: 5px;
+    color: orange;
+    text-decoration-line: underline;
+    text-decoration-style: double;
+    cursor: pointer;
     font-weight: bold;
+    font-size: 18px;
 }
 
 .comments {
@@ -298,10 +302,11 @@ body {
     display: none;
 }
 
+
 @media (max-width:580px) {
 
     .logo {
-        height: 57px;
+        height: 67px;
         width: 113px;
     }
 
@@ -337,6 +342,10 @@ body {
 
     .btext3 {
         font-size: 15px;
+    }
+
+    .Top-bar {
+        height: 100px;
     }
 
 }
