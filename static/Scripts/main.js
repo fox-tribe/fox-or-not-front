@@ -14,7 +14,7 @@ async function getArticlesByBoard() {
     }
 
     const myData = async () => {
-        const response = await fetch(`${backend_base_url}/article/board/?boards=1&boards=2&boards=3&boards=4&boards=5&boards=6`, {
+        const response = await fetch(`${backend_base_url}/article/board/?boards=직장인&boards=대학생&boards=10대&boards=LGBTQ&boards=자유&boards=HOT`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -32,8 +32,8 @@ async function getArticlesByBoard() {
         console.log(detail)
         try {       
         for (let i = 0; i < 5; i++) {
-            let title = detail[0][1][i]['article_title']
-            let id = detail[0][1][i]['id']
+            let title = detail[0]['직장인'][i]['article_title']
+            let id = detail[0]['직장인'][i]['id']
             let temp_html = `
                 <div class="board-title" id="worker" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${title}
             </div>`
@@ -43,8 +43,8 @@ async function getArticlesByBoard() {
         }
         try{
         for (let i = 0; i < 5; i++) {
-            let title = detail[1][2][i]['article_title']
-            let id = detail[1][2][i]['id']
+            let title = detail[1]['대학생'][i]['article_title']
+            let id = detail[1]['대학생'][i]['id']
             let temp_html = `
                 <div class="board-title" id="worker" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${title}
             </div>`
@@ -53,8 +53,8 @@ async function getArticlesByBoard() {
         }} catch (err) {}
         try{
         for (let i = 0; i < 5; i++) {
-            let title = detail[2][3][i]['article_title']
-            let id = detail[2][3][i]['id']
+            let title = detail[2]['10대'][i]['article_title']
+            let id = detail[2]['10대'][i]['id']
             let temp_html = `
                 <div class="board-title" id="worker" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${title}
             </div>`
@@ -63,8 +63,8 @@ async function getArticlesByBoard() {
         }} catch (err) {}
         try{
         for (let i = 0; i < 5; i++) {
-            let title = detail[3][4][i]['article_title']
-            let id = detail[3][4][i]['id']
+            let title = detail[3]['LGBTQ'][i]['article_title']
+            let id = detail[3]['LGBTQ'][i]['id']
             let temp_html = `
                 <div class="board-title" id="worker" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${title}
             </div>`
@@ -73,8 +73,8 @@ async function getArticlesByBoard() {
         }} catch (err) {}
         try {
         for (let i = 0; i < 5; i++) {
-            let title = detail[4][5][i]['article_title']
-            let id = detail[4][5][i]['id']
+            let title = detail[4]['자유'][i]['article_title']
+            let id = detail[4]['자유'][i]['id']
             let temp_html = `
                 <div class="board-title" id="worker" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${title}
             </div>`
@@ -83,8 +83,8 @@ async function getArticlesByBoard() {
         }} catch (err) {}
         try {
         for (let i = 0; i < 5; i++) {
-            let title = detail[5][6][i]['article_title']
-            let id = detail[5][6][i]['id']
+            let title = detail[5]['HOT'][i]['article_title']
+            let id = detail[5]['HOT'][i]['id']
             let temp_html = `
                 <div class="board-title" id="worker" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${title}
             </div>`
