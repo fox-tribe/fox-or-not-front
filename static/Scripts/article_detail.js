@@ -15,6 +15,7 @@ window.onload = async function articleDetail() {
     // 게시물 상세 내용
     articleDetail().then((data) => {
         detail = response_json
+        console.log(detail)
         let author = detail['author']
         let title = detail['article_title']
         let contents = detail['article_contents']

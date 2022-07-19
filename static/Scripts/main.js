@@ -1,11 +1,23 @@
 // 메인페이지 게시판별 게시글가져오기
 async function getArticlesByBoard() {
+    
+    // 로그인 로그아웃 회원가입 버튼 숨기기
+    if (!localStorage.getItem("access")) {
+        let logout_button = document.getElementById("logout-button")
+        logout_button.style.visibility = "hidden"
+    }
+    else {
+        let login_button = document.getElementById("login-button")
+        let signup_button = document.getElementById("signup-button")
+        login_button.style.visibility = "hidden"
+        signup_button.style.visibility = "hidden"
+    }
+
     const myData = async () => {
         const response = await fetch(`${backend_base_url}/article/board/?boards=1&boards=2&boards=3&boards=4&boards=5&boards=6`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                "Authorization": "Bearer " + localStorage.getItem("access")
             },
         
         }
@@ -17,6 +29,7 @@ async function getArticlesByBoard() {
 
     myData().then((data) => {
         detail = response_json
+        console.log(detail)
         try {       
         for (let i = 0; i < 5; i++) {
             let title = detail[0][1][i]['article_title']
@@ -84,7 +97,6 @@ async function getArticlesByBoard() {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                "Authorization": "Bearer " + localStorage.getItem("access")
             },
         
         }
@@ -96,7 +108,6 @@ async function getArticlesByBoard() {
 
     mostLiked().then((data) => {
         detail = response_json
-        console.log(detail)
         try {       
         for (let i = 0; i < 6; i++) {
             let title = detail[i]['article_title']
