@@ -32,37 +32,60 @@
         <img src="../static/image/logo.png" alt="" height="100px" onclick="location.href='index.html'">
     </div>
     <div class="posting-bar">
-        <div class="posting-bar-title">게시물 작성</div>
+        <div class="posting-bar-title">● 게시물 작성</div>
     </div>
     <!-- 제목 -->
     <div class="posting-space">
-        <div class="posting-input-space row">
-
-            <div class="button-space">
-                <button type="button" class="btn btn-secondary padding" onclick="history.back()">이전 페이지</button>
-                <button type="button" class="btn btn-primary" id="#">업로드</button>
-            </div>
-
-            <div class="input-group mb-3 input-title col-10" style="padding:0;">
-                <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">게시판</button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">직장인 게시판</a></li>
-                    <li><a class="dropdown-item" href="#">대학생 게시판</a></li>
-                    <li><a class="dropdown-item" href="#">10대 게시판</a></li>
-                    <li><a class="dropdown-item" href="#">자유 게시판</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="#">성인 게시판</a></li>
-                    <li><a class="dropdown-item" href="#">LGBTQ 게시판</a></li>
-                </ul>
-                <input type="text" class="form-control" aria-label="Text input with dropdown button">
-            </div>
-            <input type="file" class="input-image col-10">
-            <input class="input-article col" type="text" placeholder=" 내용을 입력하세요">
+        <div class="posting-space-box">
+            <ul>
+                <li>
+                    <div class="title-space row">
+                        <div class="title-space-title col-1"> ■ 제 목</div>
+                        <div class="title-space-input col">
+                            <input type="text" class="form-control" placeholder="제목을 입력하세요">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="board-space row">
+                        <div class="board-space-title col-1"> ■ 위 치</div>
+                        <div class="title-space-input col">
+                            <select class="form-select" aria-label=".form-select-lg example" style="border-radius: 0;">
+                                <option selected>업로드 할 게시판을 선택해주세요</option>
+                                <option value="1">직장인 게시판</option>
+                                <option value="2">대학생 게시판</option>
+                                <option value="3">10대 게시판</option>
+                                <option value="4">자유 게시판</option>
+                                <hr>
+                                <option value="5">성인 게시판</option>
+                                <option value="6">LGBTQ 게시판</option>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="title-space row">
+                        <div class="title-space-title col-1"> ■ 사 진</div>
+                        <div class="title-space-input col">
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="board-space-content row">
+                        <div class="board-space-content-title col-1"> ■ 내 용</div>
+                        <div class="title-space-input col" style="vertical-align: top;">
+                            <textarea></textarea>
+                        </div>
+                    </div>
+                </li>
+            </ul>
         </div>
+        <div class="button-space">
+            <button type="button" class="btn btn-secondary">이전 페이지</button>
+            <button type="button" class="btn btn-primary">업로드</button>
 
+        </div>
     </div>
 
 </body>
