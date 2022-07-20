@@ -9,12 +9,6 @@ window.onload = async function articleDetail() {
                 'Content-Type': 'application/json',
             },
         })
-
-        if (!localStorage.getItem("access")) {
-            let my_buttons = document.getElementById("my-buttons")
-            my_buttons.style.visibility = "hidden"
-        }
-        
         response_json = await response.json()
         return response_json.articles
     }
@@ -22,7 +16,6 @@ window.onload = async function articleDetail() {
     articleDetail().then((data) => {
         detail = response_json
         console.log(detail)
-        
         let author = detail['author']
         let image = detail['article_image']
         let title = detail['article_title']
@@ -32,11 +25,9 @@ window.onload = async function articleDetail() {
         let count_green = detail['vote']['green']
         let count_miss = detail['vote']['miss']
         let temp_html =
-        `<div class="titlediv">
-            <div><h2 class="title">${title}</h2></div>
-            <div class="writeinfo">
-                <h3 class="writer">${author}</h3>
-                <h3 class="time">${date}</h3>
+            `<div class="titlediv">
+                <div class="writeinfo"><h3>${author} - ${date}</h3></div>
+                <div class="title"><h2>${title}</h2></div>
             </div>
         </div>
         <div class="contentdiv">
@@ -50,11 +41,8 @@ window.onload = async function articleDetail() {
             <div class="boteb"><button type="button" class="bote" onclick="vote3()">💔</button><p class="btext3">오해입니다 (${count_miss})</p></div>
         </div>
         </div>`
-        $('#article-detail-box').prepend(temp_html)
 
-        let username_html = `<h3>${author}님 환영합니다</h3>`
-        $('#mypage-username').prepend(username_html)
-        
+        $('#article-detail-box').prepend(temp_html)
         for (let i = 0; i < detail['comment_set'].length; i++) {
             let comments = detail['comment_set'][i]['comment_contents']
             let comment_id = detail['comment_set'][i]['id']
@@ -66,6 +54,8 @@ window.onload = async function articleDetail() {
                     <div class="cowriteinfo">
                         <div><p class="cowriter">${comment_author}</p></div>
                         <div><p class="cotime">${comment_created_at}</p></div>
+                        <p class="comment-modify" id="#">수정</p>
+                        <p class="comment-delete" id="#">삭제</p>
                     </div>
                     <div class="commentdetail">
                         <div class="comment"><h4>${comments}</h4></div>
@@ -77,8 +67,9 @@ window.onload = async function articleDetail() {
                         
                     </div>
                 </div>`
-        $('#comments-box').prepend(temp_html)
-        }}
+            $('#comments-box').prepend(temp_html)
+        }
+    }
     )
 }
 // 댓글 작성
@@ -102,7 +93,7 @@ async function commentCreate() {
 // 폭스 투표
 async function vote1() {
     let category = {
-        category:"폭스입니다",
+        category: "폭스입니다",
     }
     const response = await fetch(`${backend_base_url}/article/${obj_id}/article/vote/`, {
         method: 'POST',
@@ -120,7 +111,7 @@ async function vote1() {
 // 그린라이트 투표
 async function vote2() {
     let category = {
-        category:"그린라이트",
+        category: "그린라이트",
     }
     const response = await fetch(`${backend_base_url}/article/${obj_id}/article/vote/`, {
         method: 'POST',
@@ -138,7 +129,7 @@ async function vote2() {
 // 오해 투표
 async function vote3() {
     let category = {
-        category:"오해입니다",
+        category: "오해입니다",
     }
     const response = await fetch(`${backend_base_url}/article/${obj_id}/article/vote/`, {
         method: 'POST',
@@ -157,7 +148,7 @@ async function vote3() {
 // 댓글 공감 투표
 async function likeButton(comment_id) {
     let data = {
-        category:"공감",
+        category: "공감",
     }
     const response = await fetch(`${backend_base_url}/article/${comment_id}/comment/like/`, {
         method: 'POST',
@@ -172,4 +163,3 @@ async function likeButton(comment_id) {
     console.log(alert(response_json.message))
     window.location.reload()
 }
-
