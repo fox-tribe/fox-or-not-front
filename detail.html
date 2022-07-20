@@ -17,7 +17,7 @@
     </script>
     
 </head>
-<body>
+<body onload="getArticlesByBoard()">
     <!-- 헤더 -->
     <header>
         <div class="Top-bar">
@@ -25,7 +25,7 @@
             <div>
                 <img src="../static/image/logo.png" alt="" class="logo" onclick="location.href='index.html'">
             </div>
-            <div class="Top-bar-buttons">
+            <div class="Top-bar-buttons" id="my-buttons">
                 <img class="hbutton" src="../static/image/여우머리.png">
                 <img class="hbutton2" id="modalclick" onclick="modal()" src="../static/image/menu.png">
             </div>
@@ -36,8 +36,7 @@
     <!-- 메뉴 모달 -->
     <div class="modal hidden">
         <div class="modal__overlay"></div>
-        <div class="modal__content">
-            <h3>{username}님 환영합니다</h3>
+        <div class="modal__content"id="mypage-username">
             <div class="mymenus">
                 <div><button type="button" class="mymenu" onclick="location.href='mypage.html'">MyPage</button></div>
                 <div><button type="button" class="mymenu" onclick="logout()">Logout</button></div>
@@ -79,6 +78,7 @@
 
     <!-- JS -->
     <script src="/static/JS/api.js"></script>
+    <script src="/static/JS/main.js"></script>
     <script src="/static/Scripts/detail.js"></script>
     <script src="/static/Scripts/article_detail.js"></script>
 </body>
