@@ -75,6 +75,9 @@ window.onload = async function articleDetail() {
 // 댓글 작성
 async function commentCreate() {
     let comment_contents = document.getElementById("wcomment").value
+    if (comment_contents == ''){
+        alert('댓글을 작성해주세요!')
+    }
     let comment_data = {
         comment_contents: comment_contents,
     }
