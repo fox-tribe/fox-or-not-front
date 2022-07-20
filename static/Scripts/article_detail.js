@@ -35,9 +35,11 @@ window.onload = async function articleDetail() {
             <h3 class="content">${contents}</h3>
         </div>
         <div>
-        <h4>폭스 ${count_fox}</h4>
-        <h4>그린 ${count_green}</h4>
-        <h4>오해 ${count_miss}</h4>
+        <div class="botediv">
+            <div class="boteb"><button type="button" class="bote" onclick="vote1()">🦊</button><p class="btext1">폭스입니다 (${count_fox})</p></div>
+            <div class="boteb"><button type="button" class="bote" onclick="vote2()">💚</button><p class="btext2">그린라이트 (${count_green})</p></div>
+            <div class="boteb"><button type="button" class="bote" onclick="vote3()">💔</button><p class="btext3">오해입니다 (${count_miss})</p></div>
+        </div>
         </div>`
         $('#article-detail-box').prepend(temp_html)
         for (let i = 0; i < detail['comment_set'].length; i++) {
