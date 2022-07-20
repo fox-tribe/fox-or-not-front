@@ -30,6 +30,8 @@ body {
 /* 상단바 */
 .sign-space {
     height: 50px;
+    text-align: end;
+    padding: 20px 29% 0 0;
 }
 
 .navbar {
@@ -157,4 +159,117 @@ body {
 
 .button-space button {
     margin-left: 15px;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+
+    .title-space-title {
+        width: 80px;
+        height: 40px;
+        background-color: rgb(80, 80, 80);
+        color: white;
+        text-align: center;
+        padding-top: 10px;
+        font-size: 15px;
+    }
+
+    .board-space-title {
+        width: 80px;
+        height: 100%;
+        background-color: rgb(122, 122, 122);
+        color: white;
+        text-align: center;
+        padding-top: 10px;
+        font-size: 15px;
+    
+    }
+
+    .board-space-content-title {
+        width: 80px;
+        height: 100%;
+        background-color: rgb(122, 122, 122);
+        color: white;
+        text-align: center;
+        padding-top: 230px;
+        font-size: 15px;
+        ;
+    }
+
+    .posting-bar {
+        background-color: rgb(255, 136, 0);
+        width: 100%;
+        height: 60px;
+        margin-top: 60px;
+    }
+    
+    .posting-bar-title {
+        display: flex;
+        margin: auto;
+        font-size: 18px;
+        color: white;
+        width: 100%;
+        padding: 20px 0 0 15px;
+    }
+
+    .posting-space-box {
+        width: 100%;
+        height: 630px;
+        display: flex;
+        margin: auto;
+    }
+
+    .button-space {
+        width: 100%;
+        height: 120px;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .board-space-content-title {
+        width: 80px;
+        height: 400px;
+        background-color: rgb(122, 122, 122);
+        color: white;
+        text-align: center;
+        padding-top: 180px;
+        font-size: 15px;
+        ;
+    }
+
+    .title-space-input textarea {
+        width: 100%;
+        height: 400px;
+    }
+
+    .board-space-content {
+        height: 400px;
+    }
+
+    .posting-space {
+        width: 100%;
+        height: 550px;
+        background-color: rgb(29, 29, 29);
+    }
+    .posting-space {
+        height: fit-content;
+    }
+
+    .posting-space-box {
+        width: 100%;
+        height: 550px;
+    }
+
+    .sign-space {
+        padding: 10px;
+        text-align: end;
+    }
+
+    .navbar {
+        margin: 0;
+        padding: 0;
+        height: 100px;
+    }
 }
