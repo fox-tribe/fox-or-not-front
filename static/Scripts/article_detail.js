@@ -56,9 +56,12 @@ window.onload = async function articleDetail() {
                     </div>
                     <div class="commentdetail">
                         <div class="comment"><h4>${comments}</h4></div>
-                        <div><button type="button" id="like" class="like" onclick="likeButton(${comment_id})"><i class="fa-regular fa-heart fa-2x"></i></button></div>
-                        <div><button type="button" id="reallike" class="reallike" onclick="likeButton(${comment_id})"><i class="fa-solid fa-heart fa-2x"></i></button></div>
-                        <div class="comment"><h5>${comment_like_count}</h5></div>
+                        <div style="display:flex; flex-direction:row">
+                        <button type="button" id="like" class="like" onclick="likeButton(${comment_id})"><i class="fa-regular fa-heart fa-2x"></i></button>
+                        <button type="button" id="reallike" class="reallike" onclick="likeButton(${comment_id})"><i class="fa-solid fa-heart fa-2x"></i></button>
+                        <h5>${comment_like_count}</h5>
+                        </div>
+                        
                     </div>
                 </div>`
         $('#comments-box').prepend(temp_html)
