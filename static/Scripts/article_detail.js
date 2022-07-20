@@ -24,6 +24,7 @@ window.onload = async function articleDetail() {
         console.log(detail)
         
         let author = detail['author']
+        let image = detail['article_image']
         let title = detail['article_title']
         let contents = detail['article_contents']
         let date = detail['article_post_date']
@@ -39,6 +40,7 @@ window.onload = async function articleDetail() {
             </div>
         </div>
         <div class="contentdiv">
+            <img src="http://127.0.0.1:8000${image}" alt="" />
             <h3 class="content">${contents}</h3>
         </div>
         <div>

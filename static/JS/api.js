@@ -107,3 +107,35 @@ function logout() {
 }
 
 
+
+// article 작성
+async function postArticle(contents, title, board, category) {
+    const image = document.getElementById("formFile").files[0]
+    const test_exposure_date = "3000-12-01"
+    console.log(image)
+    let form_data = new FormData()
+    form_data.enctype = "multipart/form-data"
+    form_data.append("article_image", image)
+    form_data.append("article_title", title)
+    form_data.append("article_contents", contents)
+    form_data.append("board", board)
+    form_data.append("article_category", category)
+    form_data.append("article_exposure_date", test_exposure_date)
+
+    const response = await fetch(`${backend_base_url}/article/`, {
+        method: 'POST',
+        headers: {
+            // Accept: "multipart/form-data", 
+            // "Content-Type": "multipart/form-data",
+            "Authorization": "Bearer " + localStorage.getItem("access"),
+            "access-control-allow-origin": "*",
+        },
+        body: form_data
+
+
+    })
+
+    response_json = await response.json()
+}
+
+
