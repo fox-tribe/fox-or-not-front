@@ -72,6 +72,7 @@ async function changeInfo(nickname, password, selectGender){
         }
 )
 response_json = await response.json()
+window.location.replace(`${frontend_base_url}/mypage.html`)
 }
 
 // 로그인
