@@ -4,6 +4,18 @@ const decoded_name = decodeURI(boards_name)
 
 // 게시물 상세 페이지 부르기
 window.onload = async function board() {
+    // 로그인 로그아웃 회원가입 버튼 숨기기
+    if (!localStorage.getItem("access")) {
+        let logout_button = document.getElementById("logout-button")
+        logout_button.style.visibility = "hidden"
+    }
+    else {
+        let login_button = document.getElementById("login-button")
+        let signup_button = document.getElementById("signup-button")
+        login_button.style.visibility = "hidden"
+        signup_button.style.visibility = "hidden"
+    }
+
     let board = async () => {
         let response = await fetch(`${backend_base_url}/article/board?boards=${decoded_name}`, {
             method: 'GET',
