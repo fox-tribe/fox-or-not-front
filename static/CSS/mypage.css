@@ -7,7 +7,6 @@
 
 * {
     font-family: 'GmarketSansMedium';
-
 }
 
 p {
@@ -16,6 +15,8 @@ p {
 
 body {
     background: linear-gradient(0.25turn, lightgray, rgba(230, 177, 78, 0.484), white);
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .bote p{
@@ -82,7 +83,7 @@ body {
     position: absolute;
 }
 
-.button {
+.modalbutton {
     background-color: rgba( 255, 255, 255, 0 ) ;
     border: none;
     margin-top: 20px;
@@ -92,13 +93,13 @@ body {
     border-bottom: 2px solid gray
 }
 
-.mymenus {
+.modalmenus {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-.mymenu {
+.modalmenu {
     margin-right: 10px;
     border: none;
     padding: 10px;
@@ -129,18 +130,28 @@ body {
     display: none;
 }
 
+.tapanddiv {
+    display:Flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+}
+
 .taps {
     display: flex;
     flex-direction: row;
-    justify-content: center;
     align-items: flex-end;
+    flex-wrap: nowrap;
     margin-top: 30px;
-    margin-right: 700px;
     height: 70px;
+    width: 1210px;
+    max-width: 100%;
 }
 
 .non-click {
     width: 170px;
+    max-width: 100%;
     text-align: center;
     font-size: 30px;
     color: white;
@@ -154,6 +165,7 @@ body {
 
 .click {
     width: 170px;
+    max-width: 100%;
     text-align: center;
     font-size: 30px;
     font-weight: bold;
@@ -172,52 +184,71 @@ body {
 .squarewrap {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
 }
 
 .mainsquare {
     width: 1200px;
+    max-width: 100%;
     height: 100%;
     background-color: orange;
     border-top-right-radius: 30px;
-    padding: 20px;
+    padding: 5px;
 }
 
 .mylogs {
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 100%;
+
 }
 
 .myarticles {
     width: 1000px;
+    max-width: 100%;
     height: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
     margin-bottom: 30px;
+
 }
 
 .myarticle {
     background-color: white;
     width: 300px;
-    height: 300px;
-    margin: 15px 10px 15px 20px;
+    height: 100%;
+    margin: 15px 10px 15px 10px;
     font-size: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 15px 0px 15px 0px;
+}
+
+.mycomments {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .mycomment {
-    background: linear-gradient(90deg, orange 50%, red 50%);
-    width: 970px;
+    background: linear-gradient(90deg, transparent 50%, red 50%);
+    width: 960px;
+    max-width: 100%;
     height: 70px;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    margin: 15px 20px 15px 20px;
+    margin: 15px 30px 15px 15px;
 }
 
 .thisarticle {
@@ -225,18 +256,33 @@ body {
     height: 70px;
     width: 300px;
     font-size: 20px;
+    margin-right: 15px;
+}
+
+.thisarticle p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 300px;
 }
 
 .thiscomment {
     background-color: white;
-    margin-left: 30px;
+    margin-left: 15px;
     height: 70px;
     width: 500px;
     font-size: 17px;
 }
 
+.thiscomment p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 500px;
+}
+
 .thislike {
-    margin-left: 80px;
+    margin-left: 75px;
     color: orange;
 }
 
@@ -262,13 +308,10 @@ body {
     margin: 10px 0px 10px 0px;
 }
 
+
 .line {
     border-left: 1px solid black;
-    height: 400px;
-}
-
-.newbios {
-    margin-bottom: 30px;
+    height: 350px;
 }
 
 .newbio {
@@ -291,8 +334,8 @@ body {
     background-color: white;
 }
 
-.form-select {
-    font-size: 15px;
+.form-select option {
+    font-size: 13px;
 }
 
 .changebutton {
@@ -310,4 +353,161 @@ body {
 
 .clicked {
     color: gold;
+}
+
+
+@media (max-width:980px) {
+    .myarticle {
+        height: 120px;
+        width: 120px;
+        font-size: 15px;
+        padding: 15px 10px 15px 10px;
+    }
+
+    .mylogs h1 {
+        font-size: 30px;
+    }
+
+    .mycomment {
+        width: 360px;
+        height: 50px;
+        margin-left: 0px;
+        margin-right: 0px;
+        font-size: 13px;
+    }
+
+    .thisarticle {
+        width: 125px;
+        height: 50px;
+        font-size: 15px;
+        margin-right: 5px;
+    }
+
+    .thisarticle p {
+        width: 125px;
+    }
+
+    .thiscomment {
+        width: 155px;
+        height: 50px;
+        font-size: 13px;
+        margin-left: 5px;
+    }
+
+    .thiscomment p {
+        width: 155px;
+    }
+
+    .thislike {
+        margin-left: 35px;
+        font-size: 10px;
+    }
+
+    .taps {
+        margin-left: -10px;
+    }
+
+    .non-click {
+        height: 35px;
+        width: 80px;
+        font-size: 15px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    } 
+
+    .click {
+        height: 40px;
+        width: 80px;
+        font-size: 15px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    } 
+
+    .taps :hover {
+        height: 40px;
+    }
+
+    .biofixed {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .befbios h2 {
+        font-size: 20px;
+    }
+
+    .befbio {
+        width: 253px;
+        height: 20px;
+        font-size: 15px;
+        padding-bottom: 10px;
+    }
+
+    .line {
+        display: none;
+    }
+
+    .newbios h2 {
+        font-size: 20px;
+        margin-top: 30px;
+    }
+
+    .newbio {
+        width: 263px;
+        height: 20px;
+        padding: 10px 0px 10px 0px;
+        font-size: 15px;
+    }
+
+    .newbiodiv {
+        font-size: 15px;
+        padding: 10px 0px 10px 0px;
+        height: 20px;
+        width: 263px;
+    }
+
+    .changebutton {
+        margin-left: 210px;
+        }
+
+}
+
+
+@media (max-width:580px) {
+
+    .logo {
+        height: 70px;
+        width: 93px;
+    }
+
+    .hbutton {
+        height: 30px;
+        width: 30px;
+    }
+    
+    .hbutton2 {
+        height: 30px;
+        width: 35px;
+    }
+
+    .Top-bar {
+        height: 100px;
+    }
+
+    .mylogs h1 {
+        font-size: 25px;
+    }
+
+    .terms h2 {
+        font-size: 20px;
+    }
+
+    .terms p {
+        font-size: 14px;
+    }
+
+    .form-select {
+        font-size: 14px;
+    }
+
 }
