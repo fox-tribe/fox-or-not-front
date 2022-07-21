@@ -48,7 +48,7 @@ window.onload = async function articleDetail() {
             </div>
         </div>
         <div class="contentdiv">
-            <img src="http://127.0.0.1:8000${image}" alt="" />
+            <img src="http://127.0.0.1:8000${image}" alt="" style="width:100%; height:100%;" />
             <h3 class="content">${contents}</h3>
         </div>
         <div>
