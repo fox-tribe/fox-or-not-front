@@ -17,8 +17,6 @@ async function userInfo() {
     myData().then((data) => {
         detail = response_json
         console.log(detail)
-        let username_html = `<h3>${username}님 환영합니다</h3>`
-        $('#mypage-username').prepend(username_html)
         for (let i = 0; i < detail.length; i++) {
             if (detail[i]['author'] == username) {
                 let author = detail[i]['author']
