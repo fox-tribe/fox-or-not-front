@@ -9,6 +9,12 @@ window.onload = async function articleDetail() {
                 'Content-Type': 'application/json',
             },
         })
+
+        if (!localStorage.getItem("access")) {
+            let my_buttons = document.getElementById("my-buttons")
+            my_buttons.style.visibility = "hidden"
+        }
+
         response_json = await response.json()
         return response_json.articles
     }
@@ -43,6 +49,10 @@ window.onload = async function articleDetail() {
         </div>`
 
         $('#article-detail-box').prepend(temp_html)
+
+        let username_html = `<h3>${author}님 환영합니다</h3>`
+        $('#mypage-username').prepend(username_html)
+
         for (let i = 0; i < detail['comment_set'].length; i++) {
             let comments = detail['comment_set'][i]['comment_contents']
             let comment_id = detail['comment_set'][i]['id']
