@@ -1,7 +1,7 @@
 async function userInfo() {
 
-    const myData = async () => {
-        const response = await fetch(`${backend_base_url}/user/`, {
+    const userInfo = async () => {
+        const response = await fetch(`${backend_base_url}/user/api/authonly/`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -11,52 +11,34 @@ async function userInfo() {
         }
     )
     response_json = await response.json()
-    console.log(response_json)
     }
-
-    myData().then((data) => {
+    userInfo().then((data) => {
         detail = response_json
         console.log(detail)
-        let username_html = `<h3>${username}님 환영합니다</h3>`
-        $('#mypage-username').prepend(username_html)
-        for (let i = 0; i < detail.length; i++) {
-            if (detail[i]['author'] == username) {
-                let author = detail[i]['author']
-                let id = detail[i]['id']
-                let title = detail[i]['article_title']
-                let contents = detail[i]['article_contents']
-                let date = detail[i]['article_post_date']
-                let count_fox = detail[i]['vote']['fox']
-                let count_green = detail[i]['vote']['green']
-                let count_miss = detail[i]['vote']['miss']
-                let temp_html =`
-                <div class="myarticle" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">
-                <p><b>${title}</b></p>
-                <p>🦊 : ${count_fox} <br> 💚 : ${count_green} <br> 💔 : ${count_miss}</p>
-                </div>`
-                $('#mypage-article-box').prepend(temp_html)
-            }else{}
-        }
-        for (let i = 0; i < detail.length; i++) {
-            for (let j = 0; j < detail[i]['comment_set'].length; j++) {
-            if (detail[i]['comment_set'][j]['author'] == username) {
-                let title = detail[i]['article_title']
-                let id = detail[i]['id']
-                let contents = detail[i]['comment_set'][j]['comment_contents']
-                let likes = detail[i]['comment_set'][j]['count']
-                let temp_html =`
-                <div class="mycomment">
-                <div class="thisarticle" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${title}</div>
-                <div class="thiscomment">${contents}</div>
-                <div class="thislike"><i class="fa-solid fa-heart fa-2x"></i><p>${likes}</p></div>
-                </div>`
-                $('#mypage-comment-box').prepend(temp_html)
-            }else{}
-            }
-        }
-        
-
+        let username = detail['username']
+        console.log(detail['username'])
+        let nickname = detail['nickname']
+        console.log(detail['nickname'])
+        let gender = detail['gender']
+        console.log(detail['gender'])
+        let temp_html =`                <h2>현재정보</h2>
+        <div class="befbio"><p>${username}</p></div>
+        <div class="befbio"><p>${nickname}</p></div>
+        <div class="befbio"><p>${gender}</p></div>`
+        $('#profile').prepend(temp_html)
     })
 }
+
+
+function editInfo() {
+    let nickname = document.getElementById("edit-nickname").value
+    let password = document.getElementById("edit-password").value
+    let selectGender = document.getElementById("edit-gender").value
+
+    changeInfo(nickname, password, selectGender)
+}
+
+
+
 
 userInfo()
