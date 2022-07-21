@@ -35,6 +35,33 @@ body {
     margin-left: 0;
     margin-right: 0;
 }
+/* 로그인 공간 */
+.login-space {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.login-block {
+    width: 1000px;
+    height: 30px;
+    text-align: right;
+}
+
+.login-modal {
+    background-color: #2e2e2ea8;
+    backdrop-filter: blur(5px);
+}
+
+.login-modal-size {
+    width: 300px;
+}
+
+.modal-dialog-centered {
+    justify-content: space-around;
+}
 
 /* 상단공간 */
 .Top-bar-buttons {
@@ -206,7 +233,7 @@ body {
     width: 100%;
     color: lightgray;
     text-align: end;
-    font-size: 10px;
+    font-size: 15px;
     padding: 4px 10px 5px 0;
 }
 

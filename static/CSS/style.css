@@ -29,6 +29,10 @@ body {
     font-family: 'GmarketSansMedium';
 }
 
+.navbar > img {
+    cursor: pointer;
+}
+
 /* 로그인 공간 */
 .login-space {
     width: 100%;
