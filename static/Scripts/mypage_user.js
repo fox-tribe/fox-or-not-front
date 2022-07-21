@@ -37,7 +37,7 @@ function editInfo() {
         alert('빈칸을 입력해주세요!')
     }
     else {
-    changeInfo(nickname, password, selectGender)
+        changeInfo(nickname, password, selectGender)
     }
 }
 
