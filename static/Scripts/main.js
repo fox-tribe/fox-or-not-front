@@ -117,7 +117,7 @@ async function getArticlesByBoard() {
             <div class="pop-article row">
                 <div class="pop-article-title col" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${title}
                 </div>
-                <div class="pop-article-writer col">${author}</div>
+                <div class="pop-article-writer col" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${author}</div>
             </div>`
             $('#mostLiked-box').prepend(temp_html)
         }} catch (err) {
