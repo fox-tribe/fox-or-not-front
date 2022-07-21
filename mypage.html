@@ -10,10 +10,14 @@
     <!-- CSS -->
     <link rel="stylesheet" href="../static/CSS/mypage.css">
     <!-- JS -->
-    <script src="./static/Scripts/api.js"></script>
     <script src="https://kit.fontawesome.com/45d75bb0cc.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+        crossorigin="anonymous">
+    </script>
 </head>
-<body>
+<body onload="getMyArticles()">
+
 
 <!-- 헤더 -->
 <header>
@@ -31,10 +35,11 @@
 <!-- 메뉴 모달 -->
 <div class="modal hidden">
     <div class="modal__overlay"></div>
-    <div class="modal__content">
-        <h3>{username}님 환영합니다</h3>
-        <div class="modalmenus">
-            <div><button type="button" class="modalmenu" onclick="handleLogout()">Logout</button></div>
+
+    <!-- 메뉴 유저네임 부분 -->
+    <div class="modal__content" id="mypage-username">
+        <div class="mymenus">
+            <div><button type="button" class="mymenu" onclick="handleLogout()">Logout</button></div>
         </div>
 <!-- 검색 -->
         <div>
@@ -59,7 +64,7 @@
 
 <div class="tapanddiv">
 
-<!-- 탭메뉴 -->
+    <!-- 탭메뉴 -->
     <div class="taps">
         <div class="non-click" id="tap1">내게시글</div>
         <div class="non-click" id="tap2">정보수정</div>
@@ -114,7 +119,6 @@
                     <div class="befbio"><p>이전닉네임</p></div>
                     <div class="befbio"><p>이전성별</p></div>
                 </div>
-
                 <div class="line"></div>
 
                 <div class="newbios">
@@ -133,8 +137,7 @@
                         <label for="change" class="changebutton">변경</label>
                         <input type="submit" id="change" style="display:none;">
                     </div>
-                </div>
-
+                 </div>
             </div>
         
 
@@ -155,11 +158,12 @@
 
 
         </div>
-
-
     </div>
+    
 </div>
 
+
 <script src="../static/Scripts/mypage.js"></script>
+<script src="../static/Scripts/mypage_user.js"></script>
 </body>
 </html>

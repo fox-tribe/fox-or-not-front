@@ -15,7 +15,7 @@ async function handleSignin() {
         gender: document.getElementById('floatingGender').value,
         birth: document.getElementById('floatingBirth').value
     }
-    print(signupData)
+
 
     const password = document.getElementById('floatingPassword').value
     const password2 = document.getElementById('floatingPassword2').value
@@ -41,7 +41,7 @@ async function handleSignin() {
         if (response.status == 200) {
             alert("회원가입 완료")
             response_json = await response.json()
-            window.location.replace(`${frontend_base_url}/index.html`);
+            window.location.replace(`${frontend_base_url}/signup.html`);
         } else if (response.status == 500) {
             alert("동일한 아이디 및 닉네임이 이미 존재합니다")
         } else {
@@ -52,15 +52,49 @@ async function handleSignin() {
     }
 }
 
+// 회원정보 변경
+async function changeInfo(nickname, password, selectGender){
+    console.log(selectGender)
+    let data = {
+        password : password,
+        gender : selectGender,
+        nickname : nickname,
+    }
+    
+    const response = await fetch(`${backend_base_url}/user/`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                "Authorization": "Bearer " + localStorage.getItem("access"),
+            },
+            body: JSON.stringify(data)
+        
+        }
+)
+response_json = await response.json()
+window.location.replace(`${frontend_base_url}/mypage.html`)
+}
+
 // 로그인
 async function handleLogin() {
     // console.log("handle login")
 
     const loginData = {
-        username: document.getElementById("floatingInput").value,
-        password: document.getElementById('floatingPassword').value
+        username: document.getElementById("floatingloginID").value,
+        password: document.getElementById('floatingloginPassword').value
     }
     username = loginData.username
+
+    const login_response = await fetch(`${backend_base_url}/user/login/`, {
+        headers: {
+            Accept: "application/json",
+            'Content-type': 'application/json'
+        },
+        method: 'POST',
+        body: JSON.stringify(loginData)
+    })
+    login_response_json = await login_response.json()
+    console.log(login_response_json)
 
     const response = await fetch(`${backend_base_url}/user/api/token/`, {
         headers: {
@@ -93,3 +127,49 @@ async function handleLogin() {
     }
 
 }
+
+
+// 로그아웃
+
+function logout() {
+    alert("로그아웃 하였습니다")
+    localStorage.removeItem("access")
+    localStorage.removeItem("refresh")
+    localStorage.removeItem("payload")
+
+    window.location.replace(`${frontend_base_url}/index.html`)
+}
+
+
+
+// article 작성
+async function postArticle(contents, title, board, category) {
+    const image = document.getElementById("formFile").files[0]
+    const test_exposure_date = "3000-12-01"
+    console.log(image)
+    let form_data = new FormData()
+    form_data.enctype = "multipart/form-data"
+    form_data.append("article_image", image)
+    form_data.append("article_title", title)
+    form_data.append("article_contents", contents)
+    form_data.append("board", board)
+    form_data.append("article_category", category)
+    form_data.append("article_exposure_date", test_exposure_date)
+
+    const response = await fetch(`${backend_base_url}/article/`, {
+        method: 'POST',
+        headers: {
+            // Accept: "multipart/form-data", 
+            // "Content-Type": "multipart/form-data",
+            "Authorization": "Bearer " + localStorage.getItem("access"),
+            "access-control-allow-origin": "*",
+        },
+        body: form_data
+
+
+    })
+
+    response_json = await response.json()
+}
+
+

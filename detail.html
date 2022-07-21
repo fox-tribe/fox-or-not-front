@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,28 +10,33 @@
     <link rel="shortcut icon" href="../static/image/favicon.png" type="image/x-icon">
     <!-- CSS -->
     <link rel="stylesheet" href="../static/CSS/detail.css">
+    <!-- 부트스트랩 -->
     <!-- JS -->
-    <script src="./static/Scripts/api.js"></script>
     <script src="https://kit.fontawesome.com/45d75bb0cc.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"
-        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-        crossorigin="anonymous">
-    </script>
-    
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous">
+        </script>
+
 </head>
-<body>
+
+<body onload="getArticlesByBoard()">
+    <!-- 로그인 공간 -->
+    <div class="login-space">
+        <div class="login-block">
+            <button type="button" id="login-button" class="btn btn-light btn-sm" data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop">로그인</button>
+                <button type="button" class="btn btn-light btn-sm" id="signup-button" onclick="location.href='signup.html'">회원가입</button>
+                <button type="button" id="logout-button" class="btn btn-warning btn-sm" id="#" onclick="logout()">로그아웃</button>
+        </div>
+    </div>
     <!-- 헤더 -->
     <header>
+        <div class="Top-bar-buttons" id="my-buttons">
+            <img class="hbutton" src="../static/image/여우머리.png">
+            <img class="hbutton2" id="modalclick" onclick="modal()" src="../static/image/menu.png">
+        </div>
         <div class="Top-bar">
-            <div class="fakediv" style="width:145px;"></div>
-            <div>
-                <img src="../static/image/logo.png" alt="" class="logo" onclick="location.href='index.html'">
-            </div>
-            <div class="Top-bar-buttons">
-                <img class="hbutton" src="../static/image/여우머리.png">
-                <img class="hbutton2" id="modalclick" onclick="modal()" src="../static/image/menu.png">
-            </div>
-    
+            <img src="../static/image/logo.png" alt="" class="logo" onclick="location.href='index.html'">
         </div>
     </header>
     <hr style="border: dashed orange;">
@@ -38,70 +44,60 @@
     <div class="modal hidden">
         <div class="modal__overlay"></div>
         <div class="modal__content">
-            <h3>{username}님 환영합니다</h3>
+            <div id="mypage-username"></div>
+            <br>
+
             <div class="mymenus">
                 <div><button type="button" class="mymenu" onclick="location.href='mypage.html'">MyPage</button></div>
-                <div><button type="button" class="mymenu" onclick="handleLogout()">Logout</button></div>
+                <div><button type="button" class="mymenu" onclick="logout()">Logout</button></div>
             </div>
-    <!-- 검색         -->
+            <!-- 검색         -->
             <div>
                 <input type="text" class="search" placeholder="검색어를 입력하세요">
                 <input type="submit" style="display:none;" id="searchsubmit">
                 <label for="searchsubmit"><i class="fa-solid fa-magnifying-glass"></i></label>
             </div>
             <div class="categorys">
-                <img class="category" src="../static/image/board01.png">
-                <img class="category" src="../static/image/board02.png"><br>
-                <img class="category" src="../static/image/board03.png">
-                <img class="category" src="../static/image/board04.png"><br>
-                <img class="category" src="../static/image/board05.png">
-                <img class="category" src="../static/image/board06.png"><br>
-                <img class="category" src="../static/image/board07.png">
-            </div> 
+                <img class="category" src="../static/image/board01.png" onclick="location.href='board.html?boards=직장인'">
+                <img class=" category" src="../static/image/board02.png" onclick="location.href='board.html?boards=대학생'"
+                    onclick="location.href='board.html?boards=10대'"><br>
+                <img class=" category" src="../static/image/board03.png" onclick="location.href='board.html?boards=성인'">
+                <img class="category" src="../static/image/board04.png"
+                    onclick="location.href='board.html?boards=LGBTQ'"><br>
+                <img class="category" src="../static/image/board05.png" onclick="location.href='board.html?boards=자유'">
+                <img class="category" src="../static/image/board06.png"
+                    onclick="location.href='board.html?boards=HOT'"><br>
+                <img class="category" src="../static/image/board07.png" onclick="location.href='board.html?boards=HOT'">
+            </div>
             <button class="button">닫기</button>
         </div>
     </div>
 
-    <div class="bodywrap">
-        <!-- 제목 -->
-        <div class="titlediv">
-            <div><h2 class="title">여기에 타이틀이 들어갑니다</h2></div>
-            <div class="writeinfo">
-                <h3 class="writer">작성자</h3>
-                <h3 class="time">작성시간</h3>
-            </div>
-        </div>
-        <!-- 내용 -->
-        <div class="contentdiv">
-            <h3 class="content">여기에 글 내용이 들어갑니다 여기에 글 내용이 들어갑니다 여기에 글 내용이 들어갑니다 여기에 글 내용이 들어갑니다 여기에 글 내용이 들어갑니다 여기에 글 내용이 들어갑니다 여기에 글 내용이 들어갑니다 </h3>
-        </div>
-        <!-- 투표 -->
+    <!-- 메인 컨텐츠 공간 -->
+    <div class="content-box row">
+        <!-- 아티클 디테일 for문-->
+        <div id="article-detail-box"></div>
+        <!-- 투표 for문-->
         <div class="botediv">
-            <div class="boteb"><button type="button" class="bote">🦊</button><p class="btext1">폭스입니다</p></div>
-            <div class="boteb"><button type="button" class="bote">💚</button><p class="btext2">그린라이트</p></div>
-            <div class="boteb"><button type="button" class="bote">💔</button><p class="btext3">오해입니다</p></div>
         </div>
-        <!-- 댓글달기 -->
-            <div class="wcommentdiv">
-                <textarea name="" id="wcomment" class="wcomment"  placeholder="댓글을 달아주세요!"></textarea>
-                <label for="cosubmit" class="cosubmit">댓글달기</label>
-                <input type="submit" style="display:none" id="submit">
-            </div>
-        <!-- 댓글보여주기 -->
-            <div class="comments">
-                <div class="cowriteinfo">
-                    <div><p class="cowriter">작성자</p></div>
-                    <div><p class="cotime">작성시간</p></div>
-                </div>
-                <div class="commentdetail">
-                    <div class="comment"><h4>댓글내용</h4></div>
-                    <div><button type="button" id="like" class="like"><i class="fa-regular fa-heart fa-2x"></i></button></div>
-                    <div><button type="button" id="reallike" class="reallike"><i class="fa-solid fa-heart fa-2x"></i></button></div>
-                </div>
-            </div>
     </div>
+    <!-- 댓글 for문 -->
+    <div class="wcommentdiv">
+        <textarea name="" id="wcomment" class="wcomment" placeholder="댓글을 달아주세요!"></textarea>
+        <image for="cosubmit" class="cosubmit" onclick="commentCreate()" src="static/image/comment_button.png"></image>
+        <input type="submit" style="display:none" id="submit">
+    </div>
+    <!-- 댓글 리스팅 for문 -->
+    <div id="comments-box"></div>
+
+    
+</div>
 
     <!-- JS -->
-    <script src="../static/Scripts/detail.js"></script>
+    <script src="/static/JS/api.js"></script>
+    <script src="/static/Scripts/detail.js"></script>
+    <script src="/static/Scripts/main.js"></script>
+    <script src="/static/Scripts/article_detail.js"></script>
 </body>
+
 </html>

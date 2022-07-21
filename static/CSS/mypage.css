@@ -93,13 +93,13 @@ body {
     border-bottom: 2px solid gray
 }
 
-.modalmenus {
+.mymenus {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-.modalmenu {
+.mymenu {
     margin-right: 10px;
     border: none;
     padding: 10px;
