@@ -10,6 +10,7 @@
     <link rel="shortcut icon" href="../static/image/favicon.png" type="image/x-icon">
     <!-- CSS -->
     <link rel="stylesheet" href="../static/CSS/detail.css">
+    <!-- 부트스트랩 -->
     <!-- JS -->
     <script src="https://kit.fontawesome.com/45d75bb0cc.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"
@@ -19,6 +20,15 @@
 </head>
 
 <body onload="getArticlesByBoard()">
+    <!-- 로그인 공간 -->
+    <div class="login-space">
+        <div class="login-block">
+            <button type="button" id="login-button" class="btn btn-light btn-sm" data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop">로그인</button>
+                <button type="button" class="btn btn-light btn-sm" id="signup-button" onclick="location.href='signup.html'">회원가입</button>
+                <button type="button" id="logout-button" class="btn btn-warning btn-sm" id="#" onclick="logout()">로그아웃</button>
+        </div>
+    </div>
     <!-- 헤더 -->
     <header>
         <div class="Top-bar-buttons" id="my-buttons">
@@ -77,6 +87,9 @@
     </div>
     <!-- 댓글 리스팅 for문 -->
     <div id="comments-box"></div>
+
+    
+</div>
 
     <!-- JS -->
     <script src="/static/JS/api.js"></script>
