@@ -27,3 +27,14 @@ $(document).ready(function(){
         $("#reallike").hide();
     })
 })
+
+// 로그아웃
+
+function logout() {
+    alert("로그아웃 하였습니다")
+    localStorage.removeItem("access")
+    localStorage.removeItem("refresh")
+    localStorage.removeItem("payload")
+
+    window.location.replace(`${frontend_base_url}/index.html`)
+}

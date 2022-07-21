@@ -7,6 +7,7 @@ hr {
 body {
     background-image: url(/static/image/main_background.jpg);
     background-repeat: no-repeat;
+
 }
 
 .row>* {
@@ -28,12 +29,17 @@ body {
     font-family: 'GmarketSansMedium';
 }
 
+.navbar > img {
+    cursor: pointer;
+}
+
 /* 로그인 공간 */
 .login-space {
     width: 100%;
     height: 30px;
     display: flex;
     justify-content: center;
+    margin-top: 20px;
 }
 
 .login-block {
@@ -280,4 +286,81 @@ body {
     text-align: center;
     padding-top: 40px;
     font-size: 30px;
+}
+
+.mobile_log {
+    display: none;
+}
+
+.search-button {
+    border-radius: 90px;
+}
+
+.search-button:hover {
+    transition: all 0.3s;
+    transform: rotate(180deg);
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+
+    .login-block {
+        display: none;
+    }
+
+    .Top-bar1 {
+        min-width: 350px;
+        height: 150px;
+        margin-bottom: 12px;
+    }
+
+    .board {
+        width: 80px;
+        height: auto;
+    }
+
+    .popular-banner {
+        display: none;
+    }
+
+    .popular-banner .row {
+        max-width: 120%
+    }
+
+    .popular-article {
+        width: 350px;
+    }
+
+    .footer-space-teamlogo {
+        padding: 0;
+    }
+
+    .second-floor-board {
+        margin-bottom: 15px;
+    }
+
+    .Top-bar-buttons {
+        display: block;
+    }
+
+    .hbutton {
+        height: 30px;
+        width: 30px;
+    }
+
+    .hbutton2 {
+        height: 30px;
+        width: 35px;
+    }
+
+    .mobile_log {
+        margin: 20px;
+        display: block;
+        text-align: end;
+    }
+
+    .second-floor {
+        height: 1800px;
+    }
+
 }

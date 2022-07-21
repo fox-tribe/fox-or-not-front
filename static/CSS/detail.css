@@ -10,6 +10,15 @@
 
 }
 
+h2,
+h3 {
+    margin: 0;
+}
+
+h4 {
+    margin: 15px;
+}
+
 p {
     margin: 0;
 }
@@ -18,28 +27,62 @@ body {
     background: linear-gradient(0.25turn, lightgray, rgba(230, 177, 78, 0.484), white);
 }
 
-.bote p{
+.bote p {
     margin: 0;
 }
 
-.bodywrap div{
+.bodywrap {
     margin-left: 0;
     margin-right: 0;
 }
+/* 로그인 공간 */
+.login-space {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.login-block {
+    width: 1000px;
+    height: 30px;
+    text-align: right;
+}
+
+.login-modal {
+    background-color: #2e2e2ea8;
+    backdrop-filter: blur(5px);
+}
+
+.login-modal-size {
+    width: 300px;
+}
+
+.modal-dialog-centered {
+    justify-content: space-around;
+}
+
+/* 상단공간 */
+.Top-bar-buttons {
+    width: 100%;
+    height: 60px;
+    justify-content: flex-end;
+    display: flex;
+}
 
 .Top-bar {
+    width: 100%;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
 .logo {
-    height: 100px;
+    height: 120px;
     margin: 10px;
     cursor: pointer;
-} 
+}
 
 .hbutton {
     height: 50px;
@@ -53,6 +96,18 @@ body {
     width: 55px;
     margin: 10px;
     cursor: pointer;
+}
+
+/* 콘텐츠공간 */
+.comments-box {
+    width: 800px;
+    margin: auto;
+    display: flex;
+}
+
+.content-box {
+    width: 100%;
+
 }
 
 .modal {
@@ -71,18 +126,18 @@ body {
     top: 0;
     height: 100%;
     text-align: center;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
 .modal__overlay {
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0, 0, 0, 0.6);
     width: 100%;
     height: 100%;
     position: absolute;
 }
 
 .button {
-    background-color: rgba( 255, 255, 255, 0 ) ;
+    background-color: rgba(255, 255, 255, 0);
     border: none;
     margin-top: 20px;
     cursor: pointer;
@@ -124,12 +179,16 @@ body {
     width: 90px;
 }
 
+.category:hover {
+    transform: scale(1.1);
+}
+
 .hidden {
     display: none;
 }
 
 .bodywrap {
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
@@ -141,25 +200,28 @@ body {
     align-items: center;
     flex-wrap: wrap;
     border: 1px solid orange;
-    width: 1200px;
-    max-width: 100%;
+    width: 800px;
     background-color: white;
+    margin: auto;
 }
 
 .title {
-    word-break:break-all;
-    max-width: 1000px;
+    width: 100%;
+    text-align: center;
+    margin: 5px auto 15px auto;
 }
 
+
 .contentdiv {
-    width: 1200px;
-    max-width: 100%;
+    width: 800px;
     overflow: hidden;
     height: auto;
-    margin: 10px;
+    margin: 15px auto 0 auto;
     border: 1px solid orange;
     background-color: white;
 }
+
+
 
 .content {
     margin: 10px;
@@ -168,21 +230,25 @@ body {
 
 
 .writeinfo {
+    width: 100%;
     color: lightgray;
+    text-align: end;
+    font-size: 15px;
+    padding: 4px 10px 5px 0;
 }
 
 .botediv {
     display: flex;
+    margin: 15px auto 0 auto;
     flex-direction: row;
     justify-content: space-around;
-    width: 1200px;
-    max-width: 100%;
+    width: 800px;
 }
 
 .bote {
     font-size: 50px;
     margin: 0;
-    background-color: rgba( 255, 255, 255, 0 );
+    background-color: rgba(255, 255, 255, 0);
     border: none;
     cursor: pointer;
 }
@@ -218,35 +284,35 @@ body {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 50px;
-    width: 1200px;
-    max-width: 100%;
+    margin: 20px auto 0 auto;
+    width: 800px;
 }
 
 .wcomment {
     resize: none;
-    width: 1000px;
-    max-width: 100%;
+    width: 100%;
     height: 50px;
     font-size: 17px;
     border: 1px solid orange;
 }
 
 .cosubmit {
-    padding: 16px 0px 16px 0px;
-    margin-left: 10px;
-    background-color: orange;
-    color: gray;
+    color: orange;
+    text-decoration-line: underline;
+    text-decoration-style: double;
+    cursor: pointer;
     font-weight: bold;
+    font-size: 18px;
+    margin-top: 5px;
 }
 
 .comments {
-    width: 920px;
-    max-width: 100%;
+    width: 800px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: auto;
 }
 
 .cowriteinfo {
@@ -280,7 +346,7 @@ body {
 }
 
 .like {
-    background-color:rgba( 255, 255, 255, 0 );
+    background-color: rgba(255, 255, 255, 0);
     border: none;
     color: orange;
     font-weight: bold;
@@ -289,7 +355,7 @@ body {
 }
 
 .reallike {
-    background-color:rgba( 255, 255, 255, 0 );
+    background-color: rgba(255, 255, 255, 0);
     border: none;
     font-weight: bold;
     margin: 0;
@@ -298,10 +364,57 @@ body {
     display: none;
 }
 
-@media (max-width:580px) {
+.cowriter {
+    background-color: rgb(255, 136, 0);
+    color: black;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.comment-modify {
+    background-color: rgb(66, 68, 75);
+    color: white;
+    margin-left: 5px;
+    border-radius: 3px;
+    padding: 1px 5px 1px 5px;
+}
+
+.comment-delete {
+    background-color: rgb(255, 0, 0);
+    color: white;
+    margin-left: 5px;
+    border-radius: 3px;
+    padding: 1px 5px 1px 5px;
+}
+
+@media (max-width: 768px) {
+    .comments {
+        width: 100%;
+    }
+
+    .wcommentdiv {
+        width: 100%;
+    }
+
+    .Top-bar-buttons {
+        width: 100%;
+        padding: 0;
+    }
+
+    .botediv {
+        width: 100%;
+    }
+
+    .titlediv {
+        width: 100%;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
 
     .logo {
-        height: 57px;
+        height: 67px;
         width: 113px;
     }
 
@@ -309,7 +422,7 @@ body {
         height: 30px;
         width: 30px;
     }
-    
+
     .hbutton2 {
         height: 30px;
         width: 35px;
@@ -338,5 +451,15 @@ body {
     .btext3 {
         font-size: 15px;
     }
+
+    .Top-bar {
+        height: 100px;
+    }
+
+    .contentdiv {
+        width: 100%;
+        font-size: 14px;
+    }
+
 
 }
