@@ -23,10 +23,10 @@
     <!-- 로그인 공간 -->
     <div class="login-space">
         <div class="login-block">
-            <button type="button" id="login-button" class="btn btn-light btn-sm" data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop">로그인</button>
-                <button type="button" class="btn btn-light btn-sm" id="signup-button" onclick="location.href='signup.html'">회원가입</button>
-                <button type="button" id="logout-button" class="btn btn-warning btn-sm" id="#" onclick="logout()">로그아웃</button>
+            <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                id="login-button">로그인</button>
+            <button type="button" class="btn btn-light btn-sm" id="signup-button"
+                onclick="location.href='signup.html'">회원가입</button>
         </div>
     </div>
     <!-- 헤더 -->
@@ -51,12 +51,10 @@
                 <div><button type="button" class="mymenu" onclick="location.href='mypage.html'">MyPage</button></div>
                 <div><button type="button" class="mymenu" onclick="logout()">Logout</button></div>
             </div>
-            <!-- 검색         -->
-            <div>
-                <input type="text" class="search" placeholder="검색어를 입력하세요">
-                <input type="submit" style="display:none;" id="searchsubmit">
-                <label for="searchsubmit"><i class="fa-solid fa-magnifying-glass"></i></label>
-            </div>
+            <!-- 검색 -->
+            <input type="text" class="search" placeholder="검색어를 입력하세요">
+            <input type="submit" style="display:none;" id="searchsubmit">
+            <label for="searchsubmit"><i class="fa-solid fa-magnifying-glass"></i></label>
             <div class="categorys">
                 <img class="category" src="../static/image/board01.png" onclick="location.href='board.html?boards=직장인'">
                 <img class=" category" src="../static/image/board02.png" onclick="location.href='board.html?boards=대학생'"
@@ -72,6 +70,12 @@
             <button class="button">닫기</button>
         </div>
     </div>
+
+
+
+
+
+
 
     <!-- 메인 컨텐츠 공간 -->
     <div class="content-box row">
@@ -90,8 +94,8 @@
     <!-- 댓글 리스팅 for문 -->
     <div id="comments-box"></div>
 
-    
-</div>
+
+    </div>
 
     <!-- JS -->
     <script src="/static/JS/api.js"></script>
