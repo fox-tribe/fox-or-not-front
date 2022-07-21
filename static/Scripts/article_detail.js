@@ -88,7 +88,7 @@ async function commentCreate() {
     })
     response_json = await response.json()
     console.log(response_json)
-    window.location.reload()
+    
 }
 // 폭스 투표
 async function vote1() {
