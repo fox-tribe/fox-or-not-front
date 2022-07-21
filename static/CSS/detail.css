@@ -5,6 +5,19 @@
     font-style: normal;
 }
 
+.login-btn {
+    background-color: white;
+    border: 0;
+    padding: 8px;
+    font-size: .875rem;
+    border-radius: 5px;
+}
+
+.login-btn:hover {
+    background-color: rgb(255, 136, 0);
+    color: white;
+}
+
 * {
     font-family: 'GmarketSansMedium';
 
