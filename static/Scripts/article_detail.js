@@ -103,19 +103,20 @@ async function commentCreate() {
         alert('댓글을 작성해주세요!')
     }
     else {
-    let comment_data = {
-        comment_contents: comment_contents,
-    }
-    let response = await fetch(`${backend_base_url}/article/${obj_id}/comment/`, {
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": "Bearer " + localStorage.getItem("access"),
-        },
-        body: JSON.stringify(comment_data)
-    })
-    response_json = await response.json()
-    console.log(response_json)
+        let comment_data = {
+            comment_contents: comment_contents,
+        }
+        let response = await fetch(`${backend_base_url}/article/${obj_id}/comment/`, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + localStorage.getItem("access"),
+            },
+            body: JSON.stringify(comment_data)
+        })
+        response_json = await response.json()
+        console.log(response_json)
+        window.location.reload()
     
 }
 }
