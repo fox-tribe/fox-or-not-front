@@ -22,9 +22,10 @@ async function userInfo() {
         let gender = detail['gender']
         console.log(detail['gender'])
         let temp_html =`                <h2>현재정보</h2>
-        <div class="befbio"><p>${username}</p></div>
-        <div class="befbio"><p>${nickname}</p></div>
-        <div class="befbio"><p>${gender}</p></div>`
+        
+        <div class="befbio"><p><span style="color:black;">아이디:</span>   ${username}</p></div>
+        <div class="befbio"><p><span style="color:black;">닉네임:</span>   ${nickname}</p></div>
+        <div class="befbio"><p><span style="color:black;">성별:</span>    ${gender}</p></div>`
         $('#profile').prepend(temp_html)
 
     })
