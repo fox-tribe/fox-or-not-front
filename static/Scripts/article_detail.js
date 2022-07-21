@@ -88,6 +88,7 @@ async function commentCreate() {
     if (comment_contents == ''){
         alert('댓글을 작성해주세요!')
     }
+    else {
     let comment_data = {
         comment_contents: comment_contents,
     }
@@ -102,6 +103,7 @@ async function commentCreate() {
     response_json = await response.json()
     console.log(response_json)
     window.location.reload()
+}
 }
 // 폭스 투표
 async function vote1() {
