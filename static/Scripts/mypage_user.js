@@ -26,6 +26,7 @@ async function userInfo() {
         <div class="befbio"><p>${nickname}</p></div>
         <div class="befbio"><p>${gender}</p></div>`
         $('#profile').prepend(temp_html)
+
     })
 }
 

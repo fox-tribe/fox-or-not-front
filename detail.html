@@ -18,10 +18,10 @@
 
 </head>
 
-<body>
+<body onload="getArticlesByBoard()">
     <!-- 헤더 -->
     <header>
-        <div class="Top-bar-buttons">
+        <div class="Top-bar-buttons" id="my-buttons">
             <img class="hbutton" src="../static/image/여우머리.png">
             <img class="hbutton2" id="modalclick" onclick="modal()" src="../static/image/menu.png">
         </div>
@@ -35,6 +35,7 @@
         <div class="modal__overlay"></div>
         <div class="modal__content">
             <div id="mypage-username"></div>
+
             <div class="mymenus">
                 <div><button type="button" class="mymenu" onclick="location.href='mypage.html'">MyPage</button></div>
                 <div><button type="button" class="mymenu" onclick="logout()">Logout</button></div>
@@ -81,6 +82,7 @@
     <!-- JS -->
     <script src="/static/JS/api.js"></script>
     <script src="/static/Scripts/detail.js"></script>
+    <script src="/static/JS/main.js"></script>
     <script src="/static/Scripts/article_detail.js"></script>
 </body>
 
