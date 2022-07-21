@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>"{{검색단어}}" 검색 결과</title>
+
+    <!-- 파비콘 -->
+    <link rel="shortcut icon" href="../static/image/favicon.png" type="image/x-icon">
+
+    <!-- 부트스트랩 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <!--스타일 CSS -->
+    <link rel="stylesheet" href="/static/CSS/pagenation.css">
+    <link rel="stylesheet" href="../static/CSS/style.css">
+</head>
+
+<body style="background-color: rgb(43, 43, 43); color: white;">
+    <!-- 로그인 공간 -->
+    <div class="login-space">
+        <div class="login-block">
+            <button type="button" id="login-button" class="btn btn-light btn-sm" data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop">로그인</button>
+            <button type="button" class="btn btn-light btn-sm" id="signup-button"
+                onclick="location.href='signup.html'">회원가입</button>
+            <button type="button" id="logout-button" class="btn btn-warning btn-sm" id="#"
+                onclick="logout()">로그아웃</button>
+        </div>
+    </div>
+
+    <!-- 상단공간 -->
+    <div class="navbar">
+        <!-- 사이트 로고 -->
+        <img src="../static/image/logo.png" alt="" height="100px" onclick="location.href='index.html'">
+    </div>
+
+    <!-- 검색엔진 -->
+    <!-- 드롭다운 검색 적용법 확인중, 안되면 그냥 검색창으로 놔둘 예정 -->
+    <div class="input-group mt-3 mb-3 search-engine">
+        <select type="button" id="searchOption">
+            전체 게시글
+            <option><a class="dropdown-item" href="#">제목</a></option>
+            <option><a class="dropdown-item" href="#">내용</a></option>
+            <option><a class="dropdown-item" href="#">제목+내용</a></option>
+            <option><a class="dropdown-item" href="#">작성자</a></option>
+        </select>
+        <input type="text" class="form-control" placeholder="게시글 검색" id="searchKeywords">
+        <img src="static/image/search_button.png" onclick="search()" class="search-button">
+    </div>
+
+    <!-- 게시판행 버튼들 -->
+    <div class="Top-bar1 row justify-content-center">
+        <div class="Top-bar1-buttons row">
+            <img class="board" src="static/image/board01.png" onclick="location.href='board.html?boards=직장인'">
+            <img class="board" src="static/image/board02.png" onclick="location.href='board.html?boards=대학생'">
+            <img class="board" src="static/image/board03.png" onclick="location.href='board.html?boards=10대'">
+            <img class="board" src="static/image/board04.png" onclick="location.href='board.html?boards=성인'">
+            <img class="board" src="static/image/board05.png" onclick="location.href='board.html?boards=LGBTQ'">
+            <img class="board" src="static/image/board06.png" onclick="location.href='board.html?boards=자유'">
+            <img class="board" src="static/image/board07.png" onclick="location.href='board.html?boards=HOT'">
+        </div>
+    </div>
+
+    <!-- 게시판 공간 -->
+    <div class="board-space">
+        <!-- 게시판 명 -->
+        <div class="board-name"><b>"검색단어" 검색결과</b></div>
+
+        <article class="article">
+            <ul class="contents"></ul>
+            <div class="buttons"></div>
+        </article>
+        <!-- Scripts -->
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <script src="/static/JS/api.js"></script>
+        <script src="/static/JS/pagenation.js"></script>
+        <script src="/static/Scripts/boards.js"></script>
+    </div>
+    <!-- 로그인 모달창 -->
+    <div class="modal fade login-modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content login-modal-size">
+                <div class="modal-header">
+                    <h5 class="modal-title">로그인</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingloginID" placeholder="ID">
+                        <label for="floatingInput">ID</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="floatingloginPassword" placeholder="Password">
+                        <label for="floatingPassword">비밀번호</label>
+                    </div>
+                    아직 <a href="signup.html">계정</a>이 없으시다면?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                    <button type="button" class="btn btn-primary" onclick="handleLogin()">로그인</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
