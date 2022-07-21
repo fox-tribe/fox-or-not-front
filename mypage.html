@@ -91,11 +91,7 @@
 
         <div class="biofixed" id="biofixed" style="display:none;">
 
-            <div class="befbios">
-                <h2>현재정보</h2>
-                <div class="befbio"><p>현재아이디</p></div>
-                <div class="befbio"><p>현재닉네임</p></div>
-                <div class="befbio"><p>현재성별</p></div>
+            <div class="befbios" id="profile">
             </div>
 
             <div class="line"></div>
@@ -103,18 +99,18 @@
             <div class="newbios">
                 <h2>정보수정하기</h2>
                 <div><input type="text" class="newbio" placeholder="변경아이디"></div>
-                <div><input type="text" class="newbio" placeholder="변경닉네임"></div>
+                <div><input type="text" class="newbio" placeholder="변경닉네임" id="edit-nickname"></div>
                 <div class="newbiodiv"><span style="color:gray">변경성별</span>
-                    <select class="form-select mb-3" id="floatingGender" >
+                    <select class="form-select mb-3" id="edit-gender" >
                         <option>남성</option>
                         <option>여성</option>
                         <option>논바이너리</option>
                         <option>밝히고 싶지 않음</option>
                     </select>
                 </div>
-                <div><input type="password" class="newbio" placeholder="변경비밀번호"></div>
+                <div><input type="password" class="newbio" placeholder="변경비밀번호" id="edit-password"></div>
                 <div>
-                    <label for="change" class="changebutton">변경</label>
+                    <button onclick="editInfo()"><label for="change" class="changebutton">변경</label></button>
                     <input type="submit" id="change" style="display:none;">
                 </div>
             </div>

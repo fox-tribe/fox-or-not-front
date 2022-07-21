@@ -52,6 +52,29 @@ async function handleSignin() {
     }
 }
 
+// 회원정보 변경
+async function changeInfo(nickname, password, selectGender){
+    console.log(selectGender)
+    let data = {
+        password : password,
+        gender : selectGender,
+        nickname : nickname,
+    }
+    
+    const response = await fetch(`${backend_base_url}/user/`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                "Authorization": "Bearer " + localStorage.getItem("access"),
+            },
+            body: JSON.stringify(data)
+        
+        }
+)
+response_json = await response.json()
+window.location.replace(`${frontend_base_url}/mypage.html`)
+}
+
 // 로그인
 async function handleLogin() {
     // console.log("handle login")
@@ -61,6 +84,17 @@ async function handleLogin() {
         password: document.getElementById('floatingloginPassword').value
     }
     username = loginData.username
+
+    const login_response = await fetch(`${backend_base_url}/user/login/`, {
+        headers: {
+            Accept: "application/json",
+            'Content-type': 'application/json'
+        },
+        method: 'POST',
+        body: JSON.stringify(loginData)
+    })
+    login_response_json = await login_response.json()
+    console.log(login_response_json)
 
     const response = await fetch(`${backend_base_url}/user/api/token/`, {
         headers: {
