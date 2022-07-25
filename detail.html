@@ -10,6 +10,7 @@
     <link rel="shortcut icon" href="../static/image/favicon.png" type="image/x-icon">
     <!-- CSS -->
     <link rel="stylesheet" href="../static/CSS/detail.css">
+    <!-- 부트스트랩 -->
     <!-- JS -->
     <script src="https://kit.fontawesome.com/45d75bb0cc.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"
@@ -19,6 +20,15 @@
 </head>
 
 <body onload="getArticlesByBoard()">
+    <!-- 로그인 공간 -->
+    <div class="login-space">
+        <div class="login-block">
+            <button type="button" class="login-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                id="login-button">로그인</button>
+            <button type="button" class="login-btn" id="signup-button"
+                onclick="location.href='signup.html'">회원가입</button>
+        </div>
+    </div>
     <!-- 헤더 -->
     <header>
         <div class="Top-bar-buttons" id="my-buttons">
@@ -35,17 +45,16 @@
         <div class="modal__overlay"></div>
         <div class="modal__content">
             <div id="mypage-username"></div>
+            <br>
 
             <div class="mymenus">
                 <div><button type="button" class="mymenu" onclick="location.href='mypage.html'">MyPage</button></div>
                 <div><button type="button" class="mymenu" onclick="logout()">Logout</button></div>
             </div>
-            <!-- 검색         -->
-            <div>
-                <input type="text" class="search" placeholder="검색어를 입력하세요">
-                <input type="submit" style="display:none;" id="searchsubmit">
-                <label for="searchsubmit"><i class="fa-solid fa-magnifying-glass"></i></label>
-            </div>
+            <!-- 검색 -->
+            <input type="text" class="search" placeholder="검색어를 입력하세요">
+            <input type="submit" style="display:none;" id="searchsubmit">
+            <label for="searchsubmit"><i class="fa-solid fa-magnifying-glass"></i></label>
             <div class="categorys">
                 <img class="category" src="../static/image/board01.png" onclick="location.href='board.html?boards=직장인'">
                 <img class=" category" src="../static/image/board02.png" onclick="location.href='board.html?boards=대학생'"
@@ -61,6 +70,12 @@
             <button class="button">닫기</button>
         </div>
     </div>
+
+
+
+
+
+
 
     <!-- 메인 컨텐츠 공간 -->
     <div class="content-box row">
@@ -78,13 +93,13 @@
     </div>
     <!-- 댓글 리스팅 for문 -->
     <div id="comments-box"></div>
-
-
+    
     <!-- 댓글 for문 -->
     <div class="wcommentdiv">
         <textarea name="" id="contents-update" class="wcomment" placeholder="게시글 수정 테스트"></textarea>
         <image for="cosubmit" class="cosubmit" onclick="getUpdateData()" src="static/image/comment_button.png"></image>
         <input type="submit" style="display:none" id="submit">
+    </div>
 
 
     <!-- JS -->
