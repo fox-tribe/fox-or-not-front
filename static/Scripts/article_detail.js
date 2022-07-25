@@ -82,6 +82,25 @@ window.onload = async function articleDetail() {
     }
     )
 }
+
+/// 게시물 수정
+async function getUpdateData() {
+
+
+    let contents = document.getElementById("contents-update").value
+    console.log(contents)
+    updateArticle(contents)  
+
+}
+
+// 게시물 삭제
+async function removeArticle() {
+
+    await deleteArticle(url_id)
+    window.location.replace(`${fronted_base_url}/templates/article.html`)
+}
+
+
 // 댓글 작성
 async function commentCreate() {
     let comment_contents = document.getElementById("wcomment").value
@@ -101,7 +120,8 @@ async function commentCreate() {
         body: JSON.stringify(comment_data)
     })
     response_json = await response.json()
-    console.log(response_json)
+    window.location.reload()
+    
     
 }
 }
