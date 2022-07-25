@@ -170,6 +170,7 @@ async function postArticle(contents, title, board, category) {
     })
 
     response_json = await response.json()
+    window.location.replace(`${frontend_base_url}/index.html`);
 }
 
 
