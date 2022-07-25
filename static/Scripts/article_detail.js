@@ -41,6 +41,7 @@ window.onload = async function articleDetail() {
         let count_fox = detail['vote']['fox']
         let count_green = detail['vote']['green']
         let count_miss = detail['vote']['miss']
+        if (image == null ) {
         let temp_html =
             `<div class="titlediv">
                 <div class="writeinfo"><a>${author} - ${date}</a></div>
@@ -48,7 +49,6 @@ window.onload = async function articleDetail() {
             </div>
         </div>
         <div class="contentdiv">
-            <img src="http://127.0.0.1:8000${image}" alt="" style="width:100%; height:100%;" />
             <h3 class="content">${contents}</h3>
         </div>
         <div>
@@ -60,6 +60,27 @@ window.onload = async function articleDetail() {
         </div>`
 
         $('#article-detail-box').prepend(temp_html)
+        } else{
+            let temp_html =
+            `<div class="titlediv">
+                <div class="writeinfo"><a>${author} - ${date}</a></div>
+                <div class="title"><h2>${title}</h2></div>
+            </div>
+        </div>
+        <div class="contentdiv">
+            <h3 class="content">${contents}</h3>
+        </div>
+        <div>
+        <div class="botediv">
+            <div class="boteb"><button type="button" class="bote" onclick="vote1()">🦊</button><p class="btext1">폭스입니다 (${count_fox})</p></div>
+            <div class="boteb"><button type="button" class="bote" onclick="vote2()">💚</button><p class="btext2">그린라이트 (${count_green})</p></div>
+            <div class="boteb"><button type="button" class="bote" onclick="vote3()">💔</button><p class="btext3">오해입니다 (${count_miss})</p></div>
+        </div>
+        </div>`
+
+        $('#article-detail-box').prepend(temp_html)
+
+        }
 
         let username_html = `<h3>${author}님 환영합니다</h3>`
         $('#mypage-username').prepend(username_html)
