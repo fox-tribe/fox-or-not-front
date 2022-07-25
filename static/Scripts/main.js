@@ -1,10 +1,14 @@
 // 메인페이지 게시판별 게시글가져오기
 async function getArticlesByBoard() {
     
-    // 로그인 로그아웃 회원가입 버튼 숨기기
+    // 로그인 로그아웃 글쓰기 마이페이지 회원가입 버튼 숨기기
     if (!localStorage.getItem("access")) {
         let logout_button = document.getElementById("logout-button")
+        let mypage_button = document.getElementById("mypage-button")
+        let posting_button = document.getElementById("posting-button")
         logout_button.style.visibility = "hidden"
+        mypage_button.style.visibility = "hidden"
+        posting_button.style.visibility = "hidden"
     }
     else {
         let login_button = document.getElementById("login-button")
