@@ -83,13 +83,13 @@ async function getArticlesByBoard() {
         }} catch (err) {}
         try {
         for (let i = 0; i < 5; i++) {
-            let title = detail[5]['HOT'][i]['article_title']
-            let id = detail[5]['HOT'][i]['id']
+            let title = detail[5]['성인'][i]['article_title']
+            let id = detail[5]['성인'][i]['id']
             let temp_html = `
                 <div class="board-title" id="worker" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${title}
             </div>`
             
-            $('#hot-box').prepend(temp_html)
+            $('#adult-box').prepend(temp_html)
         }} catch (err) {}
 
     const mostLiked = async () => {

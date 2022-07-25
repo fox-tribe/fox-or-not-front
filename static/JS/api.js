@@ -173,3 +173,25 @@ async function postArticle(contents, title, board, category) {
 }
 
 
+// article 수정
+
+async function updateArticle(contents)  {
+    
+    let updateData = {
+        article_contents: contents,
+    }
+    let response = await fetch(`${backend_base_url}/article/${obj_id}/`, {
+        method: 'PUT',
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + localStorage.getItem("access"),
+            "access-control-allow-origin": "*"
+        },
+        body: JSON.stringify(updateData)
+    })
+
+    response_json = await response.json()
+
+
+}
