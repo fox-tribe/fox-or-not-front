@@ -9,14 +9,25 @@ window.onload = async function articleDetail() {
                 'Content-Type': 'application/json',
             },
         })
+        // 로그인 로그아웃 회원가입 버튼 숨기기
+    if (!localStorage.getItem("access")) {
+        let logout_button = document.getElementById("logout-button")
+        logout_button.style.visibility = "hidden"
+    }
+    else {
+        let login_button = document.getElementById("login-button")
+        let signup_button = document.getElementById("signup-button")
+        login_button.style.visibility = "hidden"
+        signup_button.style.visibility = "hidden"
+    }
+    
+    if (!localStorage.getItem("access")) {
+        let my_buttons = document.getElementById("my-buttons")
+        my_buttons.style.visibility = "hidden"
+    }
 
-        if (!localStorage.getItem("access")) {
-            let my_buttons = document.getElementById("my-buttons")
-            my_buttons.style.visibility = "hidden"
-        }
-
-        response_json = await response.json()
-        return response_json.articles
+    response_json = await response.json()
+    return response_json.articles
     }
     // 게시물 상세 내용
     articleDetail().then((data) => {
@@ -32,12 +43,12 @@ window.onload = async function articleDetail() {
         let count_miss = detail['vote']['miss']
         let temp_html =
             `<div class="titlediv">
-                <div class="writeinfo"><h3>${author} - ${date}</h3></div>
+                <div class="writeinfo"><a>${author} - ${date}</a></div>
                 <div class="title"><h2>${title}</h2></div>
             </div>
         </div>
         <div class="contentdiv">
-            <img src="http://127.0.0.1:8000${image}" alt="" />
+            <img src="http://127.0.0.1:8000${image}" alt="" style="width:100%; height:100%;" />
             <h3 class="content">${contents}</h3>
         </div>
         <div>
@@ -104,10 +115,14 @@ async function removeArticle() {
 // 댓글 작성
 async function commentCreate() {
     let comment_contents = document.getElementById("wcomment").value
-    if (comment_contents == ''){
+    if (!localStorage.getItem("access")) {
+        alert('로그인해주세요!')
+    }
+    else if (comment_contents == ''){
         alert('댓글을 작성해주세요!')
     }
     else {
+
     let comment_data = {
         comment_contents: comment_contents,
     }
@@ -122,6 +137,7 @@ async function commentCreate() {
     response_json = await response.json()
     window.location.reload()
     
+
     
 }
 }

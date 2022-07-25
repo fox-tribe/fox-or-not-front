@@ -1,10 +1,14 @@
 // 메인페이지 게시판별 게시글가져오기
 async function getArticlesByBoard() {
     
-    // 로그인 로그아웃 회원가입 버튼 숨기기
+    // 로그인 로그아웃 글쓰기 마이페이지 회원가입 버튼 숨기기
     if (!localStorage.getItem("access")) {
         let logout_button = document.getElementById("logout-button")
+        let mypage_button = document.getElementById("mypage-button")
+        let posting_button = document.getElementById("posting-button")
         logout_button.style.visibility = "hidden"
+        mypage_button.style.visibility = "hidden"
+        posting_button.style.visibility = "hidden"
     }
     else {
         let login_button = document.getElementById("login-button")
@@ -117,7 +121,7 @@ async function getArticlesByBoard() {
             <div class="pop-article row">
                 <div class="pop-article-title col" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${title}
                 </div>
-                <div class="pop-article-writer col">${author}</div>
+                <div class="pop-article-writer col" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${author}</div>
             </div>`
             $('#mostLiked-box').prepend(temp_html)
         }} catch (err) {

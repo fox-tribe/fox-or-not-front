@@ -35,19 +35,24 @@
             <div class="mobile_log">
                 <a data-bs-toggle="modal" data-bs-target="#staticBackdrop">로그인</a>
                 <a onclick="signup.html"> 회원가입</a>
+                <a onclick="posting.html"> 마이페이지</a>
+                <a onclick="mypage.html"> 마이페이지</a>
                 <a onclick="index.html"> 로그아웃</a>
             </div>
 
             <!-- 로그인 공간 -->
             <div class="login-space">
-                <div class="login-block">
-                    <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal"
-                        data-bs-target="#staticBackdrop" id="login-button">로그인</button>
-                    <button type="button" class="btn btn-light btn-sm"
-                        onclick="location.href='signup.html'" id="signup-button">회원가입</button>
-                    <button type="button" class="btn btn-warning btn-sm" id="logout-button" onclick="logout()">로그아웃</button>
+                <div class="login-block">   
+                        <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop" id="login-button">로그인</button>
+                        <button type="button" class="btn btn-light btn-sm"
+                            onclick="location.href='signup.html'" id="signup-button">회원가입</button>
+                        <button type="button" class="btn btn-light btn-sm" id="posting-button"
+                            onclick="location.href='posting.html'"> 글쓰기</button>
+                        <button type="button" class="btn btn-warning btn-sm" id="mypage-button"  
+                            onclick="location.href='mypage.html'">마이페이지</button>
+                        <button type="button" class="btn btn-warning btn-sm" id="logout-button" onclick="logout()">로그아웃</button>
                 </div>
-            </div>
             </div>
             <!-- 상단공간 -->
             <div class="navbar">
@@ -97,7 +102,7 @@
                         </div>
                     </div>
                     <div class="popular-banner col">
-                        <img src="static/image/banner.png" width="100%">
+                        <img class="postingimage" src="static/image/banner.png" width="100%">
                     </div>
                 </div>
             </div>

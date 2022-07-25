@@ -5,6 +5,19 @@
     font-style: normal;
 }
 
+.login-btn {
+    background-color: white;
+    border: 0;
+    padding: 8px;
+    font-size: .875rem;
+    border-radius: 5px;
+}
+
+.login-btn:hover {
+    background-color: rgb(255, 136, 0);
+    color: white;
+}
+
 * {
     font-family: 'GmarketSansMedium';
 
@@ -34,6 +47,34 @@ body {
 .bodywrap {
     margin-left: 0;
     margin-right: 0;
+}
+
+/* 로그인 공간 */
+.login-space {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.login-block {
+    width: 800px;
+    height: 30px;
+    text-align: right;
+}
+
+.login-modal {
+    background-color: #ffffff;
+    backdrop-filter: blur(5px);
+}
+
+.login-modal-size {
+    width: 300px;
+}
+
+.modal-dialog-centered {
+    justify-content: space-around;
 }
 
 /* 상단공간 */
@@ -206,7 +247,7 @@ body {
     width: 100%;
     color: lightgray;
     text-align: end;
-    font-size: 10px;
+    font-size: 15px;
     padding: 4px 10px 5px 0;
 }
 
