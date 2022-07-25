@@ -193,6 +193,31 @@ async function updateArticle(contents)  {
     })
 
     response_json = await response.json()
+    window.location.replace(`${frontend_base_url}/detail.html?id=${obj_id}`);
 
+}
+
+
+
+// article 삭제
+
+async function deleteArticle() {
+    const response = await fetch(`${backend_base_url}/article/${obj_id}/`, {
+        method: 'DELETE',
+
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("access"),
+            "access-control-allow-origin": "*"
+        },
+
+    }
+    )
+    if (response.status == 200) {
+        window.location.replace(`${frontend_base_url}/index.html`);
+        response_json = await response.json()
+        return response_json
+    } else {
+        alert(response.status)
+    }
 
 }
