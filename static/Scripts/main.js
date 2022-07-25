@@ -18,7 +18,7 @@ async function getArticlesByBoard() {
     }
 
     const myData = async () => {
-        const response = await fetch(`${backend_base_url}/article/board/?boards=직장인&boards=대학생&boards=10대&boards=LGBTQ&boards=자유&boards=HOT`, {
+        const response = await fetch(`${backend_base_url}/article/board/?boards=직장인&boards=대학생&boards=10대&boards=LGBTQ&boards=자유&boards=성인`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
