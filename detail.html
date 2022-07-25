@@ -93,14 +93,19 @@
     </div>
     <!-- 댓글 리스팅 for문 -->
     <div id="comments-box"></div>
-    
-    <!-- 댓글 for문 -->
+
+    <!-- 게시글 수정 테스트-->
     <div class="wcommentdiv">
         <textarea name="" id="contents-update" class="wcomment" placeholder="게시글 수정 테스트"></textarea>
         <image for="cosubmit" class="cosubmit" onclick="getUpdateData()" src="static/image/comment_button.png"></image>
         <input type="submit" style="display:none" id="submit">
     </div>
-
+    <!-- 게시글 삭제 테스트-->
+    <div class="wcommentdiv">
+        <textarea name="" id="contents-update" class="wcomment" placeholder="게시글 삭제 테스트"></textarea>
+        <image for="cosubmit" class="cosubmit" onclick="removeArticle()" src="static/image/comment_button.png"></image>
+        <input type="submit" style="display:none" id="submit">
+    </div>
 
     <!-- JS -->
     <script src="/static/JS/api.js"></script>
