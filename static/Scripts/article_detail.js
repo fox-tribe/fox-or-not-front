@@ -107,8 +107,8 @@ async function getUpdateData() {
 // 게시물 삭제
 async function removeArticle() {
 
-    await deleteArticle(url_id)
-    window.location.replace(`${fronted_base_url}/templates/article.html`)
+    await deleteArticle(obj_id)
+    window.location.replace(`${fronted_base_url}/index.html`)
 }
 
 
