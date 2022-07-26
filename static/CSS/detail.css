@@ -186,10 +186,12 @@ body {
 .category {
     height: 90px;
     width: 90px;
+    
 }
 
 .category:hover {
     transform: scale(1.1);
+    cursor: pointer;
 }
 
 .hidden {
