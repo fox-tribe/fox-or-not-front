@@ -30,29 +30,30 @@
                 <button type="button" class="login-btn btn btn-warning btn-sm" id="logout-button" onclick="logout()">로그아웃</button>
         </div>
     </div>
-    <!-- 헤더 -->
-    <header>
-        <div class="Top-bar-buttons" id="my-buttons">
+<!-- 헤더 -->
+<header>
+    <div class="Top-bar">
+        <div>
+            <img src="../static/image/logo.png" alt="" class="logo" onclick="location.href='index.html'">
+        </div>
+        <div class="Top-bar-buttons">
             <img class="hbutton" src="../static/image/여우머리.png">
             <img class="hbutton2" id="modalclick" onclick="modal()" src="../static/image/menu.png">
         </div>
-        <div class="Top-bar">
-            <img src="../static/image/logo.png" alt="" class="logo" onclick="location.href='index.html'">
-        </div>
-    </header>
-    <hr style="border: dashed orange;">
+    </div>
+</header>
+<hr style="border: dashed orange;">
     <!-- 메뉴 모달 -->
     <div class="modal hidden">
         <div class="modal__overlay"></div>
         <div class="modal__content">
             <div id="mypage-username"></div>
-            <br>
 
             <div class="mymenus">
                 <div><button type="button" class="mymenu" onclick="location.href='mypage.html'">MyPage</button></div>
                 <div><button type="button" class="mymenu" onclick="logout()">Logout</button></div>
             </div>
-            <br>
+         
             <!-- 검색 -->
             <input type="text" class="search" placeholder="검색어를 입력하세요">
             <input type="submit" style="display:none;" id="searchsubmit">
@@ -102,12 +103,7 @@
         <image for="cosubmit" class="cosubmit" onclick="getUpdateData()" src="static/image/comment_button.png"></image>
         <input type="submit" style="display:none" id="submit">
     </div>
-    <!-- 게시글 삭제 테스트-->
-    <div class="wcommentdiv">
-        <textarea name="" id="contents-update" class="wcomment" placeholder="게시글 삭제 테스트"></textarea>
-        <image for="cosubmit" class="cosubmit" onclick="removeArticle()" src="static/image/comment_button.png"></image>
-        <input type="submit" style="display:none" id="submit">
-    </div>
+
 
     <!-- JS -->
     <script src="/static/JS/api.js"></script>

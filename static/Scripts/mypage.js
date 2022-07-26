@@ -91,7 +91,7 @@ async function getMyArticles() {
     myData().then((data) => {
         detail = response_json
         console.log(detail)
-        
+
         for (let i = 0; i < detail.length; i++) {
             if (detail[i]['author'] == username) {
                 let author = detail[i]['author']
