@@ -1,3 +1,5 @@
+
+
 async function userInfo() {
 
     const userInfo = async () => {
@@ -14,6 +16,7 @@ async function userInfo() {
     }
     userInfo().then((data) => {
         detail = response_json
+        console.log(detail)
         let username = detail['username']
         let nickname = detail['nickname']
         let gender = detail['gender']
@@ -23,6 +26,9 @@ async function userInfo() {
         <div class="befbio"><p><span style="color:black;">닉네임:</span>   ${nickname}</p></div>
         <div class="befbio"><p><span style="color:black;">성별:</span>    ${gender}</p></div>`
         $('#profile').prepend(temp_html)
+
+        let username_html = `<h3>${nickname}님 환영합니다</h3>`
+        $('#mypage-username').prepend(username_html)
 
     })
 }

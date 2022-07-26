@@ -54,12 +54,13 @@ async function handleSignin() {
 
 // 회원정보 변경
 async function changeInfo(nickname, password, selectGender){
-    console.log(selectGender)
+    
     let data = {
         password : password,
         gender : selectGender,
         nickname : nickname,
     }
+    console.log(data)
     
     const response = await fetch(`${backend_base_url}/user/`, {
             method: 'PUT',

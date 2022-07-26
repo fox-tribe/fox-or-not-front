@@ -177,7 +177,7 @@ body {
 .search {
     width: 200px;
     border: 6px double orange;
-    margin: 15px 0px 15px 0px;
+    margin: 10px 0px 15px 0px;
 }
 
 .fa-magnifying-glass {
