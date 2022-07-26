@@ -8,6 +8,8 @@ window.onload = async function articleDetail() {
             headers: {
                 'Content-Type': 'application/json',
             },
+
+            
         })
         // 로그인 로그아웃 회원가입 버튼 숨기기
     if (!localStorage.getItem("access")) {
@@ -43,7 +45,13 @@ window.onload = async function articleDetail() {
         let count_miss = detail['vote']['miss']
         let temp_html =
             `<div class="titlediv">
-                <div class="writeinfo"><a>${author} - ${date}</a></div>
+                <div class="writeinfo">
+                    <div><a>${author} - ${date}</a></div>
+                    <div class="articlebuttons">
+                        <p class="comment-modify">수정</p>
+                        <p class="comment-delete" onclick="removeArticle()">삭제</p>
+                    </div>
+                </div>
                 <div class="title"><h2>${title}</h2></div>
             </div>
         </div>
@@ -62,7 +70,7 @@ window.onload = async function articleDetail() {
         $('#article-detail-box').prepend(temp_html)
 
         let username_html = `<h3>${author}님 환영합니다</h3>`
-        $('#mypage-username').prepend(username_html)
+        $('.mypage-username').prepend(username_html)
 
         for (let i = 0; i < detail['comment_set'].length; i++) {
             let comments = detail['comment_set'][i]['comment_contents']
@@ -92,7 +100,10 @@ window.onload = async function articleDetail() {
         }
     }
     )
+
+
 }
+
 
 /// 게시물 수정
 async function getUpdateData() {
@@ -201,6 +212,7 @@ async function likeButton(comment_id) {
     let data = {
         category: "공감",
     }
+
     const response = await fetch(`${backend_base_url}/article/${comment_id}/comment/like/`, {
         method: 'POST',
         headers: {
