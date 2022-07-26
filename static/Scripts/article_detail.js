@@ -141,6 +141,9 @@ async function getUpdateData() {
 
 
     let contents = document.getElementById("contents-update").value
+    if (!localStorage.getItem("access")) {
+        alert('로그인해주세요!')
+    }
     console.log(contents)
     updateArticle(contents)  
 
@@ -148,7 +151,9 @@ async function getUpdateData() {
 
 // 게시물 삭제
 async function removeArticle() {
-
+    if (!localStorage.getItem("access")) {
+        alert('로그인해주세요!')
+    }
     await deleteArticle(obj_id)
     window.location.replace(`${fronted_base_url}/index.html`)
 }
@@ -188,6 +193,9 @@ async function vote1() {
     let category = {
         category: "폭스입니다",
     }
+    if (!localStorage.getItem("access")) {
+        alert('로그인해주세요!')
+    }
     const response = await fetch(`${backend_base_url}/article/${obj_id}/article/vote/`, {
         method: 'POST',
         headers: {
@@ -198,7 +206,6 @@ async function vote1() {
     }
     )
     response_json = await response.json()
-    console.log(alert(response_json.message))
     window.location.reload()
 }
 // 그린라이트 투표
@@ -206,6 +213,9 @@ async function vote2() {
     let category = {
         category: "그린라이트",
     }
+    if (!localStorage.getItem("access")) {
+        alert('로그인해주세요!')
+    }
     const response = await fetch(`${backend_base_url}/article/${obj_id}/article/vote/`, {
         method: 'POST',
         headers: {
@@ -216,7 +226,6 @@ async function vote2() {
     }
     )
     response_json = await response.json()
-    console.log(alert(response_json.message))
     window.location.reload()
 }
 // 오해 투표
@@ -224,6 +233,9 @@ async function vote3() {
     let category = {
         category: "오해입니다",
     }
+    if (!localStorage.getItem("access")) {
+        alert('로그인해주세요!')
+    }
     const response = await fetch(`${backend_base_url}/article/${obj_id}/article/vote/`, {
         method: 'POST',
         headers: {
@@ -234,7 +246,6 @@ async function vote3() {
     }
     )
     response_json = await response.json()
-    console.log(alert(response_json.message))
     window.location.reload()
 }
 
@@ -242,6 +253,9 @@ async function vote3() {
 async function likeButton(comment_id) {
     let data = {
         category: "공감",
+    }
+    if (!localStorage.getItem("access")) {
+        alert('로그인해주세요!')
     }
 
     const response = await fetch(`${backend_base_url}/article/${comment_id}/comment/like/`, {
@@ -254,6 +268,6 @@ async function likeButton(comment_id) {
     }
     )
     response_json = await response.json()
-    console.log(alert(response_json.message))
+
     window.location.reload()
 }
