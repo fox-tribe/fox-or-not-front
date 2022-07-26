@@ -1,3 +1,5 @@
+const backend_base_url = "http://127.0.0.1:8000"
+
 // #모달
 async function modal() {
     const openButton = document.getElementById("modalclick");
@@ -90,7 +92,7 @@ async function getMyArticles() {
         detail = response_json
         console.log(detail)
         let username_html = `<h3>${username}님 환영합니다</h3>`
-        $('#mypage-username').prepend(username_html)
+        $('.mypage-username').prepend(username_html)
         for (let i = 0; i < detail.length; i++) {
             if (detail[i]['author'] == username) {
                 let author = detail[i]['author']
