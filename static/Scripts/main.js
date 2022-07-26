@@ -1,3 +1,5 @@
+
+
 // 메인페이지 게시판별 게시글가져오기
 async function getArticlesByBoard() {
     
@@ -116,12 +118,12 @@ async function getArticlesByBoard() {
         for (let i = 0; i < 6; i++) {
             let title = detail[i]['article_title']
             let id = detail[i]['id']
-            let author = detail[i]['author']
+            let nickname = detail[i]['nickname']
             let temp_html = `
             <div class="pop-article row">
                 <div class="pop-article-title col" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${title}
                 </div>
-                <div class="pop-article-writer col" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${author}</div>
+                <div class="pop-article-writer col" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${nickname}</div>
             </div>`
             $('#mostLiked-box').prepend(temp_html)
         }} catch (err) {

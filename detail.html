@@ -19,7 +19,7 @@
 
 </head>
 
-<body onload="getArticlesByBoard()">
+<body onload="articleDetail()">
     <!-- 로그인 공간 -->
     <div class="login-space">
         <div class="login-block">
@@ -27,6 +27,7 @@
                 id="login-button">로그인</button>
             <button type="button" class="login-btn" id="signup-button"
                 onclick="location.href='signup.html'">회원가입</button>
+                <button type="button" class="login-btn btn btn-warning btn-sm" id="logout-button" onclick="logout()">로그아웃</button>
         </div>
     </div>
     <!-- 헤더 -->
@@ -51,6 +52,7 @@
                 <div><button type="button" class="mymenu" onclick="location.href='mypage.html'">MyPage</button></div>
                 <div><button type="button" class="mymenu" onclick="logout()">Logout</button></div>
             </div>
+            <br>
             <!-- 검색 -->
             <input type="text" class="search" placeholder="검색어를 입력하세요">
             <input type="submit" style="display:none;" id="searchsubmit">
@@ -112,6 +114,7 @@
     <script src="/static/Scripts/detail.js"></script>
     <script src="/static/Scripts/main.js"></script>
     <script src="/static/Scripts/article_detail.js"></script>
+    <script src="/static/Scripts/mypage_user.js"></script>
 </body>
 
 </html>

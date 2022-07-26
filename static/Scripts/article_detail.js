@@ -12,7 +12,9 @@ window.onload = async function articleDetail() {
         // 로그인 로그아웃 회원가입 버튼 숨기기
     if (!localStorage.getItem("access")) {
         let logout_button = document.getElementById("logout-button")
+        let my_buttons = document.getElementById("my-buttons")
         logout_button.style.visibility = "hidden"
+        my_buttons.style.visibility = "hidden"
     }
     else {
         let login_button = document.getElementById("login-button")
@@ -33,7 +35,7 @@ window.onload = async function articleDetail() {
     articleDetail().then((data) => {
         detail = response_json
         console.log(detail)
-        let author = detail['author']
+        let nickname = detail['nickname']
         let image = detail['article_image']
         let title = detail['article_title']
         let contents = detail['article_contents']
@@ -44,7 +46,7 @@ window.onload = async function articleDetail() {
         if (image == null ) {
         let temp_html =
             `<div class="titlediv">
-                <div class="writeinfo"><a>${author} - ${date}</a></div>
+                <div class="writeinfo"><a>${nickname} - ${date}</a></div>
                 <div class="title"><h2>${title}</h2></div>
             </div>
         </div>
@@ -63,11 +65,12 @@ window.onload = async function articleDetail() {
         } else{
             let temp_html =
             `<div class="titlediv">
-                <div class="writeinfo"><a>${author} - ${date}</a></div>
+                <div class="writeinfo"><a>${nickname} - ${date}</a></div>
                 <div class="title"><h2>${title}</h2></div>
             </div>
         </div>
         <div class="contentdiv">
+            <img src="http://127.0.0.1:8000${image}" alt="" />
             <h3 class="content">${contents}</h3>
         </div>
         <div>
@@ -82,19 +85,18 @@ window.onload = async function articleDetail() {
 
         }
 
-        let username_html = `<h3>${author}님 환영합니다</h3>`
-        $('#mypage-username').prepend(username_html)
+
 
         for (let i = 0; i < detail['comment_set'].length; i++) {
             let comments = detail['comment_set'][i]['comment_contents']
             let comment_id = detail['comment_set'][i]['id']
-            let comment_author = detail['comment_set'][i]['author']
+            let nickname = detail['comment_set'][i]['nickname']
             let comment_created_at = detail['comment_set'][i]['comment_created_at']
             let comment_like_count = detail['comment_set'][i]['count']
             let temp_html =
                 `<div class="comments">
                     <div class="cowriteinfo">
-                        <div><p class="cowriter">${comment_author}</p></div>
+                        <div><p class="cowriter">${nickname}</p></div>
                         <div><p class="cotime">${comment_created_at}</p></div>
                         <p class="comment-modify" id="#">수정</p>
                         <p class="comment-delete" id="#">삭제</p>
