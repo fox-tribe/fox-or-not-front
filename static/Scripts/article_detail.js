@@ -76,8 +76,14 @@ window.onload = async function articleDetail() {
         } else{
             let temp_html =
             `<div class="titlediv">
-                <div class="writeinfo"><a>${nickname} - ${date}</a></div>
-                <div class="title"><h2>${title}</h2></div>
+                <div class="writeinfo">
+                <div><a>${nickname} - ${date}</a></div>
+                <div class="articlebuttons">
+                    <p class="comment-modify">수정</p>
+                    <p class="comment-delete" onclick="removeArticle()">삭제</p>
+                </div>
+            </div>
+            <div class="title"><h2>${title}</h2></div>
             </div>
         </div>
         <div class="contentdiv">
