@@ -23,7 +23,7 @@
 
 }
 
-h2{
+h2 {
     margin: 0;
 }
 
@@ -51,10 +51,8 @@ body {
 /* 로그인 공간 */
 .login-space {
     width: 100%;
-    height: 30px;
     display: flex;
     justify-content: center;
-    margin-top: 20px;
 }
 
 .login-block {
@@ -64,7 +62,7 @@ body {
 }
 
 .login-modal {
-    background-color: #ffffff;
+    background-color: #4747475b;
     backdrop-filter: blur(5px);
 }
 
@@ -82,16 +80,17 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    height: 200px;
+    height: 60px;
 }
 
 .logo {
-    height: 120px;
-    margin: 10px;
-    cursor: pointer;
-} 
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    transform: scale(0.6);
+}
 
 .hbutton {
     height: 50px;
@@ -119,7 +118,7 @@ body {
 
 }
 
-.modal {
+.side_modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -127,7 +126,7 @@ body {
     height: 100%;
 }
 
-.modal__content {
+.side_modal__content {
     background-color: white;
     padding: 50px;
     position: absolute;
@@ -138,7 +137,7 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
-.modal__overlay {
+.side_modal__overlay {
     background-color: rgba(0, 0, 0, 0.6);
     width: 100%;
     height: 100%;
@@ -186,7 +185,7 @@ body {
 .category {
     height: 90px;
     width: 90px;
-    
+
 }
 
 .category:hover {
@@ -408,6 +407,8 @@ body {
     cursor: pointer;
 }
 
+
+
 @media (max-width: 768px) {
     .comments {
         width: 100%;
@@ -458,6 +459,10 @@ body {
         font-size: 14px;
     }
 
+    .login-space {
+        display: none;
+    }
+
 }
 
 
@@ -472,14 +477,14 @@ body {
         height: 30px;
         width: 30px;
     }
-    
+
     .hbutton2 {
         height: 30px;
         width: 35px;
     }
 
     .Top-bar {
-        height: 100px;
+        height: 40px;
     }
 
 
