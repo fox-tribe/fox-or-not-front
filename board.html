@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="../static/CSS/style.css">
 </head>
 
-<body onload="board()">
 
     <body>
 
@@ -74,6 +73,10 @@
         <div class="board-space">
             <!-- 게시판 명 -->
             <div class="board-name"><b>00 게시판</b></div>
+            <div id="ArticlesDiv"></div>
+            <div id="list-post"></div>
+
+            <div class="paging"></div>
             
             <div class="posting-space"><button class="posting-btn" onclick="location.href='posting.html'">게시물 작성</button></div>
             
@@ -81,13 +84,18 @@
                 <ul class="contents"></ul>
                 <div class="buttons"></div>
             </article>
-            <!-- Scripts -->
-            <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-            <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-            <script src="/static/JS/api.js"></script>
-            <script src="/static/JS/pagenation.js"></script>
-            <script src="/static/Scripts/boards.js"></script>
         </div>
+        <!-- Scripts -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css"/>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <script src="/static/JS/api.js"></script>
+        <script src="/static/Scripts/boards.js"></script>
+        <script src="/static/JS/pagenation.js"></script>
+    
+    
         
         <!-- 로그인 모달창 -->
         <div class="modal fade login-modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"

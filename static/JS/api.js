@@ -222,3 +222,38 @@ async function deleteArticle() {
     }
 
 }
+
+
+// 게시판 페이지네이션
+async function boardPagenation() {
+    let boardPagenation = async () => {
+        const response = await fetch(`${backend_base_url}/article/pagination?board=${decoded_name}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+    response_json = await response.json()
+    }
+    
+    
+    // 게시글 정보 구간
+    boardPagenation().then((data) => {
+        detail = response_json
+        console.log(detail)
+        for (let i = 0; i < detail['results'].length ; i++) {
+        const title = detail['results'][i]['article_title']
+        const author = detail['results'][i]['author']
+        const date = detail['results'][i]['article_post_date']
+        const content = document.createElement("li");
+        content.classList.add("content");
+        content.innerHTML = `
+        <span class="content__title">${title}</span>
+        <span class="content__author">${author}</span>
+        <span class="content__date">${date}</span>
+        `;
+        }  
+}
+)
+}
+
