@@ -97,6 +97,7 @@ body {
 }
 .content-box {
     width: 100%;
+    margin: auto;
 }
 .side_modal {
     position: fixed;
