@@ -92,14 +92,14 @@ window.onload = async function articleDetail() {
                     <div class="cowriteinfo">
                         <div><p class="cowriter">${nickname}</p></div>
                         <div><p class="cotime">${comment_created_at}</p></div>
-                        <p class="comment-modify" id="#">수정</p>
+                        <p class="comment-modify" id="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">수정</p>
                         <p class="comment-delete" id="#">삭제</p>
                     </div>
                     <div class="commentdetail">
                         <div class="comment"><h4>${comments}</h4></div>
                         <div style="display:flex; flex-direction:row; align-items:center">
                         <button type="button" id="like" class="like" onclick="likeButton(${comment_id})"><i class="fa-regular fa-heart fa-2x"></i></button>
-                        <button type="button" id="reallike" class="reallike" onclick="likeButton(${comment_id})"><i class="fa-solid fa-heart fa-2x"></i></button>
+                        <button type="button" id="reallike" class="reallike" onclick="likeButton(${comment_id})"><i class="fa-solid fa-heart fa-1x"></i></button>
                         <h5 style="margin:0; display:block">${comment_like_count}</h5>
                         </div>
                     </div>

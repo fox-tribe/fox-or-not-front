@@ -81,7 +81,7 @@
 
     <!-- 메인 컨텐츠 공간 -->
     <div class="articlebuttons">
-        <p class="comment-modify">수정</p>
+        <p class="comment-modify" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">게시글 수정</p>
         <p class="comment-delete" onclick="removeArticle()">삭제</p>
     </div>
     <div class="content-box row">
@@ -100,12 +100,12 @@
     <!-- 댓글 리스팅 for문 -->
     <div id="comments-box"></div>
 
-    <!-- 게시글 수정 테스트-->
+    <!-- 게시글 수정 테스트
     <div class="wcommentdiv">
         <textarea name="" id="contents-update" class="wcomment" placeholder="게시글 수정 테스트"></textarea>
         <image for="cosubmit" class="cosubmit" onclick="getUpdateData()" src="static/image/comment_button.png"></image>
         <input type="submit" style="display:none" id="submit">
-    </div>
+    </div>-->
 
     <!-- 로그인 모달창 -->
     <div class="modal fade login-modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -136,6 +136,50 @@
         </div>
     </div>
 
+    <!-- 게시물 수정 모달 -->
+    <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">게시물 수정</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    제목<br>
+                    <input type="text" class="modal-textinput" placeholder="title" id="#">
+                    <hr>
+                    내용입력<br>
+                    <textarea class="modal-textarea" placeholder="content" id="#"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                    <button type="button" class="btn btn-primary">수정하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 댓글 수정 모달 -->
+    <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">댓글 수정</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    댓글<br>
+                    <input type="text" class="modal-textinput" placeholder="comment" id="#">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                    <button type="button" class="btn btn-primary">댓글 수정</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- JS -->
     <script src="/static/JS/api.js"></script>
