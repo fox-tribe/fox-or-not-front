@@ -11,9 +11,7 @@ window.onload = async function articleDetail() {
         })
         // 로그인 로그아웃 회원가입 버튼 숨기기
     if (!localStorage.getItem("access")) {
-        let logout_button = document.getElementById("logout-button")
         let my_buttons = document.getElementById("my-buttons")
-        logout_button.style.visibility = "hidden"
         my_buttons.style.visibility = "hidden"
     }
     else {
