@@ -25,7 +25,7 @@ async function getArticlesByBoard() {
     }
 
     const myData = async () => {
-        const response = await fetch(`${backend_base_url}/article/board/?boards=직장인&boards=대학생&boards=10대&boards=LGBTQ&boards=자유&boards=성인`, {
+        const response = await fetch(`${backend_base_url}/article/board/?boards=직장인&boards=20대&boards=10대&boards=연인&boards=자유&boards=30대`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -55,8 +55,8 @@ async function getArticlesByBoard() {
         }
         try {
             for (let i = 0; i < 5; i++) {
-                let title = detail[1]['대학생'][i]['article_title']
-                let id = detail[1]['대학생'][i]['id']
+                let title = detail[1]['20대'][i]['article_title']
+                let id = detail[1]['20대'][i]['id']
                 let temp_html = `
                 <div class="board-title" id="worker" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${title}
             </div>`
@@ -77,8 +77,8 @@ async function getArticlesByBoard() {
         } catch (err) { }
         try {
             for (let i = 0; i < 5; i++) {
-                let title = detail[3]['LGBTQ'][i]['article_title']
-                let id = detail[3]['LGBTQ'][i]['id']
+                let title = detail[3]['연인'][i]['article_title']
+                let id = detail[3]['연인'][i]['id']
                 let temp_html = `
                 <div class="board-title" id="worker" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${title}
             </div>`
@@ -99,8 +99,8 @@ async function getArticlesByBoard() {
         } catch (err) { }
         try {
             for (let i = 0; i < 5; i++) {
-                let title = detail[5]['성인'][i]['article_title']
-                let id = detail[5]['성인'][i]['id']
+                let title = detail[5]['30대'][i]['article_title']
+                let id = detail[5]['30대'][i]['id']
                 let temp_html = `
                 <div class="board-title" id="worker" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${title}
             </div>`
