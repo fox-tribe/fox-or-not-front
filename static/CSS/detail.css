@@ -10,6 +10,8 @@
     padding: 8px;
     font-size: .875rem;
     border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
 }
 .login-btn:hover {
     background-color: rgb(255, 136, 0);
@@ -42,6 +44,7 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-left: 600px;
 }
 .login-block {
     width: 800px;
