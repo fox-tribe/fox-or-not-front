@@ -27,7 +27,7 @@ async function userInfo() {
         <div class="befbio"><p><span style="color:black;">성별:</span>    ${gender}</p></div>`
         $('#profile').prepend(temp_html)
 
-        let username_html = `<h3>${nickname}님 환영합니다</h3>`
+        let username_html = `<h3><b>${nickname}</b>님 환영합니다</h3>`
         $('#mypage-username').prepend(username_html)
 
     })
