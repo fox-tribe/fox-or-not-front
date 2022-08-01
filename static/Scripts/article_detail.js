@@ -8,8 +8,6 @@ window.onload = async function articleDetail() {
             headers: {
                 'Content-Type': 'application/json',
             },
-
-            
         })
         // 로그인 로그아웃 회원가입 버튼 숨기기
     if (!localStorage.getItem("access")) {
@@ -24,12 +22,10 @@ window.onload = async function articleDetail() {
         login_button.style.visibility = "hidden"
         signup_button.style.visibility = "hidden"
     }
-    
     if (!localStorage.getItem("access")) {
         let my_buttons = document.getElementById("my-buttons")
         my_buttons.style.visibility = "hidden"
     }
-
     response_json = await response.json()
     return response_json.articles
     }
@@ -48,7 +44,6 @@ window.onload = async function articleDetail() {
         if (image == null ) {
         let temp_html =
             `<div class="titlediv">
-
                 <div class="writeinfo">
                     <div><a>${nickname} - ${date}</a></div>
                     <div class="articlebuttons">
@@ -56,8 +51,6 @@ window.onload = async function articleDetail() {
                         <p class="comment-delete" onclick="removeArticle()">삭제</p>
                     </div>
                 </div>
-
-
                 <div class="title"><h2>${title}</h2></div>
             </div>
         </div>
@@ -71,7 +64,6 @@ window.onload = async function articleDetail() {
             <div class="boteb"><button type="button" class="bote" onclick="vote3()">💔</button><p class="btext3">오해입니다 (${count_miss})</p></div>
         </div>
         </div>`
-
         $('#article-detail-box').prepend(temp_html)
         } else{
             let temp_html =
@@ -97,12 +89,8 @@ window.onload = async function articleDetail() {
             <div class="boteb"><button type="button" class="bote" onclick="vote3()">💔</button><p class="btext3">오해입니다 (${count_miss})</p></div>
         </div>
         </div>`
-
         $('#article-detail-box').prepend(temp_html)
-
         }
-
-
         for (let i = 0; i < detail['comment_set'].length; i++) {
             let comments = detail['comment_set'][i]['comment_contents']
             let comment_id = detail['comment_set'][i]['id']
@@ -119,36 +107,27 @@ window.onload = async function articleDetail() {
                     </div>
                     <div class="commentdetail">
                         <div class="comment"><h4>${comments}</h4></div>
-                        <div style="display:flex; flex-direction:row">
+                        <div style="display:flex; flex-direction:row; align-items:center">
                         <button type="button" id="like" class="like" onclick="likeButton(${comment_id})"><i class="fa-regular fa-heart fa-2x"></i></button>
                         <button type="button" id="reallike" class="reallike" onclick="likeButton(${comment_id})"><i class="fa-solid fa-heart fa-2x"></i></button>
-                        <h5>${comment_like_count}</h5>
+                        <h5 style="margin:0; display:block">${comment_like_count}</h5>
                         </div>
-                        
                     </div>
                 </div>`
             $('#comments-box').prepend(temp_html)
         }
     }
     )
-
-
 }
-
-
 /// 게시물 수정
 async function getUpdateData() {
-
-
     let contents = document.getElementById("contents-update").value
     if (!localStorage.getItem("access")) {
         alert('로그인해주세요!')
     }
     console.log(contents)
-    updateArticle(contents)  
-
+    updateArticle(contents)
 }
-
 // 게시물 삭제
 async function removeArticle() {
     if (!localStorage.getItem("access")) {
@@ -157,8 +136,6 @@ async function removeArticle() {
     await deleteArticle(obj_id)
     window.location.replace(`${fronted_base_url}/index.html`)
 }
-
-
 // 댓글 작성
 async function commentCreate() {
     let comment_contents = document.getElementById("wcomment").value
@@ -169,7 +146,6 @@ async function commentCreate() {
         alert('댓글을 작성해주세요!')
     }
     else {
-
     let comment_data = {
         comment_contents: comment_contents,
     }
@@ -183,9 +159,6 @@ async function commentCreate() {
     })
     response_json = await response.json()
     window.location.reload()
-    
-
-    
 }
 }
 // 폭스 투표
@@ -248,7 +221,6 @@ async function vote3() {
     response_json = await response.json()
     window.location.reload()
 }
-
 // 댓글 공감 투표
 async function likeButton(comment_id) {
     let data = {
@@ -257,7 +229,6 @@ async function likeButton(comment_id) {
     if (!localStorage.getItem("access")) {
         alert('로그인해주세요!')
     }
-
     const response = await fetch(`${backend_base_url}/article/${comment_id}/comment/like/`, {
         method: 'POST',
         headers: {
@@ -268,6 +239,5 @@ async function likeButton(comment_id) {
     }
     )
     response_json = await response.json()
-
     window.location.reload()
 }
