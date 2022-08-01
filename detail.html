@@ -25,17 +25,17 @@
 </head>
 
 <body onload="articleDetail()">
-    <!-- 로그인 공간 -->
-    <div class="login-space">
-        <button type="button" class="login-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-            id="login-button">로그인</button>
-        <button type="button" class="login-btn" id="signup-button" onclick="location.href='signup.html'">회원가입</button>
-    </div>
-    </div>
+    
     <!-- 헤더 -->
     <header>
-        <div class="Top-bar">
-            <div class="Top-bar-buttons" id="my-buttons">
+        <div class="Top-bar" >
+            <!-- 로그인 공간 -->
+            <div class="login-space">
+                <button type="button" class="login-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                    id="login-button">로그인</button>
+                <button type="button" class="login-btn" id="signup-button" onclick="location.href='signup.html'">회원가입</button>
+            </div>
+            <div class="Top-bar-buttons" id="my-buttons" >
                 <img class="hbutton" src="../static/image/여우머리.png">
                 <img class="hbutton2" id="modalclick" onclick="side_modal()" src="../static/image/menu.png">
             </div>
