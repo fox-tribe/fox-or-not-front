@@ -22,36 +22,6 @@ window.onload = async function board() {
 }
 
 
-// var articleLoader = function() {
-//     console.log("sadfsadf")
-//     $.ajax({
-//         url: `${backend_base_url}/article/pagination?board=${decoded_name}`,
-//         success: function(data) {
-//             console.log(data)
-//                 if (data['results'].length > 0) {
-//                 for (let i = 0; i < data['results'].length ; i++) {
-//                     const title = data['results'][i]['article_title']
-//                     const author = data['results'][i]['author']
-//                     const date = data['results'][i]['article_post_date']
-//                     var compile_data;
-//                     compile_data = `
-//                     <h1>${title}</h1>
-//                     <h1>${author}</h1>
-//                     `
-//                     ;
-//                     $('#ArticlesDiv').append(compile_data);
-//                 }
-//                 articleOffset += 10
-//             } 
-//             }
-//             }
-//             )
-// }
-
-
-// articleLoader()
-
-
 const PagingConf = {
     totalCount: 100,
     numbersPerPage: 5,
