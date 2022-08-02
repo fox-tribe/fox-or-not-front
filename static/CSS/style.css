@@ -325,7 +325,7 @@ body {
 
 .article {
     width: 800px;
-    padding 0;
+    padding: 0;
 }
 /* 반응형 */
 @media (max-width: 768px) {
@@ -335,7 +335,7 @@ body {
 
     .article {
         width: 100%;
-        padding 0px;
+        padding: 0px;
         font-size: 15px;
     }
     .content__date {

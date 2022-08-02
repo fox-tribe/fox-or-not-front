@@ -35,7 +35,7 @@ body {
     justify-content: space-between;
     align-items: center;
     height: 200px;
-    margin-top: 50px;
+
 }
 
 .logo {
@@ -116,9 +116,9 @@ body {
 
 .fa-magnifying-glass {
     color: orange;
-    position: absolute;
-    left: 244px;
-    top: 175px;
+    position: relative;
+    right: 30px;
+    top: 3px;
     cursor: pointer;
 }
 
