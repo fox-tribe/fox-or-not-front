@@ -54,12 +54,13 @@ async function handleSignin() {
 
 // 회원정보 변경
 async function changeInfo(nickname, password, selectGender){
-    console.log(selectGender)
+    
     let data = {
         password : password,
         gender : selectGender,
         nickname : nickname,
     }
+    console.log(data)
     
     const response = await fetch(`${backend_base_url}/user/`, {
             method: 'PUT',
@@ -176,9 +177,10 @@ async function postArticle(contents, title, board, category) {
 
 // article 수정
 
-async function updateArticle(contents)  {
+async function updateArticle(title, contents)  {
     
     let updateData = {
+        article_title: title,
         article_contents: contents,
     }
     let response = await fetch(`${backend_base_url}/article/${obj_id}/`, {
@@ -221,3 +223,88 @@ async function deleteArticle() {
     }
 
 }
+
+
+// 댓글 수정
+
+async function updateComment(comment, comment_id)  {
+    console.log(comment_id)
+    
+    let updateData = {
+        comment_contents: comment
+    }
+    let response = await fetch(`${backend_base_url}/article/${comment_id}/comment/`, {
+        method: 'PUT',
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + localStorage.getItem("access"),
+            "access-control-allow-origin": "*"
+        },
+        body: JSON.stringify(updateData)
+    })
+
+    response_json = await response.json()
+    window.location.replace(`${frontend_base_url}/detail.html?id=${obj_id}`);
+
+}
+
+
+// 댓글 삭제
+
+async function deleteComment(comment_id) {
+    const response = await fetch(`${backend_base_url}/article/${comment_id}/comment/`, {
+        method: 'DELETE',
+
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("access"),
+            "access-control-allow-origin": "*"
+        },
+
+    }
+    )
+    if (response.status == 200) {
+        window.location.replace(`${frontend_base_url}/detail.html?id=${obj_id}`);
+        response_json = await response.json()
+        return response_json
+    } else {
+        alert(response.status)
+    }
+
+}
+
+
+
+// 게시판 페이지네이션
+async function boardPagenation() {
+    let boardPagenation = async () => {
+        const response = await fetch(`${backend_base_url}/article/pagination?board=${decoded_name}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+    response_json = await response.json()
+    }
+    
+    
+    // 게시글 정보 구간
+    boardPagenation().then((data) => {
+        detail = response_json
+        console.log(detail)
+        for (let i = 0; i < detail['results'].length ; i++) {
+        const title = detail['results'][i]['article_title']
+        const author = detail['results'][i]['author']
+        const date = detail['results'][i]['article_post_date']
+        const content = document.createElement("li");
+        content.classList.add("content");
+        content.innerHTML = `
+        <span class="content__title">${title}</span>
+        <span class="content__author">${author}</span>
+        <span class="content__date">${date}</span>
+        `;
+        }  
+}
+)
+}
+

@@ -59,11 +59,8 @@
                 <!-- 사이트 로고 -->
                 <img src="../static/image/logo.png" alt="" height="100px" onclick="location.href='index.html'">
             </div>
-
-
-
             <!-- 검색엔진 -->
-            <!-- 드롭다운 검색 적용법 확인중, 안되면 그냥 검색창으로 놔둘 예정 -->
+            <!-- 드롭다운 검색 적용법 확인중, 안되면 그냥 검색창으로 놔둘 예정 -->  
             <div class="input-group mt-3 mb-3 search-engine">
                 <select type="button" id="searchOption">
                     전체 게시글
@@ -73,17 +70,17 @@
                     <option><a class="dropdown-item" href="#">작성자</a></option>
                 </select>
                 <input type="text" class="form-control" placeholder="게시글 검색" id="searchKeywords">
-                <img src="static/image/search_button.png" onclick="search()" class="search-button">
+                <img src="static/image/search_button.png" onclick="search()" class="search-button" style="cursor: pointer;">
             </div>
 
             <!-- 게시판행 버튼들 -->
             <div class="Top-bar1 row justify-content-center">
                 <div class="Top-bar1-buttons row">
-                    <img class="board" src="static/image/board01.png" onclick="location.href='board.html?boards=직장인'">
-                    <img class="board" src="static/image/board02.png" onclick="location.href='board.html?boards=대학생'">
                     <img class="board" src="static/image/board03.png" onclick="location.href='board.html?boards=10대'">
-                    <img class="board" src="static/image/board04.png" onclick="location.href='board.html?boards=성인'">
-                    <img class="board" src="static/image/board05.png" onclick="location.href='board.html?boards=LGBTQ'">
+                    <img class="board" src="static/image/board02.png" onclick="location.href='board.html?boards=20대'">
+                    <img class="board" src="static/image/board04.png" onclick="location.href='board.html?boards=30대'">
+                    <img class="board" src="static/image/board01.png" onclick="location.href='board.html?boards=직장인'" >
+                    <img class="board" src="static/image/board05.png" onclick="location.href='board.html?boards=연인'">
                     <img class="board" src="static/image/board06.png" onclick="location.href='board.html?boards=자유'">
                     <img class="board" src="static/image/board07.png" onclick="location.href='board.html?boards=HOT'">
                 </div>
@@ -98,7 +95,7 @@
                         <div class="popular-title">🔥지금 HOT한 고민들🔥</div>
                         <div class="popular-post">
                             <!-- 인기글 for문 구간 -->
-                            <div id="mostLiked-box"></div>
+                            <div id="mostLiked-box" style="cursor: pointer;"></div>
                         </div>
                     </div>
                     <div class="popular-banner col">
@@ -112,33 +109,33 @@
                 <div class="board-class">
                     <div class="row">
                         <div class="second-floor-board col">
-                            <!-- 직장인게시판 -->
+                            <!--  10대 게시판 -->
                             <div class="worker-board row justify-content-center">
-                                <img class="board" src="static/image/board01.png" onclick="location.href='board.html?boards='">
-                                <div class="mainpage-article-list">
-                                    <!-- 직장인게시글 for문 -->
-                                    <div id="company-box"></div>
-
+                                <img class="board" src="static/image/board03.png" onclick="location.href='board.html?boards='">
+                                <div class="mainpage-article-list" >
+                                    <!-- 10대 게시글 for문 -->
+                                    <div id="teen-box" style="cursor: pointer;"></div>
                                 </div>
                             </div>
+                        
                         </div>
                         <div class="second-floor-board col">
-                            <!-- 대학생 게시판 -->
+                            <!-- 20대 게시판 -->
                             <div class="worker-board row justify-content-center">
                                 <img class="board" src="static/image/board02.png" onclick="location.href='board.html?boards='">
                                 <div class="mainpage-article-list">
-                                    <!-- 대학생 게시글 for문 -->
-                                    <div id="college-box"></div>
+                                    <!-- 20대 게시글 for문 -->
+                                    <div id="college-box" style="cursor: pointer;"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="second-floor-board col">
-                            <!--  청소년게시판 -->
+                            <!--  30대 게시판 -->
                             <div class="worker-board row justify-content-center">
-                                <img class="board" src="static/image/board03.png" onclick="location.href='board.html?boards='">
+                                <img class="board" src="static/image/board04.png" onclick="location.href='board.html?boards='">
                                 <div class="mainpage-article-list">
-                                    <!-- 청소년 게시글 for문 -->
-                                    <div id="teen-box"></div>
+                                    <!-- 30대 게시글 for문 -->
+                                    <div id="adult-box" style="cursor: pointer;"></div>
                                 </div>
                             </div>
                         </div>
@@ -146,12 +143,23 @@
                     <!-- 아래줄 -->
                     <div class="row">
                         <div class="second-floor-board col">
-                            <!--  LGBTQ 게시판 -->
+                            <!-- 직장인게시판 -->
+                            <div class="worker-board row justify-content-center">
+                                <img class="board" src="static/image/board01.png" onclick="location.href='board.html?boards='">
+                                <div class="mainpage-article-list">
+                                    <!-- 직장인게시글 for문 -->
+                                    <div id="company-box" style="cursor: pointer;"></div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="second-floor-board col">
+                            <!--  연인 게시판 -->
                             <div class="worker-board row justify-content-center">
                                 <img class="board" src="static/image/board05.png" onclick="location.href='board.html?boards='">
                                 <div class="mainpage-article-list">
-                                    <!-- LGBTQ 게시글 for문 -->
-                                    <div id="lgbtq-box"></div>
+                                    <!-- 연인 게시글 for문 -->
+                                    <div id="lgbtq-box" style="cursor: pointer;"></div>
                                 </div>
                             </div>
                         </div>
@@ -161,20 +169,12 @@
                                 <img class="board" src="static/image/board06.png" onclick="location.href='board.html?boards='">
                                 <div class="mainpage-article-list">
                                     <!-- 자유 게시글 for문 -->
-                                    <div id="free-box"></div>
+                                    <div id="free-box" style="cursor: pointer;"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="second-floor-board col">
-                            <!--  성인 게시판 -->
-                            <div class="worker-board row justify-content-center">
-                                <img class="board" src="static/image/board04.png" onclick="location.href='board.html?boards='">
-                                <div class="mainpage-article-list">
-                                    <!-- 성인 게시글 for문 -->
-                                    <div id="adult-box"></div>
-                                </div>
-                            </div>
-                        </div>
+                        
+                        
                     </div>
                 </div>
             </div>

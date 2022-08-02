@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,160 +13,126 @@
     <!-- JS -->
     <script src="https://kit.fontawesome.com/45d75bb0cc.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"
-        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-        crossorigin="anonymous">
-    </script>
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous">
+        </script>
 </head>
+
 <body onload="getMyArticles()">
 
 
-<!-- 헤더 -->
-<header>
-    <div class="Top-bar">
-        <div>
-            <img src="../static/image/logo.png" alt="" class="logo" onclick="location.href='index.html'">
+    <!-- 헤더 -->
+    <header>
+        <div class="Top-bar">
+            <div class="Top-bar-buttons">
+                <img class="hbutton" src="../static/image/여우머리.png">
+                <img class="hbutton2" id="modalclick" onclick="modal()" src="../static/image/menu.png">
+            </div>
         </div>
-        <div class="Top-bar-buttons">
-            <img class="hbutton" src="../static/image/여우머리.png">
-            <img class="hbutton2" id="modalclick" onclick="modal()" src="../static/image/menu.png">
+        <div class="logo">
+            <img src="../static/image/logo.png" alt="" onclick="location.href='index.html'">
+        </div>
+    </header>
+    <hr style="border: dashed orange;">
+    <!-- 메뉴 모달 -->
+    <div class="modal hidden">
+        <div class="modal__overlay"></div>
+        <!-- 메뉴 유저네임 부분 -->
+        <div class="modal__content">
+            <div class="mypage-username" id="mypage-username"></div>
+
+            <div class="mymenus">
+                <div><button type="button" class="mymenu" onclick="handleLogout()">Logout</button></div>
+            </div>
+            <br>
+            <!-- 카테고리 -->
+            <div class="categorys">
+                <img class="category" src="../static/image/board01.png">
+                <img class="category" src="../static/image/board02.png"><br>
+                <img class="category" src="../static/image/board03.png">
+                <img class="category" src="../static/image/board04.png"><br>
+                <img class="category" src="../static/image/board05.png">
+                <img class="category" src="../static/image/board06.png"><br>
+                <img class="category" src="../static/image/board07.png">
+            </div>
+            <button class="modalbutton">닫기</button>
         </div>
     </div>
-</header>
-<hr style="border: dashed orange;">
-<!-- 메뉴 모달 -->
-<div class="modal hidden">
-    <div class="modal__overlay"></div>
 
-    <!-- 메뉴 유저네임 부분 -->
-    <div class="modal__content">
-        <div class="mypage-username"></div>
 
-        <div class="mymenus">
-            <div><button type="button" class="mymenu" onclick="handleLogout()">Logout</button></div>
+    <div class="tapanddiv">
+
+        <!-- 탭메뉴 -->
+        <div class="taps">
+            <div class="non-click" id="tap1">내게시글</div>
+            <div class="non-click" id="tap2">정보수정</div>
+            <div class="non-click" id="tap3">이용약관</div>
         </div>
-<!-- 검색 -->
-        <div>
-            <input type="text" class="search" placeholder="검색어를 입력하세요">
-            <input type="submit" style="display:none;" id="searchsubmit">
-            <label for="searchsubmit"><i class="fa-solid fa-magnifying-glass"></i></label>
-        </div>
-<!-- 카테고리 -->
-        <div class="categorys">
-            <img class="category" src="../static/image/board01.png">
-            <img class="category" src="../static/image/board02.png"><br>
-            <img class="category" src="../static/image/board03.png">
-            <img class="category" src="../static/image/board04.png"><br>
-            <img class="category" src="../static/image/board05.png">
-            <img class="category" src="../static/image/board06.png"><br>
-            <img class="category" src="../static/image/board07.png">
-        </div> 
-        <button class="modalbutton">닫기</button>
-    </div>
-</div>
-
-
-<div class="tapanddiv">
-
-    <!-- 탭메뉴 -->
-    <div class="taps">
-        <div class="non-click" id="tap1">내게시글</div>
-        <div class="non-click" id="tap2">정보수정</div>
-        <div class="non-click" id="tap3">이용약관</div>
-    </div>
-
-    <!-- 메인공간 -->
-    <div class="squarewrap">
-        <div class="mainsquare">
-
-            <!-- 내게시글 -->
-            <div class="mylogsdiv">
-                <div class="mylogs" id="mylogs">
-                    <h1>내가 쓴 글</h1>
-                    <div class="myarticles">
-                        <div class="myarticle">
-                            <p><b>여기 글 제목이 들어갑니다</b></p>
-                            <p>🦊 : [개수] <br> 💚 : [개수] <br> 💔 : [개수]</p>
+        <!-- 메인공간 -->
+        <div class="squarewrap">
+            <div class="mainsquare">
+                <!-- 내게시글 -->
+                <div class="mylogsdiv">
+                    <div class="mylogs" id="mylogs">
+                        <h1>내가 쓴 글</h1>
+                        <!-- 내 게시글 for문 부분-->
+                        <div class="myarticles" id="mypage-article-box">
                         </div>
-                        <div class="myarticle">
-                            <p><b>여기 글 제목이 들어갑니다</b></p>
-                            <p>🦊 : [개수] <br> 💚 : [개수] <br> 💔 : [개수]</p>
-                        </div>
-                        <div class="myarticle">
-                            <p><b>여기 글 제목이 들어갑니다</b></p>
-                            <p>🦊 : [개수] <br> 💚 : [개수] <br> 💔 : [개수]</p>
-                        </div>
-                    </div>
-                    <h1>내가 쓴 댓글</h1>
-                    <div class="mycomments">
-                        <div class="mycomment">
-                            <div class="thisarticle"><p>해당 글 제목이 들어갑니다</p></div>
-                            <div class="thiscomment"><p>해당 댓글이 들어갑니다</p></div>
-                            <div class="thislike"><i class="fa-solid fa-heart fa-2x"></i><p>개수</p></div>
-                        </div>
-                        <div class="mycomment">
-                            <div class="thisarticle"><p>해당 글 제목이 들어갑니다</p></div>
-                            <div class="thiscomment"><p>해당 댓글이 들어갑니다</p></div>
-                            <div class="thislike"><i class="fa-solid fa-heart fa-2x"></i><p>개수</p></div>
+                        <h1>내가 쓴 댓글</h1>
+                        <!-- 내 댓글for문 부분-->
+                        <div class="mycoments" id="mypage-comment-box">
                         </div>
                     </div>
                 </div>
-        
-            </div>
-
-
-            <!-- 정보수정 -->
-            <div class="biofixed" id="biofixed" style="display:none;">
-
-                <div class="befbios">
-                    <h2>기존정보</h2>
-                    <div class="befbio"><p>이전닉네임</p></div>
-                    <div class="befbio"><p>이전성별</p></div>
+                <!-- 정보수정 -->
+                <div class="biofixed" id="biofixed" style="display:none;">
+                    <div class="befbios" id="profile">
+                    </div>
+                    <div class="line"></div>
+                    <div class="newbios">
+                        <h2>정보수정하기</h2>
+                        <div><input type="text" class="newbio" placeholder="변경닉네임" id="edit-nickname"></div>
+                        <div class="newbiodiv"><span style="color:gray">변경성별</span>
+                            <select class="form-select mb-3" id="edit-gender">
+                                <option>남성</option>
+                                <option>여성</option>
+                                <option>논바이너리</option>
+                                <option>밝히고 싶지 않음</option>
+                            </select>
+                        </div>
+                        <div><input type="password" class="newbio" placeholder="변경비밀번호" id="edit-password"></div>
+                        <div>
+                            <button onclick="editInfo()" class="changebutton">변경</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="line"></div>
 
-                <div class="newbios">
-                    <h2>변경정보</h2>
-                    <div><input type="text" class="newbio" placeholder="변경닉네임"></div>
-                    <div class="newbiodiv"><span style="color:gray">변경성별</span>
-                        <select class="form-select mb-3" id="floatingGender" >
-                            <option>남성</option>
-                            <option>여성</option>
-                            <option>논바이너리</option>
-                            <option>밝히고 싶지 않음</option>
-                        </select>
-                    </div>
-                    <div><input type="password" class="newbio" placeholder="변경비밀번호"></div>
-                    <div>
-                        <label for="change" class="changebutton">변경</label>
-                        <input type="submit" id="change" style="display:none;">
-                    </div>
-                 </div>
+
+                <!-- 이용약관 -->
+                <div class="terms" id="terms" style="display:none">
+                    <h2>회원정보 사용에 대한 동의</h2>
+                    <p>회원의 개인정보는 개인정보보호법에 의해 보호되며 개별 사이트의 개인정보처리방침이 적용됩니다.</p>
+                    <p>당 사이트의 회원 정보는 다음과 같이 수집, 사용, 관리, 보호됩니다.</p>
+                    <p>개인정보의 수집 : 당 사이트는 회원가입 시 회원이 제공하는 정보를 수집합니다.</p>
+                    <p>개인정보의 사용 : 당 사이트는 서비스 제공과 관련해서 수집된 회원정보를 본인의 승낙 없이 제3자에게 누설, 배포하지 않습니다.</p>
+                    <p>단, 전기통신기본법 등 법률의 규정에 의해 국가기관의 요구가 있는 경우, 범죄에 대한 수사상의 목적이 있거나 방송통신심의위원회의 요청이 있는 경우 또는 기타 법령에서 정한
+                        절차에 따른 요청이 있는 경우, 회원이 당 사이트에 제공한 개인정보를 스스로 공개한 경우에는 그러하지 않습니다.</p>
+                    <p>개인정보의 관리 : 회원은 개인정보의 보호 및 관리를 위하여 서비스의 개인정보관리에서 수시로 회원의 개인정보를 수정/삭제할 수 있습니다. </p>
+                    <p>수신되는 정보 중 불필요하다고 생각되는 부분도 변경/조정할 수 있습니다.</p>
+                    <p>개인정보의 보호 : 회원의 개인정보는 오직 회원만이 열람/수정/삭제할 수 있으며, 이는 전적으로 회원의 아이디와 비밀번호에 의해 관리되고 있습니다.</p>
+                    <p>따라서 타인에게 본인의 아이디와 비밀번호를 알려주어서는 아니 되며, 작업 종료 시에는 반드시 로그아웃 해주시고, 웹 브라우저의 창을 닫아주시기 바랍니다.</p>
+                    <p>(이는 타인과 컴퓨터를 공유하는 인터넷 카페나 도서관 같은 공공장소에서 컴퓨터를 사용하는 경우에 회원의 정보의 보호를 위하여 필요한 사항입니다.)</p>
+                </div>
+
+
             </div>
-        
-
-            <!-- 이용약관 -->
-            <div class="terms" id="terms" style="display:none">
-                <h2>회원정보 사용에 대한 동의</h2>
-                <p>회원의 개인정보는 개인정보보호법에 의해 보호되며 개별 사이트의 개인정보처리방침이 적용됩니다.</p>
-                <p>당 사이트의 회원 정보는 다음과 같이 수집, 사용, 관리, 보호됩니다.</p>
-                <p>개인정보의 수집 : 당 사이트는 회원가입 시 회원이 제공하는 정보를 수집합니다.</p>
-                <p>개인정보의 사용 : 당 사이트는 서비스 제공과 관련해서 수집된 회원정보를 본인의 승낙 없이 제3자에게 누설, 배포하지 않습니다.</p>
-                <p>단, 전기통신기본법 등 법률의 규정에 의해 국가기관의 요구가 있는 경우, 범죄에 대한 수사상의 목적이 있거나 방송통신심의위원회의 요청이 있는 경우 또는 기타 법령에서 정한 절차에 따른 요청이 있는 경우, 회원이 당 사이트에 제공한 개인정보를 스스로 공개한 경우에는 그러하지 않습니다.</p>
-                <p>개인정보의 관리 : 회원은 개인정보의 보호 및 관리를 위하여 서비스의 개인정보관리에서 수시로 회원의 개인정보를 수정/삭제할 수 있습니다. </p>
-                <p>수신되는 정보 중 불필요하다고 생각되는 부분도 변경/조정할 수 있습니다.</p>
-                <p>개인정보의 보호 : 회원의 개인정보는 오직 회원만이 열람/수정/삭제할 수 있으며, 이는 전적으로 회원의 아이디와 비밀번호에 의해 관리되고 있습니다.</p> 
-                <p>따라서 타인에게 본인의 아이디와 비밀번호를 알려주어서는 아니 되며, 작업 종료 시에는 반드시 로그아웃 해주시고, 웹 브라우저의 창을 닫아주시기 바랍니다.</p>
-                <p>(이는 타인과 컴퓨터를 공유하는 인터넷 카페나 도서관 같은 공공장소에서 컴퓨터를 사용하는 경우에 회원의 정보의 보호를 위하여 필요한 사항입니다.)</p>    
-            </div>
-
-
         </div>
-    </div>
-    
-</div>
 
-<script src="/static/Scripts/mypage.js"></script>
-<script src="/static/Scripts/mypage_user.js"></script>
+    </div>
+
+    <script src="../static/JS/api.js"></script>
+    <script src="../static/Scripts/mypage.js"></script>
+    <script src="../static/Scripts/mypage_user.js"></script>
 
 </body>
+
 </html>
