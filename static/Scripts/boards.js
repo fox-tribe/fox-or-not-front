@@ -18,15 +18,25 @@ window.onload = async function board() {
         login_button.style.visibility = "hidden"
         signup_button.style.visibility = "hidden"
     }
+    const response = await fetch(`${backend_base_url}/article/?board=${decoded_name}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    response_json = await response.json()
+    num = response_json.length
+    result = JSON.stringify(response_json)
+    sessionStorage.setItem("num", num)
+    return result
 
 }
-
-
 const PagingConf = {
     totalCount: 100,
     numbersPerPage: 5,
-    navPageNumber: 10
+    navPageNumber: Math.ceil(sessionStorage.getItem("num")/10),
 };
+sessionStorage.removeItem("num")
 const feedNumber = {
     num : 0
 }
