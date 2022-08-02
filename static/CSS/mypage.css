@@ -95,7 +95,9 @@ body {
     color: orange;
     border-bottom: 2px solid gray
 }
-
+.categorys {
+    margin-top: 30px;
+}
 .mymenus {
     display: flex;
     flex-direction: row;
