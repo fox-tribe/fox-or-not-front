@@ -1,7 +1,5 @@
 // 검색기능
 async function search() {
-
-    
     const searchData = {
         type: document.getElementById('searchOption').value,
         search: document.getElementById('searchKeywords').value,
@@ -13,22 +11,24 @@ async function search() {
         },
         body: JSON.stringify(searchData)
     })
-    // window.location.href = `${frontend_base_url}/search_result.html`
     // 세션 저장
     response_json = await response.json()
     result = JSON.stringify(response_json)
+    num = response_json.length
     sessionStorage.setItem("result", result)
-    sessionStorage.setItem("key", searchData.search)
+    sessionStorage.setItem("keyword", searchData.search)
+    sessionStorage.setItem("type", searchData.type)
+    sessionStorage.setItem("num", num)
+    window.location.href = `${frontend_base_url}/search_result.html`
     return result
-    
-
 }
 
 const PagingConf = {
     totalCount: 100,
     numbersPerPage: 5,
-    navPageNumber: 10
+    navPageNumber: Math.ceil(sessionStorage.getItem("num")/10),
 };
+sessionStorage.removeItem("num")
 const feedNumber = {
     num : 0
 }
@@ -120,33 +120,36 @@ function getPosts() {
     let offset = pageInfo.numbersPerPage;
     let params = '?page=' + page;
     params += '&offset=' + offset;
-    }
     $.ajax({
-        type: 'GET',
-        url: `${backend_base_url}/article/pagination?board=${decoded_name}&page=${page}`,
-        data: {},
+        type: 'POST',
+        url: `${backend_base_url}/article/search/`,
+        data: {            
+            type: sessionStorage.getItem("type"),
+            search: sessionStorage.getItem("keyword")
+        },
         async: false,
-        success: function (result) {
-            console.log(result)
-            if (result['results'] != 0) {
-                let posts = result['results'];
+        success: function (response) {        
+            console.log(response) 
+            if (response.length != 0) {
+                let posts = response;
+                console.log(posts)
+                let board_html = `<b id="board-name">'${sessionStorage.getItem("keyword")}' 검색결과</b>`
+                $('#board-name').empty()
+                $('#board-name').append(board_html)
                 for (let i = 0; i < posts.length; i++) {
                     let cnt = i + 1
+                    const id = posts[i]['id']
                     const title = posts[i]['article_title']
                     const author = posts[i]['author']
                     const date = posts[i]['article_post_date']
-                    let keyword_html = `<div class="board-name"><b>"${searchData.search}" 검색결과</b></div>`
-                    $('#search-keyword').append(keyword_html)
-                    let temp_html = `<tr>
-                                        <th scope="col">${cnt}</th>
-                                        <th scope="col">${title}</th>
-                                        <th scope="col">${author}</th>
-                                        <th scope="col">${date}</th>
-                                    </tr>`
-                    $('#list-post').append(temp_html)
+                    let temp_html = `<div class="tr" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">
+                                        <div class="th number" scope="col">${cnt}.</div>
+                                        <div class="th title" scope="col"><b>${title}</b></div>
+                                        <div class="th author" scope="col">${author}</div>
+                                        <div class="th date" scope="col">${date}</div>
+                                    </div>`
+                    $('#search-post').append(temp_html)
                 }
-            } else {
-                console.log("no posts")
             }
         },
         fail: function (response) {
@@ -154,3 +157,5 @@ function getPosts() {
             // window.location.reload()
         }
     });
+}
+

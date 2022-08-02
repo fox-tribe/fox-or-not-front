@@ -34,8 +34,7 @@ body {
     flex-wrap: wrap;
     justify-content: flex-end;
     align-items: center;
-    height: 60px;
-    margin-top: 5px;
+    height: 200px;
 }
 
 .logo {
@@ -120,9 +119,9 @@ body {
 
 .fa-magnifying-glass {
     color: orange;
-    position: absolute;
-    left: 244px;
-    top: 175px;
+    position: relative;
+    right: 30px;
+    top: 3px;
     cursor: pointer;
 }
 
