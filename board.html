@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>00 게시판</title>
+    <title>게시판</title>
 
     <!-- 파비콘 -->
     <link rel="shortcut icon" href="../static/image/favicon.png" type="image/x-icon">
@@ -19,6 +19,7 @@
     <!--스타일 CSS -->
     <link rel="stylesheet" href="/static/CSS/pagenation.css">
     <link rel="stylesheet" href="../static/CSS/style.css">
+    <link rel="stylesheet" href="../static/CSS/board.css">
 </head>
 
 
@@ -72,14 +73,28 @@
         <!-- 게시판 공간 -->
         <div class="board-space">
             <!-- 게시판 명 -->
-            <div class="board-name"><b>00 게시판</b></div>
-            <div id="ArticlesDiv"></div>
-            <div id="list-post"></div>
 
-            <div class="paging"></div>
+            <div class="board-name" ><b id="board-name"></b></div>
+            
+
+            
+
 
             <div class="posting-space"><button class="posting-btn" onclick="location.href='posting.html'">게시물 작성</button></div>
+            <div class="second-floor-board col">
+                <!--게시판 -->
+                <div class="worker-board row justify-content-center">
+                        <!-- 자유 게시글 for문 -->
+                        <div id="ArticlesDiv" class="articles">
+                            <div id="list-post" class="list-post" ></div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+
             
+            <div class="paging" style="cursor:pointer"></div>
             <article class="article">
                 <ul class="contents"></ul>
                 <div class="buttons"></div>

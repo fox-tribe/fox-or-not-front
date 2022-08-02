@@ -134,7 +134,31 @@ function getPosts() {
         data: {},
         async: false,
         success: function (response) {
-            console.log(response)
+            let posts = response['results'];
+            if (posts[0]['board'] == '10대') {
+                let board_html = `<b id="board-name">10대 게시판</b>`
+                $('#board-name').append(board_html)
+                
+            } else if (posts[0]['board'] == '20대'){
+                let board_html = `<b id="board-name">20대 게시판</b>`
+                $('#board-name').append(board_html)
+            } else if (posts[0]['board'] == '30대'){
+                let board_html = `<b id="board-name">30대 게시판</b>`
+                $('#board-name').append(board_html)
+            } else if (posts[0]['board'] == '직장인'){
+                let board_html = `<b id="board-name">직장인 게시판</b>`
+                $('#board-name').append(board_html)
+            } else if (posts[0]['board'] == '연인'){
+                let board_html = `<b id="board-name">연인 게시판</b>`
+                $('#board-name').append(board_html)
+            } else if (posts[0]['board'] == '자유'){
+                let board_html = `<b id="board-name">자유 게시판</b>`
+                $('#board-name').append(board_html)
+            } else if (posts[0]['board'] == 'HOT') {
+                let board_html = `<b id="board-name">HOT 게시판</b>`
+                $('#board-name').append(board_html)
+            }
+            
             if (response['results'] != 0) {
                 let posts = response['results'];
                 for (let i = 0; i < posts.length; i++) {
@@ -142,16 +166,14 @@ function getPosts() {
                     const title = posts[i]['article_title']
                     const author = posts[i]['author']
                     const date = posts[i]['article_post_date']
-                    let temp_html = `<tr>
-                                        <th scope="col">${cnt}</th>
-                                        <th scope="col">${title}</th>
-                                        <th scope="col">${author}</th>
-                                        <th scope="col">${date}</th>
-                                    </tr>`
+                    let temp_html = `<div class="tr">
+                                        <div class="th number" scope="col">${cnt}.</div>
+                                        <div class="th title" scope="col"><b>${title}</b></div>
+                                        <div class="th author" scope="col">${author}</div>
+                                        <div class="th date" scope="col">${date}</div>
+                                    </div>`
                     $('#list-post').append(temp_html)
                 }
-            } else {
-                console.log("no posts")
             }
         },
         fail: function (response) {

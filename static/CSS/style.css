@@ -276,7 +276,7 @@ body {
 
 /* 게시판 페이지*/
 .posting-space {
-    width: 800px;
+    width: 1000px;
     display:flex;
     margin:auto;
     justify-content: flex-end;
@@ -284,10 +284,11 @@ body {
 
 .posting-btn {
     padding: 5px;
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(120, 120, 120);
     border-radius: 5px;
     border: 0;
-    margin-top: 5px;
+    margin-top: 15px;
+    margin-left: 300px;
 }
 
 .board-space {
@@ -311,6 +312,7 @@ body {
 
 .search-button {
     border-radius: 90px;
+    cursor: pointer;
 }
 
 .search-button:hover {
