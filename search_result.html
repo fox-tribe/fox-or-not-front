@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>"{{검색단어}}" 검색 결과</title>
-
+    <title>너 그거 폭스야</title>
+    
     <!-- 파비콘 -->
     <link rel="shortcut icon" href="../static/image/favicon.png" type="image/x-icon">
 
@@ -19,9 +19,10 @@
     <!--스타일 CSS -->
     <link rel="stylesheet" href="/static/CSS/pagenation.css">
     <link rel="stylesheet" href="../static/CSS/style.css">
+    <link rel="stylesheet" href="../static/CSS/board.css">
 </head>
 
-<body style="background-color: rgb(43, 43, 43); color: white;">
+<body style="background-color: rgb(43, 43, 43); color: black;">
     <!-- 로그인 공간 -->
     <div class="login-space">
         <div class="login-block">
@@ -67,21 +68,31 @@
             <img class="board" src="static/image/board07.png" onclick="location.href='board.html?boards=HOT'">
         </div>
     </div>
-
     <!-- 게시판 공간 -->
     <div class="board-space">
         <!-- 게시판 명 -->
-        <div id="search-keyword"></div>
+        <div class="board-name" ><b id="board-name"></b></div>
+        <div class="posting-space"><button class="posting-btn" onclick="location.href='posting.html'">게시물 작성</button></div>
+        <div class="second-floor-board col">
+            <!--게시판 -->
+            <div class="worker-board row justify-content-center">
+                    <!-- 자유 게시글 for문 -->
+                    <div id="ArticlesDiv" class="articles">
+                        <div id="search-post" class="list-post" ></div>
+                        </div>
+                </div>
+            </div>
+        </div>
 
-        <article class="article">
-            <ul class="contents"></ul>
-            <div class="buttons"></div>
-        </article>
         <!-- Scripts -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css"/>
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
         <script src="/static/JS/api.js"></script>
         <script src="/static/Scripts/search.js"></script>
+        <script src="/static/Scripts/boards.js"></script>
     </div>
 
     <!-- The Modal -->
