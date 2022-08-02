@@ -11,6 +11,8 @@
     padding: 8px;
     font-size: .875rem;
     border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
 }
 
 .login-btn:hover {
@@ -20,10 +22,9 @@
 
 * {
     font-family: 'GmarketSansMedium';
-
 }
 
-h2{
+h2 {
     margin: 0;
 }
 
@@ -51,10 +52,9 @@ body {
 /* 로그인 공간 */
 .login-space {
     width: 100%;
-    height: 30px;
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-left: 600px;
 }
 
 .login-block {
@@ -64,7 +64,7 @@ body {
 }
 
 .login-modal {
-    background-color: #ffffff;
+    background-color: #4747475b;
     backdrop-filter: blur(5px);
 }
 
@@ -77,21 +77,22 @@ body {
 }
 
 /* 상단공간 */
-
 .Top-bar {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    height: 200px;
+    height: 60px;
 }
 
 .logo {
-    height: 120px;
-    margin: 10px;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    transform: scale(0.6);
     cursor: pointer;
-} 
+}
 
 .hbutton {
     height: 50px;
@@ -116,10 +117,10 @@ body {
 
 .content-box {
     width: 100%;
-
+    margin: auto;
 }
 
-.modal {
+.side_modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -127,7 +128,7 @@ body {
     height: 100%;
 }
 
-.modal__content {
+.side_modal__content {
     background-color: white;
     padding: 50px;
     position: absolute;
@@ -138,7 +139,7 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
-.modal__overlay {
+.side_modal__overlay {
     background-color: rgba(0, 0, 0, 0.6);
     width: 100%;
     height: 100%;
@@ -170,10 +171,11 @@ body {
 }
 
 .search {
-    width: 200px;
+    width: 250px;
     border: 6px double orange;
     margin: 15px 0px 15px 0px;
 }
+
 
 .fa-magnifying-glass {
     color: orange;
@@ -189,7 +191,9 @@ body {
 }
 
 .category:hover {
+    transition: all 0.3s;
     transform: scale(1.1);
+    cursor: pointer;
 }
 
 .hidden {
@@ -220,7 +224,6 @@ body {
     margin: 5px auto 15px auto;
 }
 
-
 .contentdiv {
     width: 800px;
     overflow: hidden;
@@ -230,13 +233,15 @@ body {
     background-color: white;
 }
 
-
+.contentdiv>img {
+    width: 100%;
+    height: 100%;
+}
 
 .content {
     margin: 10px;
     word-break: break-all;
 }
-
 
 .writeinfo {
     display: flex;
@@ -251,7 +256,8 @@ body {
 
 .articlebuttons {
     display: flex;
-    flex-direction: row;
+    margin: auto;
+    width: 800px;
 }
 
 .botediv {
@@ -372,6 +378,11 @@ body {
     display: block;
 }
 
+.fa-regular {
+    cursor: pointer;
+}
+
+
 .reallike {
     background-color: rgba(255, 255, 255, 0);
     border: none;
@@ -407,13 +418,31 @@ body {
     cursor: pointer;
 }
 
+.modal-textinput {
+    width: 100%;
+}
+
+.modal-textarea {
+    width: 100%;
+    height: 300px;
+}
+.heart {
+    cursor: pointer;
+}
+
 @media (max-width: 768px) {
+    .articlebuttons {
+        display: flex;
+        justify-content: flex-end;
+        width: 90%;
+    }
+
     .comments {
         width: 100%;
     }
 
     .wcommentdiv {
-        width: 100%;
+        width: 90%;
     }
 
     .botediv {
@@ -457,30 +486,24 @@ body {
         font-size: 14px;
     }
 
+    .login-space {
+        display: none;
+    }
 }
 
-
 @media (max-width:580px) {
-
-    .logo {
-        height: 70px;
-        width: 93px;
-    }
 
     .hbutton {
         height: 30px;
         width: 30px;
     }
-    
+
     .hbutton2 {
         height: 30px;
         width: 35px;
     }
 
     .Top-bar {
-        height: 100px;
+        height: 40px;
     }
-
-
-
 }

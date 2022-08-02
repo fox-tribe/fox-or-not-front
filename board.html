@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>00 게시판</title>
+    <title>게시판</title>
 
     <!-- 파비콘 -->
     <link rel="shortcut icon" href="../static/image/favicon.png" type="image/x-icon">
@@ -19,9 +19,9 @@
     <!--스타일 CSS -->
     <link rel="stylesheet" href="/static/CSS/pagenation.css">
     <link rel="stylesheet" href="../static/CSS/style.css">
+    <link rel="stylesheet" href="../static/CSS/board.css">
 </head>
 
-<body onload="board()">
 
     <body>
 
@@ -60,11 +60,11 @@
         <!-- 게시판행 버튼들 -->
         <div class="Top-bar1">
             <div class="Top-bar1-buttons row">
-                <img class="board" src="static/image/board01.png" onclick="location.href='board.html?boards=직장인'">
-                <img class="board" src="static/image/board02.png" onclick="location.href='board.html?boards=대학생'">
                 <img class="board" src="static/image/board03.png" onclick="location.href='board.html?boards=10대'">
-                <img class="board" src="static/image/board04.png" onclick="location.href='board.html?boards=성인'">
-                <img class="board" src="static/image/board05.png" onclick="location.href='board.html?boards=LGBTQ'">
+                <img class="board" src="static/image/board02.png" onclick="location.href='board.html?boards=20대'">
+                <img class="board" src="static/image/board04.png" onclick="location.href='board.html?boards=30대'">
+                <img class="board" src="static/image/board01.png" onclick="location.href='board.html?boards=직장인'">
+                <img class="board" src="static/image/board05.png" onclick="location.href='board.html?boards=연인'">
                 <img class="board" src="static/image/board06.png" onclick="location.href='board.html?boards=자유'">
                 <img class="board" src="static/image/board07.png" onclick="location.href='board.html?boards=HOT'">
             </div>
@@ -73,21 +73,39 @@
         <!-- 게시판 공간 -->
         <div class="board-space">
             <!-- 게시판 명 -->
-            <div class="board-name"><b>00 게시판</b></div>
+
+            <div class="board-name" ><b id="board-name"></b></div>
             
-            <div class="posting-space"><button class="posting-btn" onclick="location.href='posting.html'">게시물 작성</button></div>
+            <div class="posting-space1"><button class="posting-btn" onclick="location.href='posting.html'">게시물 작성</button></div>
+            <div class="second-floor-board col">
+                <!--게시판 -->
+                <div class="worker-board row justify-content-center">
+                        <!-- 자유 게시글 for문 -->
+                        <div id="ArticlesDiv" class="articles">
+                            <div id="list-post" class="list-post" ></div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+
             
+            <div class="paging" style="cursor:pointer"></div>
             <article class="article">
                 <ul class="contents"></ul>
                 <div class="buttons"></div>
             </article>
-            <!-- Scripts -->
-            <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-            <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-            <script src="/static/JS/api.js"></script>
-            <script src="/static/JS/pagenation.js"></script>
-            <script src="/static/Scripts/boards.js"></script>
         </div>
+        <!-- Scripts -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css"/>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <script src="/static/JS/api.js"></script>
+        <script src="/static/Scripts/boards.js"></script>
+    
+    
         
         <!-- 로그인 모달창 -->
         <div class="modal fade login-modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"

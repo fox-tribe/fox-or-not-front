@@ -1,4 +1,4 @@
-const backend_base_url = "http://127.0.0.1:8000"
+
 
 // #모달
 async function modal() {
@@ -91,8 +91,7 @@ async function getMyArticles() {
     myData().then((data) => {
         detail = response_json
         console.log(detail)
-        let username_html = `<h3>${username}님 환영합니다</h3>`
-        $('.mypage-username').prepend(username_html)
+
         for (let i = 0; i < detail.length; i++) {
             if (detail[i]['author'] == username) {
                 let author = detail[i]['author']
@@ -120,8 +119,8 @@ async function getMyArticles() {
                 let likes = detail[i]['comment_set'][j]['count']
                 let temp_html =`
                 <div class="mycomment">
-                <div class="thisarticle" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${title}</div>
-                <div class="thiscomment">${contents}</div>
+                <div class="thisarticle"  onclick="location.href='${frontend_base_url}/detail.html?id=${id}'"><a>${title}</a></div>
+                <div class="thiscomment"><a>${contents}</a></div>
                 <div class="thislike"><i class="fa-solid fa-heart fa-2x"></i><p>${likes}</p></div>
                 </div>`
                 $('#mypage-comment-box').prepend(temp_html)

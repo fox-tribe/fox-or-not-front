@@ -26,7 +26,7 @@
 
 <body>
     <div class="sign-space">
-        <a href="index.html">로그아웃</a>
+        <button type="button" class="btn btn-warning btn-sm" id="logout-button" onclick="logout()">로그아웃</button>
     </div>
     <!-- 상단공간 -->
     <div class="navbar">
@@ -39,7 +39,7 @@
     <!-- 제목 -->
     <div class="posting-space">
         <div class="posting-space-box">
-            <ul>
+            <ul class="post-space">
                 <li>
                     <div class="title-space row">
                         <div class="title-space-title col-1" > ■ 제 목</div>
@@ -54,12 +54,12 @@
                         <div class="title-space-input col">
                             <select class="form-select" aria-label=".form-select-lg example" style="border-radius: 0;" id="board">
                                 <option selected>업로드 할 게시판을 선택해주세요</option>
-                                <option value="직장인">직장인 게시판</option>
-                                <option value="대학생">대학생 게시판</option>
                                 <option value="10대">10대 게시판</option>
+                                <option value="20대">20대 게시판</option>
+                                <option value="30대">30대 게시판</option>
+                                <option value="직장인">직장인 게시판</option>
+                                <option value="연인">연인 게시판</option>
                                 <option value="자유">자유 게시판</option>
-                                <option value="성인">성인 게시판</option>
-                                <option value="LGBTQ">LGBTQ 게시판</option>
                             </select>
                         </div>
                     </div>
