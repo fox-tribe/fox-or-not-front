@@ -180,7 +180,7 @@ async function getUpdateComment(comment_id) {
     updateComment(comment, comment_id)
 }
 
-/// 댓글 수정
+/// 댓글 삭제 
 async function getdeleteComment(comment_id) {
     if (!localStorage.getItem("access")) {
         alert('로그인해주세요!')
