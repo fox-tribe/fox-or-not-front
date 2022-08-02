@@ -4,6 +4,7 @@
     font-weight: normal;
     font-style: normal;
 }
+
 .login-btn {
     background-color: white;
     border: 0;
@@ -13,32 +14,41 @@
     margin: 5px;
     cursor: pointer;
 }
+
 .login-btn:hover {
     background-color: rgb(255, 136, 0);
     color: white;
 }
+
 * {
     font-family: 'GmarketSansMedium';
 }
+
 h2 {
     margin: 0;
 }
+
 h4 {
     margin: 15px;
 }
+
 p {
     margin: 0;
 }
+
 body {
     background: linear-gradient(0.25turn, lightgray, rgba(230, 177, 78, 0.484), white);
 }
+
 .bote p {
     margin: 0;
 }
+
 .bodywrap {
     margin-left: 0;
     margin-right: 0;
 }
+
 /* 로그인 공간 */
 .login-space {
     width: 100%;
@@ -46,21 +56,26 @@ body {
     justify-content: center;
     margin-left: 600px;
 }
+
 .login-block {
     width: 800px;
     height: 30px;
     text-align: right;
 }
+
 .login-modal {
     background-color: #4747475b;
     backdrop-filter: blur(5px);
 }
+
 .login-modal-size {
     width: 300px;
 }
+
 .modal-dialog-centered {
     justify-content: space-around;
 }
+
 /* 상단공간 */
 .Top-bar {
     display: flex;
@@ -70,6 +85,7 @@ body {
     align-items: center;
     height: 60px;
 }
+
 .logo {
     display: flex;
     margin: auto;
@@ -77,28 +93,33 @@ body {
     transform: scale(0.6);
     cursor: pointer;
 }
+
 .hbutton {
     height: 50px;
     width: 50px;
     margin: 10px;
     cursor: pointer;
 }
+
 .hbutton2 {
     height: 50px;
     width: 55px;
     margin: 10px;
     cursor: pointer;
 }
+
 /* 콘텐츠공간 */
 .comments-box {
     width: 800px;
     margin: auto;
     display: flex;
 }
+
 .content-box {
     width: 100%;
     margin: auto;
 }
+
 .side_modal {
     position: fixed;
     top: 0;
@@ -106,6 +127,7 @@ body {
     width: 100%;
     height: 100%;
 }
+
 .side_modal__content {
     background-color: white;
     padding: 50px;
@@ -116,12 +138,14 @@ body {
     text-align: center;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
+
 .side_modal__overlay {
     background-color: rgba(0, 0, 0, 0.6);
     width: 100%;
     height: 100%;
     position: absolute;
 }
+
 .button {
     background-color: rgba(255, 255, 255, 0);
     border: none;
@@ -131,11 +155,13 @@ body {
     color: orange;
     border-bottom: 2px solid gray
 }
+
 .mymenus {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
+
 .mymenu {
     margin-right: 10px;
     border: none;
@@ -143,6 +169,7 @@ body {
     background-color: orange;
     cursor: pointer;
 }
+
 .search {
     width: 250px;
     border: 6px double orange;
@@ -153,27 +180,33 @@ body {
 .fa-magnifying-glass {
     color: orange;
     position: absolute;
-    left: 295px;
+    left: 270px;
     top: 185px;
     cursor: pointer;
 }
+
 .category {
     height: 90px;
     width: 90px;
 }
+
 .category:hover {
+    transition: all 0.3s;
     transform: scale(1.1);
     cursor: pointer;
 }
+
 .hidden {
     display: none;
 }
+
 .bodywrap {
     display: flex;
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
 }
+
 .titlediv {
     display: flex;
     justify-content: space-around;
@@ -184,11 +217,13 @@ body {
     background-color: white;
     margin: auto;
 }
+
 .title {
     width: 100%;
     text-align: center;
     margin: 5px auto 15px auto;
 }
+
 .contentdiv {
     width: 800px;
     overflow: hidden;
@@ -197,14 +232,17 @@ body {
     border: 1px solid orange;
     background-color: white;
 }
-.contentdiv > img {
+
+.contentdiv>img {
     width: 100%;
     height: 100%;
 }
+
 .content {
     margin: 10px;
     word-break: break-all;
 }
+
 .writeinfo {
     display: flex;
     flex-direction: row;
@@ -215,10 +253,13 @@ body {
     font-size: 15px;
     padding: 4px 10px 5px 5px;
 }
+
 .articlebuttons {
     display: flex;
-    flex-direction: row;
+    margin: auto;
+    width: 800px;
 }
+
 .botediv {
     display: flex;
     margin: 15px auto 0 auto;
@@ -226,6 +267,7 @@ body {
     justify-content: space-around;
     width: 800px;
 }
+
 .bote {
     font-size: 50px;
     margin: 0;
@@ -233,27 +275,32 @@ body {
     border: none;
     cursor: pointer;
 }
+
 .boteb {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
+
 .btext1 {
     font-size: 20px;
     color: orange;
     font-weight: bold;
 }
+
 .btext2 {
     font-size: 20px;
     color: green;
     font-weight: bold;
 }
+
 .btext3 {
     font-size: 20px;
     color: red;
     font-weight: bold;
 }
+
 .wcommentdiv {
     display: flex;
     align-items: center;
@@ -263,6 +310,7 @@ body {
     margin: 20px auto 0 auto;
     width: 800px;
 }
+
 .wcomment {
     resize: none;
     width: 100%;
@@ -270,6 +318,7 @@ body {
     font-size: 17px;
     border: 1px solid orange;
 }
+
 .cosubmit {
     color: orange;
     text-decoration-line: underline;
@@ -279,6 +328,7 @@ body {
     font-size: 18px;
     margin-top: 5px;
 }
+
 .comments {
     width: 800px;
     display: flex;
@@ -287,6 +337,7 @@ body {
     align-items: center;
     margin: auto;
 }
+
 .cowriteinfo {
     width: 900px;
     max-width: 100%;
@@ -296,11 +347,13 @@ body {
     align-items: center;
     margin-top: 20px;
 }
+
 .cotime {
     font-size: 13px;
     color: gray;
     margin-left: 10px;
 }
+
 .commentdetail {
     width: 900px;
     max-width: 100%;
@@ -309,10 +362,12 @@ body {
     justify-content: flex-start;
     align-items: center;
 }
+
 .comment {
     width: 800px;
     max-width: 100%;
 }
+
 .like {
     background-color: rgba(255, 255, 255, 0);
     border: none;
@@ -321,9 +376,12 @@ body {
     margin: 0;
     cursor: pointer;
 }
+
 .fa-regular {
     cursor: pointer;
 }
+
+
 .reallike {
     background-color: rgba(255, 255, 255, 0);
     border: none;
@@ -333,12 +391,14 @@ body {
     color: orange;
     display: none;
 }
+
 .cowriter {
     background-color: rgb(255, 136, 0);
     color: black;
     padding: 3px;
     border-radius: 5px;
 }
+
 .comment-modify {
     background-color: rgb(66, 68, 75);
     color: white;
@@ -347,6 +407,7 @@ body {
     padding: 1px 5px 1px 5px;
     cursor: pointer;
 }
+
 .comment-delete {
     background-color: rgb(255, 0, 0);
     color: white;
@@ -355,61 +416,89 @@ body {
     padding: 1px 5px 1px 5px;
     cursor: pointer;
 }
+
+.modal-textinput {
+    width: 100%;
+}
+
+.modal-textarea {
+    width: 100%;
+    height: 300px;
+}
+
 @media (max-width: 768px) {
+    .articlebuttons {
+        display: flex;
+        justify-content: flex-end;
+        width: 90%;
+    }
+
     .comments {
         width: 100%;
     }
+
     .wcommentdiv {
-        width: 100%;
+        width: 90%;
     }
+
     .botediv {
         width: 100%;
     }
+
     .titlediv {
         width: 100%;
     }
+
     h2 {
         font-size: 20px;
     }
+
     .title {
         font-size: 20px;
     }
+
     .content {
         font-size: 18px;
     }
+
     .bote {
         font-size: 35px;
     }
+
     .btext1 {
         font-size: 15px;
     }
+
     .btext2 {
         font-size: 15px;
     }
+
     .btext3 {
         font-size: 15px;
     }
+
     .contentdiv {
         width: 100%;
         font-size: 14px;
     }
+
     .login-space {
         display: none;
     }
 }
+
 @media (max-width:580px) {
-    .logo {
-        height: 70px;
-        width: 93px;
-    }
+
     .hbutton {
         height: 30px;
         width: 30px;
     }
+
     .hbutton2 {
         height: 30px;
         width: 35px;
     }
+
     .Top-bar {
         height: 40px;
     }

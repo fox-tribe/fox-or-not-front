@@ -25,17 +25,18 @@
 </head>
 
 <body onload="articleDetail()">
-    
+
     <!-- 헤더 -->
     <header>
-        <div class="Top-bar" >
+        <div class="Top-bar">
             <!-- 로그인 공간 -->
             <div class="login-space">
                 <button type="button" class="login-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                     id="login-button">로그인</button>
-                <button type="button" class="login-btn" id="signup-button" onclick="location.href='signup.html'">회원가입</button>
+                <button type="button" class="login-btn" id="signup-button"
+                    onclick="location.href='signup.html'">회원가입</button>
             </div>
-            <div class="Top-bar-buttons" id="my-buttons" >
+            <div class="Top-bar-buttons" id="my-buttons">
                 <img class="hbutton" src="../static/image/여우머리.png">
                 <img class="hbutton2" id="modalclick" onclick="side_modal()" src="../static/image/menu.png">
             </div>
@@ -62,7 +63,8 @@
             <label for="searchsubmit"><i class="fa-solid fa-magnifying-glass"></i></label>
             <div class="categorys">
                 <img class="category" src="../static/image/board01.png" onclick="location.href='board.html?boards=직장인'">
-                <img class="category" src="../static/image/board02.png" onclick="location.href='board.html?boards=20대'">
+                <img class="category" src="../static/image/board02.png"
+                    onclick="location.href='board.html?boards=20대'"><br>
                 <img class="category" src="../static/image/board03.png" onclick="location.href='board.html?boards=10대'">
                 <img class="category" src="../static/image/board04.png"
                     onclick="location.href='board.html?boards=30대'"><br>
@@ -78,6 +80,10 @@
 
 
     <!-- 메인 컨텐츠 공간 -->
+    <div class="articlebuttons">
+        <p class="comment-modify" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">게시글 수정</p>
+        <p class="comment-delete" onclick="removeArticle()">삭제</p>
+    </div>
     <div class="content-box row">
         <!-- 아티클 디테일 for문-->
         <div id="article-detail-box" style="margin-left:10px;"></div>
@@ -93,13 +99,6 @@
     </div>
     <!-- 댓글 리스팅 for문 -->
     <div id="comments-box"></div>
-
-    <!-- 게시글 수정 테스트-->
-    <div class="wcommentdiv">
-        <textarea name="" id="contents-update" class="wcomment" placeholder="게시글 수정 테스트"></textarea>
-        <image for="cosubmit" class="cosubmit" onclick="getUpdateData()" src="static/image/comment_button.png"></image>
-        <input type="submit" style="display:none" id="submit">
-    </div>
 
     <!-- 로그인 모달창 -->
     <div class="modal fade login-modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -125,13 +124,34 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
                     <button type="button" class="btn btn-primary" onclick="handleLogin()">로그인</button>
-
                 </div>
             </div>
         </div>
     </div>
 
-
+    <!-- 게시물 수정 모달 -->
+    <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">게시물 수정</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    제목<br>
+                    <input type="text" class="modal-textinput" placeholder="title" id="title-update">
+                    <hr>
+                    내용입력<br>
+                    <textarea class="modal-textarea" placeholder="content" id="contents-update"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                    <button type="button" onclick="getUpdateData()" class="btn btn-primary">수정하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- JS -->
     <script src="/static/JS/api.js"></script>
     <script src="/static/Scripts/detail.js"></script>
