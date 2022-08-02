@@ -93,7 +93,27 @@ window.onload = async function articleDetail() {
                         <div><p class="cowriter">${nickname}</p></div>
                         <div><p class="cotime">${comment_created_at}</p></div>
                         <p class="comment-modify" id="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">수정</p>
-                        <p class="comment-delete" id="#">삭제</p>
+                        <p class="comment-delete" onclick="getdeleteComment(${comment_id})"id="#">삭제</p>
+                    </div>
+                    <!-- 댓글 수정 모달 -->
+                    <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">댓글 수정</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    댓글<br>
+                                    <input type="text" class="modal-textinput" placeholder="comment" id="comment-update">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                                    <button type="button" onclick="getUpdateComment(${comment_id})" class="btn btn-primary">댓글 수정</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="commentdetail">
                         <div class="comment"><h4>${comments}</h4></div>
@@ -111,12 +131,12 @@ window.onload = async function articleDetail() {
 }
 /// 게시물 수정
 async function getUpdateData() {
+    let title= document.getElementById("title-update").value
     let contents = document.getElementById("contents-update").value
     if (!localStorage.getItem("access")) {
         alert('로그인해주세요!')
     }
-    console.log(contents)
-    updateArticle(contents)
+    updateArticle(title, contents)
 }
 // 게시물 삭제
 async function removeArticle() {
@@ -150,6 +170,22 @@ async function commentCreate() {
         response_json = await response.json()
         window.location.reload()
     }
+}
+/// 댓글 수정
+async function getUpdateComment(comment_id) {
+    let comment= document.getElementById("comment-update").value
+    if (!localStorage.getItem("access")) {
+        alert('로그인해주세요!')
+    }
+    updateComment(comment, comment_id)
+}
+
+/// 댓글 수정
+async function getdeleteComment(comment_id) {
+    if (!localStorage.getItem("access")) {
+        alert('로그인해주세요!')
+    }
+    deleteComment(comment_id)
 }
 // 폭스 투표
 async function vote1() {
