@@ -425,6 +425,9 @@ body {
     width: 100%;
     height: 300px;
 }
+.heart {
+    cursor: pointer;
+}
 
 @media (max-width: 768px) {
     .articlebuttons {
