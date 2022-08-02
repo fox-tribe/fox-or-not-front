@@ -177,9 +177,10 @@ async function postArticle(contents, title, board, category) {
 
 // article 수정
 
-async function updateArticle(contents)  {
+async function updateArticle(title, contents)  {
     
     let updateData = {
+        article_title: title,
         article_contents: contents,
     }
     let response = await fetch(`${backend_base_url}/article/${obj_id}/`, {
@@ -222,6 +223,55 @@ async function deleteArticle() {
     }
 
 }
+
+
+// 댓글 수정
+
+async function updateComment(comment, comment_id)  {
+    
+    let updateData = {
+        comment_contents: comment
+    }
+    let response = await fetch(`${backend_base_url}/article/${comment_id}/comment/`, {
+        method: 'PUT',
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + localStorage.getItem("access"),
+            "access-control-allow-origin": "*"
+        },
+        body: JSON.stringify(updateData)
+    })
+
+    response_json = await response.json()
+    window.location.replace(`${frontend_base_url}/detail.html?id=${obj_id}`);
+
+}
+
+
+// 댓글 삭제
+
+async function deleteComment(comment_id) {
+    const response = await fetch(`${backend_base_url}/article/${comment_id}/comment/`, {
+        method: 'DELETE',
+
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("access"),
+            "access-control-allow-origin": "*"
+        },
+
+    }
+    )
+    if (response.status == 200) {
+        window.location.replace(`${frontend_base_url}/detail.html?id=${obj_id}`);
+        response_json = await response.json()
+        return response_json
+    } else {
+        alert(response.status)
+    }
+
+}
+
 
 
 // 게시판 페이지네이션
