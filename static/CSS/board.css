@@ -40,9 +40,15 @@
 }
 
 .post-line{
-    width: 100%;
+    width: 90%;
     background-color: #fffefe;
-    border-radius: 15px;
+    border-radius: 5px;
+    height: 40px;
+    margin: auto;
+    margin-top: 10px;
+}
+.post-line:hover{
+    background-color: #f4f2f2;
 }
 .col-1 {
     width: 60px;
@@ -56,11 +62,11 @@
 }
 .second-floor-board {
     width:  800px;
-    height: 600px;
+    height: 595px;
     align-items: center;
     text-align: center;
     margin: auto;
-    margin-top: 5px;
+    margin-top: 50px;
  
 }
 .posting-space1{
