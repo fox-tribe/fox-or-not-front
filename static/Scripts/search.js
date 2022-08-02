@@ -13,13 +13,12 @@ async function search() {
         },
         body: JSON.stringify(searchData)
     })
-    window.location.href = `${frontend_base_url}/search_result.html`
+    // window.location.href = `${frontend_base_url}/search_result.html`
+    // 세션 저장
     response_json = await response.json()
     result = JSON.stringify(response_json)
-    console.log(result)
-    console.log(searchData.search)
-    let temp_html = `<div class="board-name"><b>"${searchData.search}" 검색결과</b></div>`
-    $('#search-keyword').append(temp_html)
+    sessionStorage.setItem("result", result)
+    sessionStorage.setItem("key", searchData.search)
     return result
     
 
