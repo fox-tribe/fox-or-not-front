@@ -426,7 +426,12 @@ body {
     width: 100%;
     height: 300px;
 }
+.hearts {
+
+    cursor: pointer;
+}
 .heart {
+
     cursor: pointer;
 }
 
