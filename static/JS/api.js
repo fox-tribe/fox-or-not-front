@@ -228,6 +228,7 @@ async function deleteArticle() {
 // 댓글 수정
 
 async function updateComment(comment, comment_id)  {
+    console.log(comment_id)
     
     let updateData = {
         comment_contents: comment
