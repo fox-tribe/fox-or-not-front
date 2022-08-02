@@ -139,7 +139,7 @@ window.onload = async function articleDetail() {
            });
 
         }
-    }}
+    }
     )
 }
 /// 게시물 수정
