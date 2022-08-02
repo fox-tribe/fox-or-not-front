@@ -466,8 +466,9 @@ body {
         font-size: 20px;
     }
 
-    .content {
-        font-size: 18px;
+    .content > p {
+        display: block;
+        font-size: 12px;
     }
 
     .bote {
