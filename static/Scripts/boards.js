@@ -174,11 +174,11 @@ function getPosts() {
                     const title = posts[i]['article_title']
                     const author = posts[i]['author']
                     const date = posts[i]['article_post_date']
-                    let temp_html = `<div class="tr" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">
-                                        <div class="th number" scope="col">${cnt}.</div>
-                                        <div class="th title" scope="col"><b>${title}</b></div>
-                                        <div class="th author" scope="col">${author}</div>
-                                        <div class="th date" scope="col">${date}</div>
+                    let temp_html = `<div class="post-line row" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">
+                                        <div class="post-number col-1" scope="col">${cnt}.</div>
+                                        <div class="post-title col-6" scope="col"><b>${title}</b></div>
+                                        <div class="post-author col col-md-col1" scope="col">${author}</div>
+                                        <div class="post-date col" scope="col">${date}</div>
                                     </div>`
                     $('#list-post').append(temp_html)
                 }
