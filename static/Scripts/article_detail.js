@@ -1,7 +1,7 @@
 const url = window.location.search.split('=')
 const obj_id = url[1]
 // 게시물 상세 페이지 부르기
-window.onload = async function articleDetail() {
+window.onload = async function articleDetail() {    
     let articleDetail = async () => {
         let response = await fetch(`${backend_base_url}/article/${obj_id}/detail/`, {
             method: 'GET',
@@ -9,23 +9,30 @@ window.onload = async function articleDetail() {
                 'Content-Type': 'application/json',
             },
         })
-        // 로그인 로그아웃 회원가입 버튼 숨기기
-        if (!localStorage.getItem("access")) {
-            let my_buttons = document.getElementById("my-buttons")
-            my_buttons.style.visibility = "hidden"
-        }
-        else {
-            let login_button = document.getElementById("login-button")
-            let signup_button = document.getElementById("signup-button")
-            login_button.style.visibility = "hidden"
-            signup_button.style.visibility = "hidden"
-        }
-        if (!localStorage.getItem("access")) {
-            let my_buttons = document.getElementById("my-buttons")
-            my_buttons.style.visibility = "hidden"
-        }
-        response_json = await response.json()
-        return response_json.articles
+
+
+    // 로그인 로그아웃 회원가입 버튼 숨기기
+    if (!localStorage.getItem("access")) {
+        let my_buttons = document.querySelector(".mymenus")
+        let my_button = document.querySelector(".mymenu")
+        let usernametag = document.querySelector(".mypage-username")
+
+        my_buttons.style.display = "none"
+        my_button.style.display = "none"
+        usernametag.style.display = "none"
+    }
+    else {
+        let login_button = document.getElementById("login-button")
+        let signup_button = document.getElementById("signup-button")
+        let login_space = document.querySelector(".login-space")
+        login_button.style.display = "none"
+        signup_button.style.display = "none"
+        login_space.style.display = "none"
+    }
+
+    response_json = await response.json()
+    return response_json.articles
+
     }
     // 게시물 상세 내용
     articleDetail().then((data) => {
@@ -87,44 +94,7 @@ window.onload = async function articleDetail() {
             let nickname = detail['comment_set'][i]['nickname']
             let comment_created_at = detail['comment_set'][i]['comment_created_at']
             let comment_like_count = detail['comment_set'][i]['count']
-            if (comment_like_count == 0) {let temp_html =
-                `<div class="comments">
-                    <div class="cowriteinfo">
-                        <div><p class="cowriter">${nickname}</p></div>
-                        <div><p class="cotime">${comment_created_at}</p></div>
-                        <p class="comment-modify" id="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">수정</p>
-                        <p class="comment-delete" onclick="getdeleteComment(${comment_id})"id="#">삭제</p>
-                    </div>
-                    <!-- 댓글 수정 모달 -->
-                    <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="staticBackdropLabel">댓글 수정</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    댓글<br>
-                                    <input type="text" class="modal-textinput" placeholder="comment" id="comment-update">
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-                                    <button type="button" onclick="getUpdateComment(${comment_id})" class="btn btn-primary">댓글 수정</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="commentdetail">
-                        <div class="comment"><h4>${comments}</h4></div>
-                        <div style="display:flex; flex-direction:row; align-items:center">
-                        <svg xmlns="http://www.w3.org/2000/svg" id="heart-button" class="heart " onclick="likeButton(${comment_id})" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/></svg>
-                        <h5 style="margin:0; display:block">${comment_like_count}</h5>
-                        </div>
-                    </div>
-                </div>`
-            $('#comments-box').prepend(temp_html)
-        } else {
+
             let temp_html =
                 `<div class="comments">
                     <div class="cowriteinfo">
@@ -162,10 +132,12 @@ window.onload = async function articleDetail() {
                     </div>
                 </div>`
             $('#comments-box').prepend(temp_html)
+
             $(document).on("click", ".staticBackdropLabel", function () {
                 var comment = $(this).data('id');
                 $(`.modal-footer #comment-update${comment_id}`).val( comment );
            });
+
         }
     }}
     )
@@ -288,14 +260,19 @@ async function vote3() {
     response_json = await response.json()
     window.location.reload()
 }
+
+
 // 댓글 공감 투표
 async function likeButton(comment_id) {
+
     let data = {
         category: "공감",
     }
+
     if (!localStorage.getItem("access")) {
         alert('로그인해주세요!')
     } 
+    
     const response = await fetch(`${backend_base_url}/article/${comment_id}/comment/like/`, {
         method: 'POST',
         headers: {
@@ -305,10 +282,15 @@ async function likeButton(comment_id) {
         body: JSON.stringify(data)
     }
     )
+
+
     response_json = await response.json()
     console.log(response_json)
+    
     window.location.reload()
+    
 }
+
 
 // const icoHearts = document.querySelectorAll('.heart')
 // icoHearts.forEach(like => { 
