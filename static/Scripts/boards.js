@@ -167,12 +167,14 @@ function getPosts() {
             
             if (response['results'] != 0) {
                 let posts = response['results'];
+                console.log(posts)
                 for (let i = 0; i < posts.length; i++) {
                     let cnt = i + 1
+                    const id = posts[i]['id']
                     const title = posts[i]['article_title']
                     const author = posts[i]['author']
                     const date = posts[i]['article_post_date']
-                    let temp_html = `<div class="tr">
+                    let temp_html = `<div class="tr" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">
                                         <div class="th number" scope="col">${cnt}.</div>
                                         <div class="th title" scope="col"><b>${title}</b></div>
                                         <div class="th author" scope="col">${author}</div>
@@ -188,3 +190,4 @@ function getPosts() {
         }
     });
 }
+
