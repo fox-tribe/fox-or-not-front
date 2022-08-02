@@ -119,8 +119,8 @@ async function getMyArticles() {
                 let likes = detail[i]['comment_set'][j]['count']
                 let temp_html =`
                 <div class="mycomment">
-                <div class="thisarticle"  onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${title}</div>
-                <div class="thiscomment">${contents}</div>
+                <div class="thisarticle"  onclick="location.href='${frontend_base_url}/detail.html?id=${id}'"><a>${title}</a></div>
+                <div class="thiscomment"><a>${contents}</a></div>
                 <div class="thislike"><i class="fa-solid fa-heart fa-2x"></i><p>${likes}</p></div>
                 </div>`
                 $('#mypage-comment-box').prepend(temp_html)

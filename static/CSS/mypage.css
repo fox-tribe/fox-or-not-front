@@ -277,6 +277,11 @@ body {
     cursor: pointer;
 }
 
+.thisarticle > a {
+    display: block;
+    padding: 23px 0px 25px 30px; 
+}
+
 .thisarticle p {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -293,6 +298,11 @@ body {
     font-size: 17px;
 }
 
+.thiscomment > a {
+        display: block;
+        padding: 23px 0px 25px 30px; 
+}
+
 .thiscomment p {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -303,6 +313,9 @@ body {
 .thislike {
     margin-left: 75px;
     color: orange;
+}
+.thislike > p {
+    text-align: center;
 }
 
 .biofixed {
