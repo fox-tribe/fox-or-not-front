@@ -92,7 +92,7 @@ window.onload = async function articleDetail() {
                     <div class="cowriteinfo">
                         <div><p class="cowriter">${nickname}</p></div>
                         <div><p class="cotime">${comment_created_at}</p></div>
-                        <p class="comment-modify" id="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">수정</p>
+                        <p class="comment-modify" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">수정</p>
                         <p class="comment-delete" onclick="getdeleteComment(${comment_id})"id="#">삭제</p>
                     </div>
                     <!-- 댓글 수정 모달 -->
@@ -106,7 +106,7 @@ window.onload = async function articleDetail() {
                                 </div>
                                 <div class="modal-body">
                                     댓글<br>
-                                    <input type="text" class="modal-textinput" placeholder="comment" id="comment-update">
+                                    <input type="text" class="modal-textinput" placeholder="comment" id="comment-update${comment_id}">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
@@ -125,6 +125,10 @@ window.onload = async function articleDetail() {
                     </div>
                 </div>`
             $('#comments-box').prepend(temp_html)
+            $(document).on("click", ".staticBackdropLabel", function () {
+                var comment = $(this).data('id');
+                $(`.modal-footer #comment-update${comment_id}`).val( comment );
+           });
         }
     }
     )
@@ -173,7 +177,7 @@ async function commentCreate() {
 }
 /// 댓글 수정
 async function getUpdateComment(comment_id) {
-    let comment= document.getElementById("comment-update").value
+    let comment= document.getElementById(`comment-update${comment_id}`).value
     if (!localStorage.getItem("access")) {
         alert('로그인해주세요!')
     }
