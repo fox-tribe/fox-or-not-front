@@ -127,25 +127,31 @@ function getPosts() {
             let posts = response['results'];
             if (posts[0]['board'] == '10대') {
                 let board_html = `<b id="board-name">10대 게시판</b>`
+                $('#board-name').empty()
                 $('#board-name').append(board_html)
-                
             } else if (posts[0]['board'] == '20대'){
                 let board_html = `<b id="board-name">20대 게시판</b>`
+                $('#board-name').empty()
                 $('#board-name').append(board_html)
             } else if (posts[0]['board'] == '30대'){
                 let board_html = `<b id="board-name">30대 게시판</b>`
+                $('#board-name').empty()
                 $('#board-name').append(board_html)
             } else if (posts[0]['board'] == '직장인'){
                 let board_html = `<b id="board-name">직장인 게시판</b>`
+                $('#board-name').empty()
                 $('#board-name').append(board_html)
             } else if (posts[0]['board'] == '연인'){
                 let board_html = `<b id="board-name">연인 게시판</b>`
+                $('#board-name').empty()
                 $('#board-name').append(board_html)
             } else if (posts[0]['board'] == '자유'){
                 let board_html = `<b id="board-name">자유 게시판</b>`
+                $('#board-name').empty()
                 $('#board-name').append(board_html)
-            } else if (posts[0]['board'] == 'HOT') {
+            } else {
                 let board_html = `<b id="board-name">HOT 게시판</b>`
+                $('#board-name').empty()
                 $('#board-name').append(board_html)
             }
             
