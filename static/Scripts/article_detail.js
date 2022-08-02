@@ -1,7 +1,7 @@
 const url = window.location.search.split('=')
 const obj_id = url[1]
 // 게시물 상세 페이지 부르기
-window.onload = async function articleDetail() {
+window.onload = async function articleDetail() {    
     let articleDetail = async () => {
         let response = await fetch(`${backend_base_url}/article/${obj_id}/detail/`, {
             method: 'GET',
@@ -11,21 +11,25 @@ window.onload = async function articleDetail() {
 
             
         })
-        // 로그인 로그아웃 회원가입 버튼 숨기기
+
+        
+    // 로그인 로그아웃 회원가입 버튼 숨기기
     if (!localStorage.getItem("access")) {
-        let logout_button = document.getElementById("logout-button")
-        logout_button.style.visibility = "hidden"
+        let my_buttons = document.querySelector(".mymenus")
+        let my_button = document.querySelector(".mymenu")
+        let usernametag = document.querySelector(".mypage-username")
+
+        my_buttons.style.display = "none"
+        my_button.style.display = "none"
+        usernametag.style.display = "none"
     }
     else {
         let login_button = document.getElementById("login-button")
         let signup_button = document.getElementById("signup-button")
-        login_button.style.visibility = "hidden"
-        signup_button.style.visibility = "hidden"
-    }
-    
-    if (!localStorage.getItem("access")) {
-        let my_buttons = document.getElementById("my-buttons")
-        my_buttons.style.visibility = "hidden"
+        let login_space = document.querySelector(".login-space")
+        login_button.style.display = "none"
+        signup_button.style.display = "none"
+        login_space.style.display = "none"
     }
 
     response_json = await response.json()
@@ -99,6 +103,7 @@ window.onload = async function articleDetail() {
             let comment_author = detail['comment_set'][i]['author']
             let comment_created_at = detail['comment_set'][i]['comment_created_at']
             let comment_like_count = detail['comment_set'][i]['count']
+            
             let temp_html =
                 `<div class="comments">
                     <div class="cowriteinfo">
@@ -118,6 +123,8 @@ window.onload = async function articleDetail() {
                     </div>
                 </div>`
             $('#comments-box').prepend(temp_html)
+
+            
         }
     }
     )
@@ -228,12 +235,15 @@ async function vote3() {
     window.location.reload()
 }
 
+
+
 // 댓글 공감 투표
 async function likeButton(comment_id) {
+
     let data = {
         category: "공감",
     }
-
+    
     const response = await fetch(`${backend_base_url}/article/${comment_id}/comment/like/`, {
         method: 'POST',
         headers: {
@@ -243,7 +253,14 @@ async function likeButton(comment_id) {
         body: JSON.stringify(data)
     }
     )
+
+
     response_json = await response.json()
     console.log(alert(response_json.message))
+
     window.location.reload()
+    
 }
+
+
+       

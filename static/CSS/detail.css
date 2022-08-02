@@ -177,9 +177,9 @@ body {
 
 .fa-magnifying-glass {
     color: orange;
-    position: absolute;
-    left: 244px;
-    top: 175px;
+    position: relative;
+    right: 30px;
+    top: 3px;
     cursor: pointer;
 }
 
@@ -369,6 +369,7 @@ body {
     font-weight: bold;
     margin: 0;
     cursor: pointer;
+    display: block;
 }
 
 .reallike {

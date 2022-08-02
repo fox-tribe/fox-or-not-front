@@ -6,15 +6,15 @@ async function getArticlesByBoard() {
         let logout_button = document.getElementById("logout-button")
         let mypage_button = document.getElementById("mypage-button")
         let posting_button = document.getElementById("posting-button")
-        logout_button.style.visibility = "hidden"
-        mypage_button.style.visibility = "hidden"
-        posting_button.style.visibility = "hidden"
+        logout_button.style.display = "none"
+        mypage_button.style.display = "none"
+        posting_button.style.display = "none"
     }
     else {
         let login_button = document.getElementById("login-button")
         let signup_button = document.getElementById("signup-button")
-        login_button.style.visibility = "hidden"
-        signup_button.style.visibility = "hidden"
+        login_button.style.display = "none"
+        signup_button.style.display = "none"
     }
 
     const myData = async () => {
