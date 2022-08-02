@@ -37,6 +37,7 @@
 }
 .tr:hover {
     background-color: #f1eeee;
+    cursor: pointer;
 }
 
 .post-line{
@@ -46,6 +47,7 @@
     height: 40px;
     margin: auto;
     margin-top: 10px;
+    cursor: pointer;
 }
 .post-line:hover{
     background-color: #f4f2f2;
