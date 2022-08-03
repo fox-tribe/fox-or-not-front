@@ -5,7 +5,7 @@ async function search() {
         type: document.getElementById('searchOption').value,
         search: document.getElementById('searchKeywords').value,
     }
-    
+
     const response = await fetch(`${backend_base_url}/article/search/`, {
         method: 'POST',
         headers: {
@@ -32,8 +32,6 @@ async function search() {
 
     response_json = await response.json()
     return response_json.articles
-
-    
 }
 
 const PagingConf = {
@@ -126,6 +124,7 @@ function getFeedInfo() {
 
 function getPosts() {
     $('#search-post').empty()
+
 
     const pageInfo = getPageInfo();
 

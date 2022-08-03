@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="../static/CSS/board.css">
 </head>
 
+
 <body onload="articleDetail()" style="background-color: rgb(43, 43, 43); color: black;">
     <!-- 로그인 공간 -->
     <div class="login-space">
@@ -74,6 +75,7 @@
         <div class="second-floor-board col" >
             <!--게시판 -->
             <div class="worker-board row justify-content-center" >
+
                     <!-- 자유 게시글 for문 -->
                     <div id="ArticlesDiv" class="articles">
                         <div id="search-post" class="list-post" ></div>
@@ -86,7 +88,6 @@
                 <ul class="contents"></ul>
                 <div class="buttons"></div>
             </article>
-
         <!-- Scripts -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.min.js"></script>
@@ -123,10 +124,10 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
                 <button type="button" class="btn btn-primary" onclick="handleLogin()">로그인</button>
-
-            </div>
-        </div>
+        <script src="/static/Scripts/boards.js"></script>
     </div>
+
+
 
 </body>
 
