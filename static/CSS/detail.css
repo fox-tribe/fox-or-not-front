@@ -301,6 +301,18 @@ body {
     font-weight: bold;
 }
 
+.sharediv {
+    display: flex;
+    justify-content: center;
+}
+
+.sharebutton {
+    background-color: yellow;
+    color:brown;
+    border-color: brown;
+    border-radius: 30px;
+}
+
 .wcommentdiv {
     display: flex;
     align-items: center;
