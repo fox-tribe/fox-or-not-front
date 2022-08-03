@@ -201,7 +201,8 @@ function getPosts() {
                 let board_html = `<b id="board-name">자유 게시판</b>`
                 $('#board-name').empty()
                 $('#board-name').append(board_html)
-            } else {
+            } 
+            if (decoded_name == 'HOT'){
                 let board_html = `<b id="board-name">HOT 게시판</b>`
                 $('#board-name').empty()
                 $('#board-name').append(board_html)

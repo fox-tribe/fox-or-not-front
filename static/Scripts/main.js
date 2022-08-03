@@ -25,7 +25,7 @@ async function getArticlesByBoard() {
     }
 
     const myData = async () => {
-        const response = await fetch(`${backend_base_url}/article/board/?boards=직장인&boards=20대&boards=10대&boards=연인&boards=자유&boards=30대`, {
+        const response = await fetch(`${backend_base_url}/article/board/?boards=직장인&boards=20대&boards=10대&boards=연인&boards=자유&boards=30대&boards=HOT`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -108,6 +108,7 @@ async function getArticlesByBoard() {
                 $('#adult-box').prepend(temp_html)
             }
         } catch (err) { }
+        
 
         const mostLiked = async () => {
             const response = await fetch(`${backend_base_url}/article/likeCount`, {
@@ -120,11 +121,13 @@ async function getArticlesByBoard() {
             )
 
             response_json = await response.json()
+            console.log(response_json)
             return response_json.articles
         }
 
         mostLiked().then((data) => {
             detail = response_json
+            console.log(detail)
             try {
                 for (let i = 0; i < 6; i++) {
                     let title = detail[i]['article_title']
