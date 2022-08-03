@@ -21,6 +21,13 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous">
         </script>
+    <!-- 카톡공유JS -->
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+        Kakao.init('');
+        Kakao.isInitialized();
+    </script>
+
 
 </head>
 
@@ -86,6 +93,12 @@
         <div class="botediv">
         </div>
     </div>
+    <!-- 카톡공유버튼 -->
+    <div class="sharediv">
+        <button type="button" class="sharebutton" onclick="kakaoshare()">
+            공유하기
+        </button>
+    </div>
     <!-- 댓글 for문 -->
     <div class="wcommentdiv">
         <textarea name="" id="wcomment" class="wcomment" placeholder="댓글을 달아주세요!"></textarea>
@@ -94,7 +107,6 @@
     </div>
     <!-- 댓글 리스팅 for문 -->
     <div id="comments-box"></div>
-
     <!-- 로그인 모달창 -->
     <div class="modal fade login-modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
         tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -153,6 +165,7 @@
     <script src="/static/Scripts/main.js"></script>
     <script src="/static/Scripts/article_detail.js"></script>
     <script src="/static/Scripts/mypage_user.js"></script>
+    <script src="/static/Scripts/share.js"></script>
 </body>
 
 </html>
