@@ -51,6 +51,7 @@ $(document).ready(function () {
     getPosts();
 });
 
+
 function makePageNav() {
     const pageInfo = getPageInfo();
     renderPaging($('.paging'), PagingConf.totalCount, pageInfo.numbersPerPage, pageInfo.navPageNumber, pageInfo.currentPage, true);
@@ -120,7 +121,13 @@ function getPageInfo() {
 function getFeedInfo() {
     return JSON.parse(sessionStorage.getItem('pageInfo'));
 }
-
+function postClick() {
+    if (!localStorage.getItem("access")) {
+        alert('로그인해주세요!')
+    } else {
+        window.location.href='posting.html'
+    }
+}
 
 function getPosts() {
 
