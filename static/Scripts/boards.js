@@ -31,6 +31,7 @@ window.onload = async function board() {
     return result
 
 }
+
 // 검색기능
 async function search() {
     const searchData = {
@@ -38,7 +39,7 @@ async function search() {
         search: document.getElementById('searchKeywords').value,
     }
 
-    const response = await fetch(`${backend_base_url}/article/board/`, {
+    const response = await fetch(`${backend_base_url}/article/search/`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

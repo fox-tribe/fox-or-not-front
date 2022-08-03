@@ -123,8 +123,8 @@ function getFeedInfo() {
 
 
 function getPosts() {
-    $('#search-post').empty()
 
+    $('#search-post').empty()
 
     const pageInfo = getPageInfo();
 
@@ -154,6 +154,7 @@ function getPosts() {
                     const title = posts[i]['article_title']
                     const author = posts[i]['author']
                     const date = posts[i]['article_post_date']
+
                     let temp_html = `<div class="post-line row" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">
                                         <div class="th number col-1" scope="col">${cnt}.</div>
                                         <div class="th title col-6" scope="col"><b>${title}</b></div>
