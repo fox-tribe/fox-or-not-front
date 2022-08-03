@@ -1,36 +1,4 @@
-const board_url = window.location.search.split('=')
-const boards_name = board_url[1]
-const decoded_name = decodeURI(boards_name)
 
-
-// 게시물 상세 페이지 부르기
-window.onload = async function board() {
-    // 로그인 로그아웃 마이페이지 회원가입 버튼 숨기기
-    if (!localStorage.getItem("access")) {
-        let logout_button = document.getElementById("logout-button")
-        let mypage_button = document.getElementById("mypage-button")
-        logout_button.style.visibility = "hidden"
-        mypage_button.style.visibility = "hidden"
-    }
-    else {
-        let login_button = document.getElementById("login-button")
-        let signup_button = document.getElementById("signup-button")
-        login_button.style.visibility = "hidden"
-        signup_button.style.visibility = "hidden"
-    }
-    const response = await fetch(`${backend_base_url}/article/?board=${decoded_name}`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    })
-    response_json = await response.json()
-    num = response_json.length
-    result = JSON.stringify(response_json)
-    sessionStorage.setItem("num", num)
-    return result
-
-}
 // 검색기능
 async function search() {
     const searchData = {
@@ -65,6 +33,7 @@ async function search() {
     response_json = await response.json()
     return response_json.articles
 }
+
 const PagingConf = {
     totalCount: 100,
     numbersPerPage: 5,
@@ -154,7 +123,8 @@ function getFeedInfo() {
 
 
 function getPosts() {
-    $('#list-post').empty()
+    $('#search-post').empty()
+
 
     const pageInfo = getPageInfo();
 
@@ -163,45 +133,21 @@ function getPosts() {
     let params = '?page=' + page;
     params += '&offset=' + offset;
     $.ajax({
-        type: 'GET',
-        url: `${backend_base_url}/article/pagination?board=${decoded_name}&page=${page}`,
-        data: {},
+        type: 'POST',
+        url: `${backend_base_url}/article/search/`,
+        data: {            
+            type: sessionStorage.getItem("type"),
+            search: sessionStorage.getItem("keyword")
+        },
         async: false,
-        success: function (response) {
-            let posts = response['results'];
-            if (posts[0]['board'] == '10대') {
-                let board_html = `<b id="board-name">10대 게시판</b>`
-                $('#board-name').empty()
-                $('#board-name').append(board_html)
-            } else if (posts[0]['board'] == '20대'){
-                let board_html = `<b id="board-name">20대 게시판</b>`
-                $('#board-name').empty()
-                $('#board-name').append(board_html)
-            } else if (posts[0]['board'] == '30대'){
-                let board_html = `<b id="board-name">30대 게시판</b>`
-                $('#board-name').empty()
-                $('#board-name').append(board_html)
-            } else if (posts[0]['board'] == '직장인'){
-                let board_html = `<b id="board-name">직장인 게시판</b>`
-                $('#board-name').empty()
-                $('#board-name').append(board_html)
-            } else if (posts[0]['board'] == '연인'){
-                let board_html = `<b id="board-name">연인 게시판</b>`
-                $('#board-name').empty()
-                $('#board-name').append(board_html)
-            } else if (posts[0]['board'] == '자유'){
-                let board_html = `<b id="board-name">자유 게시판</b>`
-                $('#board-name').empty()
-                $('#board-name').append(board_html)
-            } else {
-                let board_html = `<b id="board-name">HOT 게시판</b>`
-                $('#board-name').empty()
-                $('#board-name').append(board_html)
-            }
-            
-            if (response['results'] != 0) {
-                let posts = response['results'];
+        success: function (response) {        
+            console.log(response) 
+            if (response.length != 0) {
+                let posts = response;
                 console.log(posts)
+                let board_html = `<b id="board-name">'${sessionStorage.getItem("keyword")}' 검색결과</b>`
+                $('#board-name').empty()
+                $('#board-name').append(board_html)
                 for (let i = 0; i < posts.length; i++) {
                     let cnt = i + 1
                     const id = posts[i]['id']
@@ -209,12 +155,12 @@ function getPosts() {
                     const author = posts[i]['author']
                     const date = posts[i]['article_post_date']
                     let temp_html = `<div class="post-line row" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">
-                                        <div class="post-number col-1" scope="col">${cnt}.</div>
-                                        <div class="post-title col-6" scope="col"><b>${title}</b></div>
-                                        <div class="post-author col col-md-col1" scope="col">${author}</div>
-                                        <div class="post-date col" scope="col">${date}</div>
+                                        <div class="th number col-1" scope="col">${cnt}.</div>
+                                        <div class="th title col-6" scope="col"><b>${title}</b></div>
+                                        <div class="th author col col-md-col1" scope="col">${author}</div>
+                                        <div class="th date col" scope="col">${date}</div>
                                     </div>`
-                    $('#list-post').append(temp_html)
+                    $('#search-post').append(temp_html)
                 }
             }
         },
