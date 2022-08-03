@@ -1,26 +1,39 @@
+
 // 검색기능
 async function search() {
     const searchData = {
         type: document.getElementById('searchOption').value,
         search: document.getElementById('searchKeywords').value,
     }
+    
     const response = await fetch(`${backend_base_url}/article/search/`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
+            "Authorization": "Bearer " + localStorage.getItem("access"),
         },
         body: JSON.stringify(searchData)
     })
-    // 세션 저장
+    if (searchData['search'] == '') {
+        alert('검색어를 입력해주세요!')
+    } else {
+        // 세션 저장
+        response_json = await response.json()
+        result = JSON.stringify(response_json)
+        num = response_json.length
+        sessionStorage.setItem("result", result)
+        sessionStorage.setItem("keyword", searchData.search)
+        sessionStorage.setItem("type", searchData.type)
+        sessionStorage.setItem("num", num)
+        window.location.href = `${frontend_base_url}/search_result.html`
+        return result
+    }
+    
+
     response_json = await response.json()
-    result = JSON.stringify(response_json)
-    num = response_json.length
-    sessionStorage.setItem("result", result)
-    sessionStorage.setItem("keyword", searchData.search)
-    sessionStorage.setItem("type", searchData.type)
-    sessionStorage.setItem("num", num)
-    window.location.href = `${frontend_base_url}/search_result.html`
-    return result
+    return response_json.articles
+
+    
 }
 
 const PagingConf = {
@@ -112,7 +125,7 @@ function getFeedInfo() {
 
 
 function getPosts() {
-    $('#list-post').empty()
+    $('#search-post').empty()
 
     const pageInfo = getPageInfo();
 
@@ -142,11 +155,11 @@ function getPosts() {
                     const title = posts[i]['article_title']
                     const author = posts[i]['author']
                     const date = posts[i]['article_post_date']
-                    let temp_html = `<div class="tr" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">
-                                        <div class="th number" scope="col">${cnt}.</div>
-                                        <div class="th title" scope="col"><b>${title}</b></div>
-                                        <div class="th author" scope="col">${author}</div>
-                                        <div class="th date" scope="col">${date}</div>
+                    let temp_html = `<div class="post-line row" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">
+                                        <div class="th number col-1" scope="col">${cnt}.</div>
+                                        <div class="th title col-6" scope="col"><b>${title}</b></div>
+                                        <div class="th author col col-md-col1" scope="col">${author}</div>
+                                        <div class="th date col" scope="col">${date}</div>
                                     </div>`
                     $('#search-post').append(temp_html)
                 }
