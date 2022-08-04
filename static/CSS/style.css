@@ -275,6 +275,10 @@ body {
 
 
 /* 게시판 페이지*/
+.board-title {
+    overflow: hidden;
+}
+
 .posting-space {
     width: 1000px;
     display:flex;

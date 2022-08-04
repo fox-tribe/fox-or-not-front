@@ -25,7 +25,7 @@ async function getArticlesByBoard() {
     }
 
     const myData = async () => {
-        const response = await fetch(`${backend_base_url}/article/board/?boards=직장인&boards=20대&boards=10대&boards=연인&boards=자유&boards=30대`, {
+        const response = await fetch(`${backend_base_url}/article/board/?boards=직장인&boards=20대&boards=10대&boards=연인&boards=자유&boards=30대&boards=HOT`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ async function getArticlesByBoard() {
                 let title = detail[0]['직장인'][i]['article_title']
                 let id = detail[0]['직장인'][i]['id']
                 let temp_html = `
-                <div class="board-title" id="worker" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${title}
+                <div class="board-title" id="worker" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'"><span>${title}</span>
             </div>`
 
                 $('#company-box').prepend(temp_html)
@@ -58,7 +58,7 @@ async function getArticlesByBoard() {
                 let title = detail[1]['20대'][i]['article_title']
                 let id = detail[1]['20대'][i]['id']
                 let temp_html = `
-                <div class="board-title" id="worker" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${title}
+                <div class="board-title" id="worker" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'"><span>${title}</span>
             </div>`
 
                 $('#college-box').prepend(temp_html)
@@ -69,7 +69,7 @@ async function getArticlesByBoard() {
                 let title = detail[2]['10대'][i]['article_title']
                 let id = detail[2]['10대'][i]['id']
                 let temp_html = `
-                <div class="board-title" id="worker" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${title}
+                <div class="board-title" id="worker" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'"><span>${title}</span>
             </div>`
 
                 $('#teen-box').prepend(temp_html)
@@ -80,7 +80,7 @@ async function getArticlesByBoard() {
                 let title = detail[3]['연인'][i]['article_title']
                 let id = detail[3]['연인'][i]['id']
                 let temp_html = `
-                <div class="board-title" id="worker" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${title}
+                <div class="board-title" id="worker" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'"><span>${title}</span>
             </div>`
 
                 $('#lgbtq-box').prepend(temp_html)
@@ -91,7 +91,7 @@ async function getArticlesByBoard() {
                 let title = detail[4]['자유'][i]['article_title']
                 let id = detail[4]['자유'][i]['id']
                 let temp_html = `
-                <div class="board-title" id="worker" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${title}
+                <div class="board-title" id="worker" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'"><span>${title}</span>
             </div>`
 
                 $('#free-box').prepend(temp_html)
@@ -102,12 +102,13 @@ async function getArticlesByBoard() {
                 let title = detail[5]['30대'][i]['article_title']
                 let id = detail[5]['30대'][i]['id']
                 let temp_html = `
-                <div class="board-title" id="worker" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${title}
+                <div class="board-title" id="worker" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'"><span>${title}</span>
             </div>`
 
                 $('#adult-box').prepend(temp_html)
             }
         } catch (err) { }
+        
 
         const mostLiked = async () => {
             const response = await fetch(`${backend_base_url}/article/likeCount`, {
@@ -120,11 +121,13 @@ async function getArticlesByBoard() {
             )
 
             response_json = await response.json()
+            console.log(response_json)
             return response_json.articles
         }
 
         mostLiked().then((data) => {
             detail = response_json
+            console.log(detail)
             try {
                 for (let i = 0; i < 6; i++) {
                     let title = detail[i]['article_title']

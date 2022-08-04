@@ -153,6 +153,13 @@ function getFeedInfo() {
     return JSON.parse(sessionStorage.getItem('pageInfo'));
 }
 
+function postClick() {
+    if (!localStorage.getItem("access")) {
+        alert('로그인해주세요!')
+    } else {
+        window.location.href='posting.html'
+    }
+}
 
 function getPosts() {
     $('#list-post').empty()
@@ -194,7 +201,8 @@ function getPosts() {
                 let board_html = `<b id="board-name">자유 게시판</b>`
                 $('#board-name').empty()
                 $('#board-name').append(board_html)
-            } else {
+            } 
+            if (decoded_name == 'HOT'){
                 let board_html = `<b id="board-name">HOT 게시판</b>`
                 $('#board-name').empty()
                 $('#board-name').append(board_html)

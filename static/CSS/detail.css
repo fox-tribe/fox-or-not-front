@@ -114,6 +114,9 @@ body {
     margin: auto;
     display: flex;
 }
+#comments-box {
+    margin-bottom: 40px;
+}
 
 .content-box {
     width: 100%;
