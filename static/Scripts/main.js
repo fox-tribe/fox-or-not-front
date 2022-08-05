@@ -111,7 +111,7 @@ async function getArticlesByBoard() {
         
 
         const mostLiked = async () => {
-            const response = await fetch(`${backend_base_url}/article/likeCount`, {
+            const response = await fetch(`${backend_base_url}/article/voteCount`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -121,7 +121,6 @@ async function getArticlesByBoard() {
             )
 
             response_json = await response.json()
-            console.log(response_json)
             return response_json.articles
         }
 
@@ -133,11 +132,12 @@ async function getArticlesByBoard() {
                     let title = detail[i]['article_title']
                     let id = detail[i]['id']
                     let nickname = detail[i]['nickname']
+                    let vote = detail[i]['vote']['count']
                     let temp_html = `
-            <div class="pop-article row">
-                <div class="pop-article-title col" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${title}
+            <div class="pop-article row" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">
+                <div class="pop-article-title col">${title}
                 </div>
-                <div class="pop-article-writer col" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">${nickname}</div>
+                <div class="pop-article-writer col">투표:${vote} ${nickname}</div>
             </div>`
                     $('#mostLiked-box').prepend(temp_html)
                 }
