@@ -27,6 +27,7 @@ window.onload = async function board() {
     response_json = await response.json()
     num = response_json.length
     result = JSON.stringify(response_json)
+    sessionStorage.removeItem("num")
     sessionStorage.setItem("num", num)
     return result
 
@@ -57,6 +58,7 @@ async function search() {
         sessionStorage.setItem("result", result)
         sessionStorage.setItem("keyword", searchData.search)
         sessionStorage.setItem("type", searchData.type)
+        sessionStorage.removeItem("num")
         sessionStorage.setItem("num", num)
         window.location.href = `${frontend_base_url}/search_result.html`
         return result
@@ -71,7 +73,7 @@ const PagingConf = {
     numbersPerPage: 5,
     navPageNumber: Math.ceil(sessionStorage.getItem("num")/10),
 };
-sessionStorage.removeItem("num")
+
 const feedNumber = {
     num : 0
 }
