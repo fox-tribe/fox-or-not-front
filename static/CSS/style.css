@@ -309,10 +309,6 @@ body {
     font-size: 30px;
 }
 
-.mobile_log {
-    display: none;
-}
-
 .search-button {
     border-radius: 90px;
     cursor: pointer;
@@ -361,7 +357,7 @@ body {
     }
 
     .login-block {
-        display: none;
+        margin-right: 20px;
     }
 
     .Top-bar1 {
@@ -409,12 +405,6 @@ body {
     .hbutton2 {
         height: 30px;
         width: 35px;
-    }
-
-    .mobile_log {
-        margin: 20px;
-        display: block;
-        text-align: end;
     }
 
     .second-floor {
