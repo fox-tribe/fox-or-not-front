@@ -27,6 +27,7 @@ window.onload = async function board() {
     response_json = await response.json()
     num = response_json.length
     result = JSON.stringify(response_json)
+    sessionStorage.removeItem("num")
     sessionStorage.setItem("num", num)
     return result
 
@@ -57,6 +58,7 @@ async function search() {
         sessionStorage.setItem("result", result)
         sessionStorage.setItem("keyword", searchData.search)
         sessionStorage.setItem("type", searchData.type)
+        sessionStorage.removeItem("num")
         sessionStorage.setItem("num", num)
         window.location.href = `${frontend_base_url}/search_result.html`
         return result
@@ -66,12 +68,14 @@ async function search() {
     response_json = await response.json()
     return response_json.articles
 }
+
+// 페이지네이션
 const PagingConf = {
     totalCount: 100,
     numbersPerPage: 5,
     navPageNumber: Math.ceil(sessionStorage.getItem("num")/10),
 };
-sessionStorage.removeItem("num")
+
 const feedNumber = {
     num : 0
 }
@@ -163,9 +167,7 @@ function postClick() {
 
 function getPosts() {
     $('#list-post').empty()
-
     const pageInfo = getPageInfo();
-
     let page = pageInfo.currentPage;
     let offset = pageInfo.numbersPerPage;
     let params = '?page=' + page;
@@ -176,6 +178,7 @@ function getPosts() {
         data: {},
         async: false,
         success: function (response) {
+            try{
             let posts = response['results'];
             if (posts[0]['board'] == '10대') {
                 let board_html = `<b id="board-name">10대 게시판</b>`
@@ -201,15 +204,44 @@ function getPosts() {
                 let board_html = `<b id="board-name">자유 게시판</b>`
                 $('#board-name').empty()
                 $('#board-name').append(board_html)
-            } 
-            if (decoded_name == 'HOT'){
+            } else if (decoded_name == 'HOT'){
                 let board_html = `<b id="board-name">HOT 게시판</b>`
                 $('#board-name').empty()
                 $('#board-name').append(board_html)
+                // HOT 게시판 리스팅
+                $.ajax({
+                    type: 'GET',
+                    url: `${backend_base_url}/article/voteCount`,
+                    data: {},
+                    async: false,
+                    success: function (response) {
+                        response.reverse()
+                        if (response['results'] != 0) {
+                            for (let i = 0; i < response.length; i++) {
+                                let cnt = i + 1
+                                const id = response[i]['id']
+                                const title = response[i]['article_title']
+                                const author = response[i]['author']
+                                const date = response[i]['article_post_date']
+                                const vote = response[i]['vote']['count']
+                                let temp_html = `<div class="post-line row" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">
+                                                    <div class="post-number col-1" scope="col">${cnt}.</div>
+                                                    <div class="post-title col-6" scope="col"><b>${title}</b></div>
+                                                    <div class="post-author col col-md-col1" scope="col">${author}</div>
+                                                    <div class="post-date col" scope="col">${date}</div>
+                                                    <div class="post-date col" scope="col">투표:${vote}</div>
+                                                </div>`
+                                $('#list-post').append(temp_html)
+                    }
+                }
+            }
+            }
+            )
             }
             
             if (response['results'] != 0) {
                 let posts = response['results'];
+                console.log(response)
                 console.log(posts)
                 for (let i = 0; i < posts.length; i++) {
                     let cnt = i + 1
@@ -226,11 +258,44 @@ function getPosts() {
                     $('#list-post').append(temp_html)
                 }
             }
-        },
+        } catch (err) {
+            let board_html = `<b id="board-name">HOT 게시판</b>`
+                $('#board-name').empty()
+                $('#board-name').append(board_html)
+                // HOT 게시판 리스팅
+                $.ajax({
+                    type: 'GET',
+                    url: `${backend_base_url}/article/voteCount/board/`,
+                    data: {},
+                    async: false,
+                    success: function (response) {
+                        response.reverse()
+                        if (response['results'] != 0) {
+                            for (let i = 0; i < response.length; i++) {
+                                let cnt = i + 1
+                                const id = response[i]['id']
+                                const title = response[i]['article_title']
+                                const author = response[i]['author']
+                                const date = response[i]['article_post_date']
+                                const vote = response[i]['vote']['count']
+                                if (vote == 0 ){
+
+                                } else {
+                                let temp_html = `<div class="post-line row" onclick="location.href='${frontend_base_url}/detail.html?id=${id}'">
+                                                    <div class="post-number col-1" scope="col">${cnt}.</div>
+                                                    <div class="post-title col-6" scope="col"><b>${title}</b></div>
+                                                    <div class="post-author col col-md-col1" scope="col">${author}</div>
+                                                    <div class="post-date col" scope="col">${date}</div>
+                                                    <div class="post-date col" scope="col">투표:${vote}</div>
+                                                </div>`
+                                $('#list-post').append(temp_html)
+                                }
+                    }
+
+        }}})}},
         fail: function (response) {
             console.log("fail")
             // window.location.reload()
         }
     });
 }
-
