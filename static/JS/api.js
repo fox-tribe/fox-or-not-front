@@ -2,6 +2,7 @@ const backend_base_url = "https://api.fox-or-not.com"
 const frontend_base_url = "https://fox-or-not.com"
 
 
+
 // 회원가입
 async function handleSignin() {
     var selectGender = document.getElementById('floatingGender');
