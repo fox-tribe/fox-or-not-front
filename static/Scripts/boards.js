@@ -9,14 +9,14 @@ window.onload = async function board() {
     if (!localStorage.getItem("access")) {
         let logout_button = document.getElementById("logout-button")
         let mypage_button = document.getElementById("mypage-button")
-        logout_button.style.visibility = "hidden"
-        mypage_button.style.visibility = "hidden"
+        logout_button.style.display = "none"
+        mypage_button.style.display = "none"
     }
     else {
         let login_button = document.getElementById("login-button")
         let signup_button = document.getElementById("signup-button")
-        login_button.style.visibility = "hidden"
-        signup_button.style.visibility = "hidden"
+        login_button.style.display = "none"
+        signup_button.style.display = "none"
     }
     const response = await fetch(`${backend_base_url}/article/?board=${decoded_name}`, {
         method: 'GET',

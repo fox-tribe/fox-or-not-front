@@ -5,16 +5,6 @@
     font-style: normal;
 }
 
-.login-btn {
-    background-color: white;
-    border: 0;
-    padding: 8px;
-    font-size: .875rem;
-    border-radius: 5px;
-    margin: 5px;
-    cursor: pointer;
-}
-
 .login-btn:hover {
     background-color: rgb(255, 136, 0);
     color: white;
@@ -53,8 +43,11 @@ body {
 .login-space {
     width: 100%;
     display: flex;
-    justify-content: center;
-    margin-left: 600px;
+    justify-content: flex-end;
+    margin-right: 20px;
+    margin-top: 20px;
+    /* margin-left: 600px; */
+    /* height: 30px; */
 }
 
 .login-block {
@@ -451,11 +444,6 @@ body {
 }
 
 @media (max-width: 768px) {
-    .articlebuttons {
-        display: flex;
-        justify-content: flex-end;
-        width: 90%;
-    }
 
     .comments {
         width: 100%;
@@ -505,10 +493,6 @@ body {
     .contentdiv {
         width: 100%;
         font-size: 14px;
-    }
-
-    .login-space {
-        display: none;
     }
 }
 

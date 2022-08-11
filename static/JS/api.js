@@ -143,7 +143,6 @@ function logout() {
 }
 
 
-
 // article 작성
 async function postArticle(contents, title, board, category) {
     const image = document.getElementById("formFile").files[0]
@@ -157,21 +156,16 @@ async function postArticle(contents, title, board, category) {
     form_data.append("board", board)
     form_data.append("article_category", category)
     form_data.append("article_exposure_date", test_exposure_date)
-
     const response = await fetch(`${backend_base_url}/article/`, {
         method: 'POST',
         headers: {
-            // Accept: "multipart/form-data", 
+            // Accept: "multipart/form-data",
             // "Content-Type": "multipart/form-data",
             "Authorization": "Bearer " + localStorage.getItem("access"),
             "access-control-allow-origin": "*",
         },
         body: form_data
-
-
-    })
-
-    response_json = await response.json()
+    }).then(res => res.json())
     window.location.replace(`${frontend_base_url}/index.html`);
 }
 

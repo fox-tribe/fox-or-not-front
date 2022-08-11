@@ -150,6 +150,7 @@ body {
     background-color: #303030;
     transition: all 0.2s;
     height: 31px;
+    overflow: hidden; 
 }
 
 .pop-article:hover {

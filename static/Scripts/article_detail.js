@@ -19,14 +19,14 @@ window.onload = async function articleDetail() {
         // 로그인 로그아웃 회원가입 버튼 숨기기
         if (!localStorage.getItem("access")) {
             let my_buttons = document.getElementById("my-buttons")
-            my_buttons.style.visibility = "hidden"
+            my_buttons.style.display = "none"
 
         }
         else {
             let login_button = document.getElementById("login-button")
             let signup_button = document.getElementById("signup-button")
-            login_button.style.visibility = "hidden"
-            signup_button.style.visibility = "hidden"
+            login_button.style.display = "none"
+            signup_button.style.display = "none"
         }
         
         response_json = await response.json()
@@ -108,7 +108,7 @@ window.onload = async function articleDetail() {
                 </div>
             </div>
             <div class="contentdiv">
-                <img src="http://127.0.0.1:8000${image}" alt="" />
+                <img src="${backend_base_url}${image}" alt="" />
                 <h5 class="content">${contents}</h5>
             </div>
             <div>
@@ -133,7 +133,7 @@ window.onload = async function articleDetail() {
                 </div>
             </div>
             <div class="contentdiv">
-                <img src="http://127.0.0.1:8000${image}" alt="" />
+                <img src="${backend_base_url}${image}" alt="" />
                 <h5 class="content">${contents}</h5>
             </div>
             <div>
@@ -314,7 +314,7 @@ window.onload = async function articleDetail() {
     </div>
 </div>
 <div class="contentdiv">
-    <img src="http://127.0.0.1:8000${image}" alt="" />
+    <img src="${backend_base_url}${image}" alt="" />
     <h5 class="content">${contents}</h5>
 </div>
 <div>
