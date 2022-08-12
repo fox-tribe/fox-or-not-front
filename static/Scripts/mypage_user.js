@@ -38,8 +38,11 @@ function editInfo() {
     let password = document.getElementById("edit-password").value
     let selectGender = document.getElementById("edit-gender").value
 
-    if (nickname =='' || password =='' || selectGender ==''){
-        alert('빈칸을 입력해주세요!')
+    if (nickname =='' || selectGender == '-----'){
+        alert('변경사항을 정확히 입력해주세요!')
+    }
+    else if (password ==''){
+        alert('비밀번호확인이 필요합니다!')
     }
     else {
         changeInfo(nickname, password, selectGender)
