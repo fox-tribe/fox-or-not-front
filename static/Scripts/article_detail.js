@@ -36,13 +36,10 @@ window.onload = async function articleDetail() {
     // 게시물 상세 내용
     articleDetail().then((data) => {
         detail = response_json
-        console.log(detail)
         if (localStorage.getItem("access")) {
             const payload = localStorage.getItem("payload")
-            console.log(payload)
             const words = payload.split(':');
             id = words[5].split(',')
-            console.log(id[0])
 
             let login_id = id[0]
             let article_author = detail['article_author']
@@ -60,11 +57,11 @@ window.onload = async function articleDetail() {
                     <div class="writeinfo">
                         <div><a>${nickname} - ${date}</a></div>
                     </div>
-                    <div class="title"><h2>${title}</h2></div>
+                    <div id="title" class="title"><h2>${title}</h2></div>
                 </div>
             </div>
             <div class="contentdiv">
-                <h5 class="content">${contents}</h5>
+                <h5 id="content" class="content">${contents}</h5>
             </div>
             <div>
             <div class="botediv">
@@ -76,8 +73,31 @@ window.onload = async function articleDetail() {
                 $('#article-detail-box').prepend(temp_html)
             } else if (image == null && login_id == article_author){
                 let temp_html =
-                    `<div class="articlebuttons" id="article-buttons">
-                        <p class="comment-modify" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">게시글 수정</p>
+                    `
+                    <!-- 게시물 수정 모달 -->
+                    <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">게시물 수정</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    제목<br>
+                                    <textarea type="text" class="modal-textinput" id="title-update">${title}</textarea>
+                                    내용입력<br>
+                                    <textarea class="modal-textarea" id="contents-update">${contents}</textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                                    <button type="button" onclick="getUpdateData()" class="btn btn-primary">수정하기</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="articlebuttons" id="article-buttons">
+                        <p class="comment-modify"  onclick="updateMode()" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">게시글 수정</p>
                         <p class="comment-delete" onclick="removeArticle()">삭제</p>
                     </div>
                     <div class="titlediv">
@@ -121,7 +141,30 @@ window.onload = async function articleDetail() {
                 $('#article-detail-box').prepend(temp_html)
             } else if (image != null && login_id == article_author){
                 let temp_html =
-                    `<div class="articlebuttons" id="article-buttons">
+                    `
+                    <!-- 게시물 수정 모달 -->
+                    <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">게시물 수정</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    제목<br>
+                                    <textarea type="text" class="modal-textinput" id="title-update">${title}</textarea>
+                                    내용입력<br>
+                                    <textarea class="modal-textarea" id="contents-update">${contents}</textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                                    <button type="button" onclick="getUpdateData()" class="btn btn-primary">수정하기</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="articlebuttons" id="article-buttons">
                         <p class="comment-modify" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">게시글 수정</p>
                         <p class="comment-delete" onclick="removeArticle()">삭제</p>
                     </div>
@@ -147,7 +190,6 @@ window.onload = async function articleDetail() {
             }
             for (let i = 0; i < detail['comment_set'].length; i++) {
                 let login_id = id[0]
-                console.log(login_id)
                 let comment_author = detail['comment_set'][i]['comment_author']
 
                 let comments = detail['comment_set'][i]['comment_contents']
@@ -233,7 +275,6 @@ window.onload = async function articleDetail() {
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-                                        <button type="button" onclick="getUpdateComment(${comment_id})" class="btn btn-primary">댓글 수정</button>
                                     </div>
                                 </div>
                             </div>
@@ -509,11 +550,25 @@ async function likeButton(comment_id) {
 
 
     response_json = await response.json()
-    console.log(response_json)
-    
     window.location.reload()
     
 }
 
+function updateMode() {
+  
+    const title = response_json["article_title"]
+    const content = response_json["article_contents"]
+    console.log(title)
+    
+    const input_title = document.createElement("textarea")
+    input_title.setAttribute("id", "input_title")
+    input_title.innerText = title.innerHTML
 
-
+    const input_content = document.createElement("textarea")
+    input_content.setAttribute("id", "input_content")
+    input_content.innerText = content.innerHTML
+    
+    const body = document.body
+    body.insertBefore(input_title, title)
+    body.insertBefore(input_content, content)
+}

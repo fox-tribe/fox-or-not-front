@@ -1,9 +1,6 @@
 var myModal = document.getElementById('myModal')
 var myInput = document.getElementById('myInput')
 
-myModal.addEventListener('shown.bs.modal', function () {
-    myInput.focus()
-})
 
 // 메인페이지 게시판별 게시글가져오기
 async function getArticlesByBoard() {
@@ -40,7 +37,6 @@ async function getArticlesByBoard() {
 
     myData().then((data) => {
         detail = response_json
-        console.log(detail)
         try {
             for (let i = 0; i < 5; i++) {
                 let title = detail[0]['직장인'][i]['article_title']
@@ -126,7 +122,6 @@ async function getArticlesByBoard() {
 
         mostLiked().then((data) => {
             detail = response_json
-            console.log(detail)
             try {
                 for (let i = 0; i < 6; i++) {
                     let title = detail[i]['article_title']

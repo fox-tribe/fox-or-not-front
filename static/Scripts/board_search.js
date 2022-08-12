@@ -141,10 +141,8 @@ function getPosts() {
         },
         async: false,
         success: function (response) {        
-            console.log(response) 
             if (response.length != 0) {
                 let posts = response;
-                console.log(posts)
                 let board_html = `<b id="board-name">'${sessionStorage.getItem("keyword")}' 검색결과</b>`
                 $('#board-name').empty()
                 $('#board-name').append(board_html)
@@ -165,7 +163,6 @@ function getPosts() {
             }
         },
         fail: function (response) {
-            console.log("fail")
             // window.location.reload()
         }
     });

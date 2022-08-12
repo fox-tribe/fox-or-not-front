@@ -25,10 +25,13 @@ async function search() {
         sessionStorage.setItem("keyword", searchData.search)
         sessionStorage.setItem("type", searchData.type)
         sessionStorage.setItem("num", num)
-        window.location.href = `${frontend_base_url}/search_result.html`
-        return result
+        if (result.length == 2) {
+            alert('검색 결과가 없습니다!')
+        }else{
+            window.location.href = `${frontend_base_url}/search_result.html`
+            return result
+        }
     }
-    
 
     response_json = await response.json()
     return response_json.articles
@@ -148,10 +151,8 @@ function getPosts() {
         },
         async: false,
         success: function (response) {        
-            console.log(response) 
             if (response.length != 0) {
                 let posts = response;
-                console.log(posts)
                 let board_html = `<b id="board-name">'${sessionStorage.getItem("keyword")}' 검색결과</b>`
                 $('#board-name').empty()
                 $('#board-name').append(board_html)
@@ -173,7 +174,6 @@ function getPosts() {
             }
         },
         fail: function (response) {
-            console.log("fail")
             // window.location.reload()
         }
     });

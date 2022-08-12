@@ -1,5 +1,5 @@
-const backend_base_url = "https://api.fox-or-not.com"
-const frontend_base_url = "https://fox-or-not.com"
+const backend_base_url = "http://127.0.0.1:8000"
+const frontend_base_url = "http://127.0.0.1:5500"
 
 
 
@@ -42,7 +42,7 @@ async function handleSignin() {
         if (response.status == 200) {
             alert("회원가입 완료")
             response_json = await response.json()
-            window.location.replace(`${frontend_base_url}/signup.html`);
+            window.location.replace(`${frontend_base_url}/index.html`);
         } else if (response.status == 500) {
             alert("동일한 아이디 및 닉네임이 이미 존재합니다")
         } else {
@@ -61,7 +61,6 @@ async function changeInfo(nickname, password, selectGender){
         gender : selectGender,
         nickname : nickname,
     }
-    console.log(data)
     
     const response = await fetch(`${backend_base_url}/user/`, {
             method: 'PUT',
@@ -79,7 +78,6 @@ window.location.replace(`${frontend_base_url}/mypage.html`)
 
 // 로그인
 async function handleLogin() {
-    // console.log("handle login")
 
     const loginData = {
         username: document.getElementById("floatingloginID").value,
@@ -96,7 +94,6 @@ async function handleLogin() {
         body: JSON.stringify(loginData)
     })
     login_response_json = await login_response.json()
-    console.log(login_response_json)
 
     const response = await fetch(`${backend_base_url}/user/api/token/`, {
         headers: {
@@ -147,7 +144,6 @@ function logout() {
 async function postArticle(contents, title, board, category) {
     const image = document.getElementById("formFile").files[0]
     const test_exposure_date = "3000-12-01"
-    console.log(image)
     let form_data = new FormData()
     form_data.enctype = "multipart/form-data"
     form_data.append("article_image", image)
@@ -223,7 +219,6 @@ async function deleteArticle() {
 // 댓글 수정
 
 async function updateComment(comment, comment_id)  {
-    console.log(comment_id)
     
     let updateData = {
         comment_contents: comment
@@ -286,7 +281,6 @@ async function boardPagenation() {
     // 게시글 정보 구간
     boardPagenation().then((data) => {
         detail = response_json
-        console.log(detail)
         for (let i = 0; i < detail['results'].length ; i++) {
         const title = detail['results'][i]['article_title']
         const author = detail['results'][i]['author']

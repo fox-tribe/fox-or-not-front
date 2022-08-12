@@ -16,7 +16,6 @@ async function userInfo() {
     }
     userInfo().then((data) => {
         detail = response_json
-        console.log(detail)
         let username = detail['username']
         let nickname = detail['nickname']
         let gender = detail['gender']

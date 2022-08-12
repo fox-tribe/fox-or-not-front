@@ -241,8 +241,6 @@ function getPosts() {
             
             if (response['results'] != 0) {
                 let posts = response['results'];
-                console.log(response)
-                console.log(posts)
                 for (let i = 0; i < posts.length; i++) {
                     let cnt = i + 1
                     const id = posts[i]['id']
@@ -294,7 +292,6 @@ function getPosts() {
 
         }}})}},
         fail: function (response) {
-            console.log("fail")
             // window.location.reload()
         }
     });
