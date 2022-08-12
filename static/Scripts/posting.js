@@ -8,5 +8,8 @@ function handleArticleCreate() {
     board = board.options[board.selectedIndex].value;
 
     var category = "성인"
+    if ( contents == '' || title == '' || board == '업로드 할 게시판을 선택해주세요'){
+        alert('내용을 입력해주세요!')
+    }
     postArticle(contents, title, board, category)  
 }
