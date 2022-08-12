@@ -25,8 +25,12 @@ async function search() {
         sessionStorage.setItem("keyword", searchData.search)
         sessionStorage.setItem("type", searchData.type)
         sessionStorage.setItem("num", num)
-        window.location.href = `${frontend_base_url}/search_result.html`
-        return result
+        if (result.length == 2) {
+            alert('검색 결과가 없습니다!')
+        }else{
+            window.location.href = `${frontend_base_url}/search_result.html`
+            return result
+        }
     }
     
 
