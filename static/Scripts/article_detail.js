@@ -558,7 +558,6 @@ function updateMode() {
   
     const title = response_json["article_title"]
     const content = response_json["article_contents"]
-    console.log(title)
     
     const input_title = document.createElement("textarea")
     input_title.setAttribute("id", "input_title")
