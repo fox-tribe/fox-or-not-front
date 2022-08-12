@@ -69,6 +69,14 @@ async function search() {
     return response_json.articles
 }
 
+function enterkey() {
+	if (window.event.keyCode == 13) {
+    	// 엔터키가 눌렸을 때
+        search()
+
+    }
+}
+
 // 페이지네이션
 const PagingConf = {
     totalCount: 100,

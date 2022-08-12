@@ -54,7 +54,7 @@
                     <option><a class="dropdown-item" href="#">제목+내용</a></option>
                     <option><a class="dropdown-item" href="#">작성자</a></option>
                 </select>
-                <input type="text" class="form-control" placeholder="게시글 검색" id="searchKeywords">
+                <input type="text" class="form-control" placeholder="게시글 검색" id="searchKeywords" onkeyup="enterkey()">
                 <img src="static/image/search_button.png" onclick="search()" class="search-button">
             </div>
 
@@ -119,12 +119,12 @@
                 <div class="modal-body">
 
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingloginID" placeholder="ID">
+                        <input type="text" class="form-control" id="floatingloginID" placeholder="ID" onkeyup="loginkey()">
                         <label for="floatingInput">ID</label>
                     </div>
                     <div class="form-floating mb-3">
                         <input type="password" class="form-control" id="floatingloginPassword"
-                            placeholder="Password">
+                            placeholder="Password" onkeyup="loginkey()">
                         <label for="floatingPassword">비밀번호</label>
                     </div>
                     아직 <a href="signup.html">계정</a>이 없으시다면?

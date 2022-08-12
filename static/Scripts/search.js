@@ -132,6 +132,14 @@ function postClick() {
     }
 }
 
+function enterkey() {
+	if (window.event.keyCode == 13) {
+    	// 엔터키가 눌렸을 때
+        search()
+
+    }
+}
+
 function getPosts() {
 
     $('#search-post').empty()
