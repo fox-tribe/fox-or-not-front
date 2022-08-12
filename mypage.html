@@ -91,9 +91,9 @@
                     <div class="newbios">
                         <h2>정보수정하기</h2>
                         <div>
-                            <input type="text" class="newbio" placeholder="변경닉네임" id="edit-nickname" ></div>
+                            <input type="text" class="newbio" placeholder="변경닉네임" id="edit-nickname" onkeyup="changekey()"></div>
                         <div class="newbiodiv"><span style="color:gray">변경성별</span>
-                            <select class="form-select mb-3" id="edit-gender">
+                            <select class="form-select mb-3" id="edit-gender" >
                                 <option>-----</option>
                                 <option>남성</option>
                                 <option>여성</option>
@@ -101,7 +101,7 @@
                                 <option>밝히고 싶지 않음</option>
                             </select>
                         </div>
-                        <div><input type="password" class="newbio" placeholder="비밀번호확인" id="edit-password"></div>
+                        <div><input type="password" class="newbio" placeholder="비밀번호확인" id="edit-password" onkeyup="changekey()"></div>
                         <div>
                             <button onclick="editInfo()" class="changebutton">변경</button>
                         </div>

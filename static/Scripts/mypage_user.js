@@ -33,6 +33,8 @@ async function userInfo() {
 }
 
 
+
+
 function editInfo() {
     let nickname = document.getElementById("edit-nickname").value
     let password = document.getElementById("edit-password").value
@@ -48,6 +50,16 @@ function editInfo() {
         changeInfo(nickname, password, selectGender)
     }
 }
+
+function changekey() {
+	if (window.event.keyCode == 13) {
+    	// 엔터키가 눌렸을 때
+        editInfo()
+
+    }
+}
+
+
 
 
 
