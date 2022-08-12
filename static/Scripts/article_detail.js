@@ -1,7 +1,9 @@
 const url = window.location.search.split('=')
 const obj_id = url[1]
 
-
+// #로그인 모달
+var myModal = document.getElementById('myModal')
+var myInput = document.getElementById('myInput')
 
 // 게시물 상세 페이지 부르기
 window.onload = async function articleDetail() {    
@@ -14,6 +16,7 @@ window.onload = async function articleDetail() {
 
             },
         })
+
     const openButton = document.getElementById("modalclick");
     const modal = document.querySelector(".side_modal");
     const overlay = modal.querySelector(".side_modal__overlay");
@@ -545,3 +548,7 @@ function updateMode() {
     body.insertBefore(input_title, title)
     body.insertBefore(input_content, content)
 }
+
+// #로그인 모달
+var myModal = document.getElementById('myModal')
+var myInput = document.getElementById('myInput')
