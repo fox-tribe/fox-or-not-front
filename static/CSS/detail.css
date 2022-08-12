@@ -4,6 +4,18 @@
     font-weight: normal;
     font-style: normal;
 }
+.top {
+    width: 1px;
+    height: 1px;
+}
+.top > img {
+    width: 50px;
+    height: 50px;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+
+}
 
 .login-btn:hover {
     background-color: rgb(255, 136, 0);
@@ -494,6 +506,17 @@ body {
         width: 100%;
         font-size: 14px;
     }
+    .top > img{
+        bottom:0;
+        position:fixed;
+        right: 50%;
+
+    }
+    .top {
+        width: 1px;
+        height: 1px;
+        padding-top: 50px;
+    }
 }
 
 @media (max-width:580px) {
@@ -510,5 +533,16 @@ body {
 
     .Top-bar {
         height: 40px;
+    }
+    .top > img{
+        bottom:0;
+        position:fixed;
+        right: 50%;
+
+    }
+    .top {
+        width: 1px;
+        height: 1px;
+        padding-top: 50px;
     }
 }

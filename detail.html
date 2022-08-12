@@ -97,14 +97,21 @@
             공유하기
         </button>
     </div>
+    
     <!-- 댓글 for문 -->
     <div class="wcommentdiv">
         <textarea name="" id="wcomment" class="wcomment" placeholder="댓글을 달아주세요!"></textarea>
         <image for="cosubmit" class="cosubmit" onclick="commentCreate()" src="static/image/comment_button.png"></image>
         <input type="submit" style="display:none" id="submit">
     </div>
+    
     <!-- 댓글 리스팅 for문 -->
     <div id="comments-box"></div>
+    <!-- 맨위로이동시키는 버튼 -->
+    <div class="top"> 
+        <img  style="cursor:pointer;" onclick="window.scrollTo(0,0);" src="../static/image/top.png">
+    </div>
+    
     <!-- 로그인 모달창 -->
     <div class="modal fade login-modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
         tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

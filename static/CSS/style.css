@@ -174,8 +174,22 @@ body {
 /* 게시판별 공간 */
 
 .second-floor {
-
+    display: flex;
+    flex-direction: row;
     height: 700px;
+}
+
+.top {
+    width: 1px;
+    height: 1px;
+    
+}
+.top > img {
+    width: 50px;
+    height: 50px;
+    right: 0;
+    position: fixed;
+
 }
 
 .board-class {
@@ -410,5 +424,9 @@ body {
     .second-floor {
         height: 1800px;
     }
-
+    .top > img{
+        bottom:0;
+        right: 0;
+        position:fixed
+    }
 }
