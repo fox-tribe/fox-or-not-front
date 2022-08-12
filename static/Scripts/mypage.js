@@ -1,23 +1,4 @@
 
-
-// #모달
-async function modal() {
-    const openButton = document.getElementById("modalclick");
-    const modal = document.querySelector(".modal");
-    const overlay = modal.querySelector(".modal__overlay");
-    const closeBtn = modal.querySelector(".modalbutton");
-    const openModal = () => {
-        modal.classList.remove("hidden");
-    }
-    const closeModal = () => {
-        modal.classList.add("hidden");
-    }
-    overlay.addEventListener("click", closeModal);
-    closeBtn.addEventListener("click", closeModal);
-    openButton.addEventListener("click", openModal);
-    }
-
-
 // 탭 - 버튼 css바꾸기
 const nonClick = document.querySelectorAll(".non-click, .click");
 
@@ -59,7 +40,25 @@ nonClick.forEach((e) => {
     }
 
 
-async function getMyArticles() {
+window.onload = async function getMyArticles() {
+
+    // #모달
+        
+        const openButton = document.getElementById("modalclick");
+        const modal = document.querySelector(".modal");
+        const overlay = modal.querySelector(".modal__overlay");
+        const closeBtn = modal.querySelector(".modalbutton");
+        const openModal = () => {
+            modal.classList.remove("hidden");
+        }
+        const closeModal = () => {
+            modal.classList.add("hidden");
+        }
+        overlay.addEventListener("click", closeModal);
+        closeBtn.addEventListener("click", closeModal);
+        openButton.addEventListener("click", openModal);
+  
+    
 
     function parseJwt (token) {
         var base64Url = token.split('.')[1];
@@ -84,6 +83,9 @@ async function getMyArticles() {
         
         }
     )
+
+    
+
     response_json = await response.json()
     
     }
