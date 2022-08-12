@@ -14,6 +14,19 @@ window.onload = async function articleDetail() {
 
             },
         })
+    const openButton = document.getElementById("modalclick");
+    const modal = document.querySelector(".side_modal");
+    const overlay = modal.querySelector(".side_modal__overlay");
+    const closeBtn = modal.querySelector(".button");
+    const openModal = () => {
+        modal.classList.remove("hidden");
+    }
+    const closeModal = () => {
+        modal.classList.add("hidden");
+    }
+    overlay.addEventListener("click", closeModal);
+    closeBtn.addEventListener("click", closeModal);
+    openButton.addEventListener("click", openModal);
 
         
         // 로그인 로그아웃 회원가입 버튼 숨기기
@@ -366,6 +379,8 @@ $('#comments-box').prepend(temp_html)
 }
 } }} )
 }
+
+
 /// 게시물 수정
 async function getUpdateData() {
     let title= document.getElementById("title-update").value
